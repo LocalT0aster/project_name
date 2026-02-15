@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://cnbw5ooxxgsmr"]
 
 [ext_resource type="PackedScene" uid="uid://15g6ltp43l73" path="res://components/layers.tscn" id="1_0mjg7"]
-[ext_resource type="PackedScene" uid="uid://b7yn6npqfmkw8" path="res://obj/npcs/test_npc.tscn" id="3_b2s4m"]
-[ext_resource type="PackedScene" uid="uid://7mmxqxvwxxbm" path="res://obj/sidescroll_player.tscn" id="4_5i410"]
+[ext_resource type="PackedScene" uid="uid://b7yn6npqfmkw8" path="res://objects/npcs/test_npc.tscn" id="3_b2s4m"]
+[ext_resource type="PackedScene" uid="uid://7mmxqxvwxxbm" path="res://objects/sidescroll_player.tscn" id="4_5i410"]
 
 [node name="SidescrollMain" type="Node2D" unique_id=1143439235]
 

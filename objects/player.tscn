@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://blyylq7l2xs6"]
+
+[ext_resource type="Script" uid="uid://drme7cx0d1ggg" path="res://objects/player.gd" id="1_g3svd"]
+[ext_resource type="Texture2D" uid="uid://mg3tglcmurvh" path="res://img/monochrome-transparent_packed.png" id="1_x4w5f"]
+[ext_resource type="PackedScene" uid="uid://olg8me2f6hdb" path="res://ui/dialogue_system.tscn" id="3_rhfbe"]
+[ext_resource type="PackedScene" uid="uid://bpeustr54gl6i" path="res://components/scene_changer.tscn" id="4_xnc2w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g3svd"]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rhfbe"]
+radius = 13.0
+
+[node name="Player" type="CharacterBody2D" unique_id=228399890]
+script = ExtResource("1_g3svd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1775333334]
+shape = SubResource("CircleShape2D_g3svd")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1856745828]
+texture = ExtResource("1_x4w5f")
+region_enabled = true
+region_rect = Rect2(400, 0, 16, 16)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1980218375]
+zoom = Vector2(3, 3)
+
+[node name="interaction_area" type="Area2D" parent="." unique_id=1119678730]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interaction_area" unique_id=742435737]
+shape = SubResource("CircleShape2D_rhfbe")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1813708323]
+
+[node name="dialogue_system" parent="CanvasLayer" unique_id=1408966223 instance=ExtResource("3_rhfbe")]
+visible = false
+
+[node name="scene_changer" parent="CanvasLayer" unique_id=73031356 instance=ExtResource("4_xnc2w")]

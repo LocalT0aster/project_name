@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bpeustr54gl6i"]
+[gd_scene format=3 uid="uid://bpeustr54gl6i"]
 
-[ext_resource type="Script" uid="uid://du7toqjeadipx" path="res://obj/scene_changer.gd" id="1_c178p"]
+[ext_resource type="Script" uid="uid://du7toqjeadipx" path="res://objects/scene_changer.gd" id="1_c178p"]
 
 [sub_resource type="Animation" id="Animation_djf8k"]
 length = 0.001
@@ -39,7 +39,7 @@ _data = {
 &"fade": SubResource("Animation_c178p")
 }
 
-[node name="scene_changer" type="ColorRect"]
+[node name="scene_changer" type="ColorRect" unique_id=1404311489]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -50,9 +50,7 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("1_c178p")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_djf8k")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2028164117]
+libraries/ = SubResource("AnimationLibrary_djf8k")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

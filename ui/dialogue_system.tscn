@@ -45,6 +45,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 0
+size_flags_vertical = 8
 
 [node name="NinePatchRect" type="NinePatchRect" parent="HBoxContainer2/MarginContainer2/Name" unique_id=2089557724]
 layout_mode = 2

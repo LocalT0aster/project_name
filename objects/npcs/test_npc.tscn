@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://b7yn6npqfmkw8"]
+
+[ext_resource type="PackedScene" uid="uid://w6p67pk72xfe" path="res://components/npc_template.tscn" id="1_u6fd5"]
+[ext_resource type="Texture2D" uid="uid://mg3tglcmurvh" path="res://img/monochrome-transparent_packed.png" id="2_nr6ko"]
+[ext_resource type="Script" uid="uid://daqnpcynwxwge" path="res://objects/npcs/test_npc.gd" id="2_x3436"]
+
+[node name="test_npc" unique_id=2100226800 instance=ExtResource("1_u6fd5")]
+script = ExtResource("2_x3436")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_nr6ko")
+region_rect = Rect2(384, 16, 16, 16)
