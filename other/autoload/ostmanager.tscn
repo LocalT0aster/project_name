@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dftwk5hcukkry"]
+
+[ext_resource type="Script" uid="uid://bu51w883m67lo" path="res://other/autoload/ostmanager.gd" id="1_2mtwp"]
+
+[node name="ostmanager" type="Node"]
+script = ExtResource("1_2mtwp")

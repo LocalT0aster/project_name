@@ -8,29 +8,42 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
-config/name="project_name"
+config/name="godot_jrpg_template"
+run/main_scene="uid://di4tlsodawshh"
 config/features=PackedStringArray("4.6", "Forward Plus")
-run/max_fps=240
 config/icon="res://icon.svg"
 
-[display]
+[autoload]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
-window/size/mode=2
-window/size/sharp_corners=true
+cp="*res://other/autoload/cp.tscn"
+ostmanager="*res://other/autoload/ostmanager.tscn"
+main="*res://other/autoload/main.tscn"
 
 [dotnet]
 
-project/assembly_name="project_name"
+project/assembly_name="godot_jrpg_template"
 
-[physics]
+[gui]
 
-3d/physics_engine="Jolt Physics"
+theme/default_font_antialiasing=0
+theme/default_font_hinting=0
+theme/default_font_subpixel_positioning=0
+theme/custom_font="uid://dfq65daliuljq"
+
+[input]
+
+ui_left_mouse={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(135, 12),"global_position":Vector2(144, 60),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":true,"script":null)
+]
+}
 
 [rendering]
 
-rendering_device/driver.windows="d3d12"
-textures/vram_compression/import_etc2_astc=true
+textures/canvas_textures/default_texture_filter=0

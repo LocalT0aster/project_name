@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cunqvg8ok6lpr"]
+
+[ext_resource type="Texture2D" uid="uid://rnyxwc11fxl2" path="res://icon.svg" id="1_p0y6r"]
+[ext_resource type="Script" uid="uid://knj7n3gq4lak" path="res://battle/cbt.gd" id="2_ftycy"]
+
+[node name="cbt" type="TextureRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_p0y6r")
+stretch_mode = 2
+script = ExtResource("2_ftycy")
