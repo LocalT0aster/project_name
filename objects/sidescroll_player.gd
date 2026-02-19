@@ -1,9 +1,17 @@
 extends Player
 
-@onready var jump = -400.0
+@export var jump = -400.0
+@export var topdown := false
 
 
 func move_state(delta) -> void:
+	#if randi_range(0,5) == 1:
+		#print(global_position)
+	if Input.is_action_just_pressed("ui_cancel"):
+		topdown = !topdown
+	if topdown:
+		super(delta)
+		return
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta

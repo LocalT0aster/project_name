@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dvn2i13njdok2"]
+
+[ext_resource type="Texture2D" uid="uid://mg3tglcmurvh" path="res://img/monochrome-transparent_packed.png" id="1_lt7x8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lt7x8"]
+size = Vector2(48, 64)
+
+[node name="mechanic" type="RigidBody2D" unique_id=143471950]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2092788459]
+shape = SubResource("RectangleShape2D_lt7x8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=816062284]
+scale = Vector2(5, 5)
+texture = ExtResource("1_lt7x8")
+region_enabled = true
+region_rect = Rect2(304, 272, 16, 16)
