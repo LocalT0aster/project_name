@@ -24,10 +24,15 @@ config/icon="res://icon.svg"
 cp="*res://other/autoload/cp.tscn"
 ostmanager="*res://other/autoload/ostmanager.tscn"
 main="*res://other/autoload/main.tscn"
+MechanicManager="*uid://dfji1cdgbaojo"
 
 [dotnet]
 
 project/assembly_name="godot_jrpg_template"
+
+[global_group]
+
+Slot=""
 
 [gui]
 

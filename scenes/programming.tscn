@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://1a06uun4i4a7"]
 
+[ext_resource type="Texture2D" uid="uid://gsx2kwjadidq" path="res://img/items/sample_slot.png" id="1_dm0ec"]
 [ext_resource type="PackedScene" uid="uid://dvn2i13njdok2" path="res://objects/mechanic.tscn" id="1_rirpr"]
-[ext_resource type="Script" uid="uid://13fyittdl2rk" path="res://objects/mechanic.gd" id="2_dm0ec"]
+[ext_resource type="Script" uid="uid://dp6har5wgnxhn" path="res://objects/slot.gd" id="2_dm0ec"]
+[ext_resource type="Texture2D" uid="uid://dqe17hk8fqung" path="res://img/ui.png" id="3_ajipv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_foyk6"]
 size = Vector2(20, 401.81628)
@@ -9,38 +11,96 @@ size = Vector2(20, 401.81628)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_decli"]
 size = Vector2(24.55783, 586.3159)
 
+[sub_resource type="Theme" id="Theme_decli"]
+
 [node name="PROGRAMMING" type="Node2D" unique_id=1071180434]
 
-[node name="wall" type="StaticBody2D" parent="." unique_id=1163793704]
+[node name="walls" type="Node2D" parent="." unique_id=1177888609]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="wall" unique_id=965590142]
+[node name="wall" type="AnimatableBody2D" parent="walls" unique_id=1497400895]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/wall" unique_id=965590142]
 position = Vector2(0, 183)
 shape = SubResource("RectangleShape2D_foyk6")
 
-[node name="wall3" type="StaticBody2D" parent="." unique_id=1573488999]
+[node name="wall3" type="AnimatableBody2D" parent="walls" unique_id=811234467]
 position = Vector2(584, 8)
+collision_layer = 2
+collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="wall3" unique_id=73288750]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/wall3" unique_id=73288750]
 position = Vector2(0, 183)
 shape = SubResource("RectangleShape2D_foyk6")
 
-[node name="wall2" type="StaticBody2D" parent="." unique_id=928154728]
+[node name="wall2" type="AnimatableBody2D" parent="walls" unique_id=1762343162]
 position = Vector2(0, 368.00003)
 rotation = -1.5871843
+scale = Vector2(0.99999994, 0.99999994)
+collision_layer = 2
+collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="wall2" unique_id=660277307]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/wall2" unique_id=660277307]
 position = Vector2(-12.7184105, 287.83023)
 rotation = 0.023869272
 scale = Vector2(1.0000002, 1.0000002)
 shape = SubResource("RectangleShape2D_decli")
 
-[node name="mechanic" parent="." unique_id=143471950 instance=ExtResource("1_rirpr")]
-position = Vector2(240, 224)
-input_pickable = true
+[node name="wall4" type="AnimatableBody2D" parent="walls" unique_id=538251043]
+position = Vector2(8, -32.00006)
+rotation = -1.5871843
+scale = Vector2(0.99999994, 0.99999994)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/wall4" unique_id=2024490201]
+position = Vector2(-12.7184105, 287.83023)
+rotation = 0.023869272
+scale = Vector2(1.0000002, 1.0000002)
+shape = SubResource("RectangleShape2D_decli")
+
+[node name="environment" type="Node2D" parent="." unique_id=177334672]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="environment" unique_id=520675290]
+offset_top = -24.0
+offset_right = 584.0
+offset_bottom = 376.0
+texture = ExtResource("3_ajipv")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 20
+
+[node name="Label" type="Label" parent="environment" unique_id=1957274790]
+offset_left = 24.0
+offset_top = 48.0
+offset_right = 153.0
+offset_bottom = 64.0
+text = "Player_process.gd"
+
+[node name="Slot" type="TextureRect" parent="environment" unique_id=45848047 groups=["Slot"]]
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 104.0
+offset_bottom = 104.0
+mouse_filter = 2
+theme = SubResource("Theme_decli")
+texture = ExtResource("1_dm0ec")
+stretch_mode = 4
 script = ExtResource("2_dm0ec")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1199149197]
-position = Vector2(312, 160)
+[node name="Camera2D" type="Camera2D" parent="environment" unique_id=1199149197]
+position = Vector2(312, 176)
+zoom = Vector2(1.5, 1.5)
 
-[connection signal="mouse_entered" from="mechanic" to="mechanic" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="mechanic" to="mechanic" method="_on_mouse_exited"]
+[node name="items" type="Node2D" parent="." unique_id=490259080]
+
+[node name="mechanic" parent="items" unique_id=143471950 instance=ExtResource("1_rirpr")]
+position = Vector2(256, 192)
+collision_layer = 2
+collision_mask = 2
+input_pickable = true
+
+[connection signal="mouse_entered" from="items/mechanic" to="items/mechanic" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="items/mechanic" to="items/mechanic" method="_on_mouse_exited"]

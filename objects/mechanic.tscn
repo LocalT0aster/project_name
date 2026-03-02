@@ -1,17 +1,35 @@
 [gd_scene format=3 uid="uid://dvn2i13njdok2"]
 
-[ext_resource type="Texture2D" uid="uid://mg3tglcmurvh" path="res://img/monochrome-transparent_packed.png" id="1_lt7x8"]
+[ext_resource type="Script" uid="uid://13fyittdl2rk" path="res://objects/mechanic.gd" id="1_5wv0l"]
+[ext_resource type="Script" uid="uid://b0s8ufyu1pycc" path="res://objects/mechanic_drager.gd" id="3_fv68j"]
+[ext_resource type="Texture2D" uid="uid://cykwnrfl3unr5" path="res://img/items/sample_mechanic.png" id="3_ygjlt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lt7x8"]
-size = Vector2(48, 64)
+size = Vector2(40, 40)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fv68j"]
 
 [node name="mechanic" type="RigidBody2D" unique_id=143471950]
+script = ExtResource("1_5wv0l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2092788459]
 shape = SubResource("RectangleShape2D_lt7x8")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=816062284]
-scale = Vector2(5, 5)
-texture = ExtResource("1_lt7x8")
-region_enabled = true
-region_rect = Rect2(304, 272, 16, 16)
+[node name="PinJoint2D" type="PinJoint2D" parent="." unique_id=1314630955]
+node_a = NodePath("..")
+node_b = NodePath("../StaticBody2D")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1570770044]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("3_fv68j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1087852235]
+shape = SubResource("CircleShape2D_fv68j")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=618259762]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+texture = ExtResource("3_ygjlt")

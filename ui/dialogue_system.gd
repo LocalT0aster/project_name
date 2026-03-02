@@ -146,9 +146,10 @@ func setup(dilstart):
 		next = str(int(next) + 1)
 	
 #	choices.get_child(1).grab_focus()
-	finished = true
+	
 	if opt:
 		chcswindow.show()
+	finished = true
 	indicator.visible = true
 
 func on_btn_prst(option):
@@ -157,9 +158,7 @@ func on_btn_prst(option):
 	if finished:
 		chcswindow.hide()
 		if option.next == "-1":
-			visible = false
-			next = "0"
-			emit_signal("finished_dialog")
+			stop()
 		else:
 			next = option.next
 			setup(option.next)
@@ -170,6 +169,7 @@ func stop():
 	finished = false
 	for child in choices.get_children():
 		child.queue_free()
+	opt = false
 	chcswindow.hide()
 	visible = false
 	next = "0"
