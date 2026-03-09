@@ -1,4 +1,4 @@
-extends Sprite2D
+extends Control
 @export var index : int
 var strategy : Strategy :
 	set(value):

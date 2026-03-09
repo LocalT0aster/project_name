@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var slot: Sprite2D
+var slot: Control
 var held: bool = false
 var mouse: bool = false
 
@@ -16,11 +16,11 @@ func _input(_event: InputEvent) -> void:
 			pickup()
 	if Input.is_action_just_released("ui_left_mouse"):
 		drop(slot_available())
-
+# -slot.global_position
 func slot_available():
-	for s_slot : Sprite2D in get_tree().get_nodes_in_group("Slot"):
+	for s_slot in get_tree().get_nodes_in_group("Slot"):
 		slot = s_slot
-		if slot.get_rect().has_point(global_position - slot.global_position):
+		if slot.get_global_rect().has_point(get_global_mouse_position()):
 			#move this
 			slot.process_mechanic(self)
 			return true
@@ -31,8 +31,8 @@ func _physics_process(_delta):
 	pass
 	#if held:
 		#global_transform.origin = get_global_mouse_position()
-	if slot:
-		global_position = slot.global_position
+	#if slot:
+		#global_position = slot.global_position
 func pickup():
 	if held:
 		return
@@ -53,7 +53,8 @@ func drop(sloted : bool):
 			freeze = true
 			set_deferred("rotation", 0.0)
 			set_deferred("global_position",
-				slot.global_position)
+				slot.global_position + slot.size/2)
+
 
 func _on_mouse_entered() -> void:
 	mouse = true

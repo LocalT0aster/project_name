@@ -16,7 +16,7 @@ normal = Vector2(-1, 0)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5v22w"]
 
-[node name="PROGRAMMING" type="Control" unique_id=2067033275]
+[node name="PROGRAMMING" type="Control" unique_id=1507237445]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,20 +25,21 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="environment" type="MarginContainer" parent="." unique_id=1469555461]
+[node name="environment" type="MarginContainer" parent="." unique_id=2023450478]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
 mouse_filter = 2
 theme_override_constants/margin_left = 64
 theme_override_constants/margin_top = 64
 theme_override_constants/margin_right = 64
 theme_override_constants/margin_bottom = 64
 
-[node name="NinePatchRect" type="NinePatchRect" parent="environment" unique_id=520675290]
+[node name="NinePatchRect" type="NinePatchRect" parent="environment" unique_id=1774274199]
 layout_mode = 2
 texture = ExtResource("3_ajipv")
 patch_margin_left = 16
@@ -46,65 +47,68 @@ patch_margin_top = 16
 patch_margin_right = 16
 patch_margin_bottom = 20
 
-[node name="walls" type="Node2D" parent="environment/NinePatchRect" unique_id=1177888609 node_paths=PackedStringArray("_colliders")]
+[node name="walls" type="Node2D" parent="environment/NinePatchRect" unique_id=21736001 node_paths=PackedStringArray("_colliders")]
 script = ExtResource("2_ajipv")
 _colliders = [NodePath("left"), NodePath("top"), NodePath("right"), NodePath("bottom")]
 
-[node name="left" type="AnimatableBody2D" parent="environment/NinePatchRect/walls" unique_id=1497400895]
+[node name="left" type="CharacterBody2D" parent="environment/NinePatchRect/walls" unique_id=406355335]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="environment/NinePatchRect/walls/left" unique_id=965590142]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="environment/NinePatchRect/walls/left" unique_id=1764990888]
 shape = SubResource("WorldBoundaryShape2D_dm0ec")
 
-[node name="top" type="AnimatableBody2D" parent="environment/NinePatchRect/walls" unique_id=538251043]
+[node name="top" type="CharacterBody2D" parent="environment/NinePatchRect/walls" unique_id=1959978873]
 scale = Vector2(0.99999994, 0.99999994)
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="environment/NinePatchRect/walls/top" unique_id=2024490201]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="environment/NinePatchRect/walls/top" unique_id=169065006]
 scale = Vector2(1.0000002, 1.0000002)
 shape = SubResource("WorldBoundaryShape2D_ajipv")
 
-[node name="right" type="AnimatableBody2D" parent="environment/NinePatchRect/walls" unique_id=1762343162]
+[node name="right" type="CharacterBody2D" parent="environment/NinePatchRect/walls" unique_id=676352396]
 position = Vector2(1024, 520)
 scale = Vector2(0.9999999, 0.9999999)
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="environment/NinePatchRect/walls/right" unique_id=660277307]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="environment/NinePatchRect/walls/right" unique_id=938555862]
 scale = Vector2(1.0000002, 1.0000002)
 shape = SubResource("WorldBoundaryShape2D_p5oss")
 
-[node name="bottom" type="AnimatableBody2D" parent="environment/NinePatchRect/walls" unique_id=811234467]
+[node name="bottom" type="CharacterBody2D" parent="environment/NinePatchRect/walls" unique_id=338080554]
 position = Vector2(1024, 520)
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="environment/NinePatchRect/walls/bottom" unique_id=73288750]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="environment/NinePatchRect/walls/bottom" unique_id=1114228480]
 shape = SubResource("WorldBoundaryShape2D_5v22w")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="environment" unique_id=308148826]
+[node name="MarginContainer" type="MarginContainer" parent="environment/NinePatchRect" unique_id=1763577364]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="GridContainer" type="GridContainer" parent="environment/NinePatchRect/MarginContainer" unique_id=1381661275]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+columns = 5
 
-[node name="CenterContainer" type="CenterContainer" parent="environment" unique_id=473923521]
-visible = false
+[node name="Slot" parent="environment/NinePatchRect/MarginContainer/GridContainer" unique_id=443273494 instance=ExtResource("2_dm0ec")]
 layout_mode = 2
 
-[node name="Control" type="Control" parent="environment/CenterContainer" unique_id=749851612]
-layout_mode = 2
-
-[node name="Camera2D" type="Camera2D" parent="environment/CenterContainer/Control" unique_id=1199149197]
-
-[node name="Slot" parent="environment" unique_id=443273494 instance=ExtResource("2_dm0ec")]
-position = Vector2(171, 157)
-
-[node name="items" type="Node2D" parent="." unique_id=490259080]
+[node name="items" type="Node2D" parent="." unique_id=2078747816]
+position = Vector2(-1152, 0)
 
 [node name="mechanic" parent="items" unique_id=143471950 instance=ExtResource("1_rirpr")]
-position = Vector2(256, 192)
+position = Vector2(1384, 420)
 collision_layer = 2
 collision_mask = 2
 input_pickable = true

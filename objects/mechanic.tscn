@@ -5,9 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://cykwnrfl3unr5" path="res://img/items/sample_mechanic.png" id="3_ygjlt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lt7x8"]
-size = Vector2(40, 40)
+size = Vector2(48, 64)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fv68j"]
+radius = 8.0
 
 [node name="mechanic" type="RigidBody2D" unique_id=143471950]
 script = ExtResource("1_5wv0l")
@@ -28,8 +29,9 @@ script = ExtResource("3_fv68j")
 shape = SubResource("CircleShape2D_fv68j")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=618259762]
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+custom_minimum_size = Vector2(64, 64)
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
 texture = ExtResource("3_ygjlt")

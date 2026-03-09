@@ -12,7 +12,7 @@ public partial class NinePatchRectWallsBuilder : Node2D {
 
     /// left top right bottom colliders
     [Export(PropertyHint.ArrayType)]
-    private Array<AnimatableBody2D> _colliders;
+    private Array<PhysicsBody2D> _colliders;
     
     public override void _Ready() {
         try {
