@@ -49,6 +49,7 @@ patch_margin_bottom = 20
 
 [node name="walls" type="Node2D" parent="environment/NinePatchRect" unique_id=21736001 node_paths=PackedStringArray("_colliders")]
 script = ExtResource("2_ajipv")
+Margin = Vector4(-3.5, -3.5, -3.5, -2)
 _colliders = [NodePath("left"), NodePath("top"), NodePath("right"), NodePath("bottom")]
 
 [node name="left" type="CharacterBody2D" parent="environment/NinePatchRect/walls" unique_id=406355335]

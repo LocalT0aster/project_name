@@ -42,7 +42,7 @@ offset_top = 8.0
 offset_right = 140.0
 offset_bottom = 72.0
 
-[node name="ide" type="TextureButton" parent="CanvasLayer/BoxContainer" unique_id=29207252 node_paths=PackedStringArray("anim")]
+[node name="ide" type="TextureButton" parent="CanvasLayer/BoxContainer" unique_id=29207252]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 focus_mode = 0
@@ -50,7 +50,6 @@ toggle_mode = true
 texture_normal = ExtResource("5_lyb0h")
 stretch_mode = 4
 script = ExtResource("6_m4hha")
-anim = NodePath("")
 
 [node name="chat" type="TextureButton" parent="CanvasLayer/BoxContainer" unique_id=562790469 node_paths=PackedStringArray("dialog")]
 custom_minimum_size = Vector2(64, 64)
@@ -75,4 +74,3 @@ script = ExtResource("10_3o35n")
 [connection signal="pressed" from="CanvasLayer/BoxContainer/chat" to="CanvasLayer/BoxContainer/chat" method="_on_pressed"]
 
 [editable path="Layers"]
-[editable path="CanvasLayer/PROGRAMMING"]
