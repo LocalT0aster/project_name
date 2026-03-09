@@ -10,6 +10,7 @@
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_rw4v0")
 text = "Player_process.gd"
+horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=605513529]
