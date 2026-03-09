@@ -1,98 +1,103 @@
 [gd_scene format=3 uid="uid://1a06uun4i4a7"]
 
-[ext_resource type="Texture2D" uid="uid://gsx2kwjadidq" path="res://img/items/sample_slot.png" id="1_dm0ec"]
 [ext_resource type="PackedScene" uid="uid://dvn2i13njdok2" path="res://objects/mechanic.tscn" id="1_rirpr"]
-[ext_resource type="Script" uid="uid://dp6har5wgnxhn" path="res://objects/slot.gd" id="2_dm0ec"]
+[ext_resource type="Script" uid="uid://p4fkme0hsvmh" path="res://other/NinePatchRectWallsBuilder.cs" id="2_ajipv"]
+[ext_resource type="PackedScene" uid="uid://ddvw5xl0r0o83" path="res://objects/slot.tscn" id="2_dm0ec"]
 [ext_resource type="Texture2D" uid="uid://dqe17hk8fqung" path="res://img/ui.png" id="3_ajipv"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_foyk6"]
-size = Vector2(20, 401.81628)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dm0ec"]
+normal = Vector2(1, 0)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_decli"]
-size = Vector2(24.55783, 586.3159)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ajipv"]
+normal = Vector2(0, 1)
 
-[sub_resource type="Theme" id="Theme_decli"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p5oss"]
+normal = Vector2(-1, 0)
 
-[node name="PROGRAMMING" type="Node2D" unique_id=1071180434]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5v22w"]
 
-[node name="walls" type="Node2D" parent="." unique_id=1177888609]
+[node name="PROGRAMMING" type="Control" unique_id=2067033275]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="wall" type="AnimatableBody2D" parent="walls" unique_id=1497400895]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/wall" unique_id=965590142]
-position = Vector2(0, 183)
-shape = SubResource("RectangleShape2D_foyk6")
-
-[node name="wall3" type="AnimatableBody2D" parent="walls" unique_id=811234467]
-position = Vector2(584, 8)
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/wall3" unique_id=73288750]
-position = Vector2(0, 183)
-shape = SubResource("RectangleShape2D_foyk6")
-
-[node name="wall2" type="AnimatableBody2D" parent="walls" unique_id=1762343162]
-position = Vector2(0, 368.00003)
-rotation = -1.5871843
-scale = Vector2(0.99999994, 0.99999994)
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/wall2" unique_id=660277307]
-position = Vector2(-12.7184105, 287.83023)
-rotation = 0.023869272
-scale = Vector2(1.0000002, 1.0000002)
-shape = SubResource("RectangleShape2D_decli")
-
-[node name="wall4" type="AnimatableBody2D" parent="walls" unique_id=538251043]
-position = Vector2(8, -32.00006)
-rotation = -1.5871843
-scale = Vector2(0.99999994, 0.99999994)
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/wall4" unique_id=2024490201]
-position = Vector2(-12.7184105, 287.83023)
-rotation = 0.023869272
-scale = Vector2(1.0000002, 1.0000002)
-shape = SubResource("RectangleShape2D_decli")
-
-[node name="environment" type="Node2D" parent="." unique_id=177334672]
+[node name="environment" type="MarginContainer" parent="." unique_id=1469555461]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
 
 [node name="NinePatchRect" type="NinePatchRect" parent="environment" unique_id=520675290]
-offset_top = -24.0
-offset_right = 584.0
-offset_bottom = 376.0
+layout_mode = 2
 texture = ExtResource("3_ajipv")
 patch_margin_left = 16
 patch_margin_top = 16
 patch_margin_right = 16
 patch_margin_bottom = 20
 
-[node name="Label" type="Label" parent="environment" unique_id=1957274790]
-offset_left = 24.0
-offset_top = 48.0
-offset_right = 153.0
-offset_bottom = 64.0
-text = "Player_process.gd"
+[node name="walls" type="Node2D" parent="environment/NinePatchRect" unique_id=1177888609 node_paths=PackedStringArray("_colliders")]
+script = ExtResource("2_ajipv")
+_colliders = [NodePath("left"), NodePath("top"), NodePath("right"), NodePath("bottom")]
 
-[node name="Slot" type="TextureRect" parent="environment" unique_id=45848047 groups=["Slot"]]
-offset_left = 64.0
-offset_top = 64.0
-offset_right = 104.0
-offset_bottom = 104.0
-mouse_filter = 2
-theme = SubResource("Theme_decli")
-texture = ExtResource("1_dm0ec")
-stretch_mode = 4
-script = ExtResource("2_dm0ec")
+[node name="left" type="AnimatableBody2D" parent="environment/NinePatchRect/walls" unique_id=1497400895]
+collision_layer = 2
+collision_mask = 2
 
-[node name="Camera2D" type="Camera2D" parent="environment" unique_id=1199149197]
-position = Vector2(312, 176)
-zoom = Vector2(1.5, 1.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="environment/NinePatchRect/walls/left" unique_id=965590142]
+shape = SubResource("WorldBoundaryShape2D_dm0ec")
+
+[node name="top" type="AnimatableBody2D" parent="environment/NinePatchRect/walls" unique_id=538251043]
+scale = Vector2(0.99999994, 0.99999994)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="environment/NinePatchRect/walls/top" unique_id=2024490201]
+scale = Vector2(1.0000002, 1.0000002)
+shape = SubResource("WorldBoundaryShape2D_ajipv")
+
+[node name="right" type="AnimatableBody2D" parent="environment/NinePatchRect/walls" unique_id=1762343162]
+position = Vector2(1024, 520)
+scale = Vector2(0.9999999, 0.9999999)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="environment/NinePatchRect/walls/right" unique_id=660277307]
+scale = Vector2(1.0000002, 1.0000002)
+shape = SubResource("WorldBoundaryShape2D_p5oss")
+
+[node name="bottom" type="AnimatableBody2D" parent="environment/NinePatchRect/walls" unique_id=811234467]
+position = Vector2(1024, 520)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="environment/NinePatchRect/walls/bottom" unique_id=73288750]
+shape = SubResource("WorldBoundaryShape2D_5v22w")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="environment" unique_id=308148826]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="CenterContainer" type="CenterContainer" parent="environment" unique_id=473923521]
+visible = false
+layout_mode = 2
+
+[node name="Control" type="Control" parent="environment/CenterContainer" unique_id=749851612]
+layout_mode = 2
+
+[node name="Camera2D" type="Camera2D" parent="environment/CenterContainer/Control" unique_id=1199149197]
+
+[node name="Slot" parent="environment" unique_id=443273494 instance=ExtResource("2_dm0ec")]
+position = Vector2(171, 157)
 
 [node name="items" type="Node2D" parent="." unique_id=490259080]
 
@@ -101,6 +106,7 @@ position = Vector2(256, 192)
 collision_layer = 2
 collision_mask = 2
 input_pickable = true
+can_sleep = false
 
 [connection signal="mouse_entered" from="items/mechanic" to="items/mechanic" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="items/mechanic" to="items/mechanic" method="_on_mouse_exited"]

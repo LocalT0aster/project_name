@@ -1,4 +1,4 @@
-extends TextureRect
+extends Sprite2D
 @export var index : int
 var strategy : Strategy :
 	set(value):

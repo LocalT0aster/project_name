@@ -18,9 +18,9 @@ func _input(_event: InputEvent) -> void:
 		drop(slot_available())
 
 func slot_available():
-	for s_slot : Control in get_tree().get_nodes_in_group("Slot"):
+	for s_slot : Sprite2D in get_tree().get_nodes_in_group("Slot"):
 		slot = s_slot
-		if slot.get_global_rect().has_point(global_position):
+		if slot.get_rect().has_point(slot.global_position - global_position):
 			#move this
 			slot.process_mechanic(self)
 			return true
