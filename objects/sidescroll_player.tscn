@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://7mmxqxvwxxbm"]
 
 [ext_resource type="PackedScene" uid="uid://blyylq7l2xs6" path="res://objects/player.tscn" id="1_14tcf"]
-[ext_resource type="Script" uid="uid://6clsrvby17ji" path="res://objects/sidescroll_player.gd" id="2_3n36d"]
+[ext_resource type="Script" uid="uid://drqqgb1c3kgfl" path="res://objects/SidescrollPlayer.cs" id="2_3n36d"]
 
 [node name="Player" unique_id=1109341166 instance=ExtResource("1_14tcf")]
 script = ExtResource("2_3n36d")
