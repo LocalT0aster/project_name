@@ -10,8 +10,8 @@ public partial class MovementMechanic : MechanicStrategy
         DisplayName = "Movement";
     }
 
-    public override void Apply(MechanicRuntimeState state)
+    public override void Apply(MechanicRuntimeState state, MechanicTarget target)
     {
-        state.MovementEnabled = true;
+        state.For(target).MovementEnabled = true;
     }
 }

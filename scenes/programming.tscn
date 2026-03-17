@@ -105,6 +105,10 @@ columns = 5
 [node name="Slot" parent="environment/NinePatchRect/MarginContainer/GridContainer" unique_id=443273494 instance=ExtResource("2_dm0ec")]
 layout_mode = 2
 
+[node name="Slot2" parent="environment/NinePatchRect/MarginContainer/GridContainer" unique_id=443273495 instance=ExtResource("2_dm0ec")]
+layout_mode = 2
+Target = 1
+
 [node name="items" type="Node2D" parent="." unique_id=2078747816]
 position = Vector2(-1152, 0)
 

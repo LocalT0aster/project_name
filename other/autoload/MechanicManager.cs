@@ -1,6 +1,7 @@
 #nullable enable
 
 using Godot;
+using System;
 using System.Collections.Generic;
 
 public partial class MechanicManager : Node
@@ -8,11 +9,10 @@ public partial class MechanicManager : Node
     public static MechanicManager? Instance { get; private set; }
 
     [Signal]
-    public delegate void MovementEnabledChangedEventHandler(bool enabled);
+    public delegate void MovementEnabledChangedEventHandler(long target, bool enabled);
 
-    private readonly SortedDictionary<int, MechanicStrategy> _slotMechanics = new();
-
-    public bool IsMovementEnabled { get; private set; }
+    private readonly SortedDictionary<int, (MechanicTarget Target, MechanicStrategy Strategy)> _slotMechanics = new();
+    private readonly Dictionary<MechanicTarget, bool> _movementEnabledByTarget = new();
 
     public override void _Ready()
     {
@@ -28,7 +28,7 @@ public partial class MechanicManager : Node
         }
     }
 
-    public void SetSlotMechanic(int slotIndex, MechanicStrategy? strategy)
+    public void SetSlotMechanic(int slotIndex, MechanicTarget target, MechanicStrategy? strategy)
     {
         if (slotIndex < 0)
         {
@@ -42,10 +42,15 @@ public partial class MechanicManager : Node
         }
         else
         {
-            _slotMechanics[slotIndex] = strategy;
+            _slotMechanics[slotIndex] = (target, strategy);
         }
 
         RebuildState();
+    }
+
+    public bool IsMovementEnabled(MechanicTarget target)
+    {
+        return _movementEnabledByTarget.TryGetValue(target, out bool enabled) && enabled;
     }
 
     public void process_mechanic()
@@ -57,22 +62,25 @@ public partial class MechanicManager : Node
     {
         var state = new MechanicRuntimeState();
 
-        foreach (MechanicStrategy strategy in _slotMechanics.Values)
+        foreach (var slotMechanic in _slotMechanics.Values)
         {
-            strategy.Apply(state);
+            slotMechanic.Strategy.Apply(state, slotMechanic.Target);
         }
 
-        UpdateMovementEnabled(state.MovementEnabled);
+        foreach (MechanicTarget target in Enum.GetValues<MechanicTarget>())
+        {
+            UpdateMovementEnabled(target, state.For(target).MovementEnabled);
+        }
     }
 
-    private void UpdateMovementEnabled(bool enabled)
+    private void UpdateMovementEnabled(MechanicTarget target, bool enabled)
     {
-        if (IsMovementEnabled == enabled)
+        if (IsMovementEnabled(target) == enabled)
         {
             return;
         }
 
-        IsMovementEnabled = enabled;
-        EmitSignal(SignalName.MovementEnabledChanged, enabled);
+        _movementEnabledByTarget[target] = enabled;
+        EmitSignal(SignalName.MovementEnabledChanged, (long)target, enabled);
     }
 }
