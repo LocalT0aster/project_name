@@ -1,5 +1,10 @@
 extends RigidBody2D
 
+const ACTION_LEFT_MOUSE: StringName = &"ui_left_mouse"
+const GROUP_SLOT: StringName = &"Slot"
+const PROPERTY_ROTATION: StringName = &"rotation"
+const PROPERTY_GLOBAL_POSITION: StringName = &"global_position"
+
 var slot: Control
 var held: bool = false
 var mouse: bool = false
@@ -11,14 +16,14 @@ func _ready() -> void:
 	drop(false)
 
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_pressed("ui_left_mouse"):
+	if Input.is_action_pressed(ACTION_LEFT_MOUSE):
 		if mouse:
 			pickup()
-	if Input.is_action_just_released("ui_left_mouse"):
+	if Input.is_action_just_released(ACTION_LEFT_MOUSE):
 		drop(slot_available())
 # -slot.global_position
 func slot_available():
-	for s_slot in get_tree().get_nodes_in_group("Slot"):
+	for s_slot in get_tree().get_nodes_in_group(GROUP_SLOT):
 		slot = s_slot
 		if slot.get_global_rect().has_point(get_global_mouse_position()):
 			#move this
@@ -48,11 +53,11 @@ func drop(sloted : bool):
 		held = false
 		$StaticBody2D.enabled = false
 		if !sloted:
-			$PinJoint2D.set_node_b("")
+			$PinJoint2D.set_node_b(^"")
 		else:
 			freeze = true
-			set_deferred("rotation", 0.0)
-			set_deferred("global_position",
+			set_deferred(PROPERTY_ROTATION, 0.0)
+			set_deferred(PROPERTY_GLOBAL_POSITION,
 				slot.global_position + slot.size/2)
 
 
