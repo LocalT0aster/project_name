@@ -119,7 +119,7 @@ public partial class Mechanic : RigidBody2D
 
         Freeze = true;
         SetDeferred(RotationProperty, 0.0f);
-        SetDeferred(GlobalPositionProperty, _assignedSlot.GlobalPosition + (_assignedSlot.Size / 2.0f));
+        SetDeferred(GlobalPositionProperty, _assignedSlot.SnapPosition);
     }
 
     private void _on_mouse_entered()

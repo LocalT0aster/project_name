@@ -2,22 +2,35 @@
 
 using Godot;
 
-public partial class MechanicSlot : TextureRect
+public partial class MechanicSlot : VBoxContainer
 {
+    private const string LabelPath = "Label";
+    private const string DropAreaPath = "CenterContainer/Control";
+
     [Export]
     public int Index { get; set; } = -1;
 
+    [Export]
+    public MechanicTarget Target { get; set; } = MechanicTarget.Player;
+
     public Mechanic? CurrentMechanic { get; private set; }
+
+    private Label _label = null!;
+    private TextureRect _dropArea = null!;
+
+    public Vector2 SnapPosition => _dropArea.GlobalPosition + (_dropArea.Size / 2.0f);
 
     public override void _Ready()
     {
-        if (Index >= 0)
+        _label = GetNode<Label>(LabelPath);
+        _dropArea = GetNode<TextureRect>(DropAreaPath);
+
+        if (Index < 0)
         {
-            return;
+            Index = GetIndex();
         }
 
-        Node? slotRoot = GetParent()?.GetParent();
-        Index = slotRoot?.GetIndex() ?? 0;
+        _label.Text = BuildLabel(Target);
     }
 
     public void ProcessMechanic(Mechanic mechanic)
@@ -29,7 +42,7 @@ public partial class MechanicSlot : TextureRect
 
         CurrentMechanic = mechanic;
         mechanic.AssignToSlot(this);
-        GetManager()?.SetSlotMechanic(Index, mechanic.Strategy);
+        GetManager()?.SetSlotMechanic(Index, Target, mechanic.Strategy);
     }
 
     public void ClearMechanic(Mechanic mechanic)
@@ -40,16 +53,21 @@ public partial class MechanicSlot : TextureRect
         }
 
         CurrentMechanic = null;
-        GetManager()?.SetSlotMechanic(Index, null);
+        GetManager()?.SetSlotMechanic(Index, Target, null);
     }
 
     public bool ContainsGlobalPoint(Vector2 globalPoint)
     {
-        return GetGlobalRect().HasPoint(globalPoint);
+        return _dropArea.GetGlobalRect().HasPoint(globalPoint);
     }
 
     private MechanicManager? GetManager()
     {
         return MechanicManager.Instance ?? GetNodeOrNull<MechanicManager>("/root/MechanicManager");
+    }
+
+    private static string BuildLabel(MechanicTarget target)
+    {
+        return $"{target}_process.gd";
     }
 }

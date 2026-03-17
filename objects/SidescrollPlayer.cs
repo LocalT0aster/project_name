@@ -25,7 +25,7 @@ public partial class SidescrollPlayer : Player
         }
 
         _mechanicManager.MovementEnabledChanged += OnMovementEnabledChanged;
-        OnMovementEnabledChanged(_mechanicManager.IsMovementEnabled);
+        _movementEnabled = _mechanicManager.IsMovementEnabled(MechanicTarget.Player);
     }
 
     public override void _ExitTree()
@@ -66,8 +66,13 @@ public partial class SidescrollPlayer : Player
         MoveAndSlide();
     }
 
-    private void OnMovementEnabledChanged(bool enabled)
+    private void OnMovementEnabledChanged(long target, bool enabled)
     {
+        if ((MechanicTarget)target != MechanicTarget.Player)
+        {
+            return;
+        }
+
         _movementEnabled = enabled;
     }
 }
