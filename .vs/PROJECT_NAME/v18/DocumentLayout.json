@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\andre\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\project_name\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F96BC28B-898B-46CD-A362-FD3251443E22}|project_name.csproj|c:\\users\\andre\\onedrive\\\u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\project_name\\objects\\sidescrollplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F96BC28B-898B-46CD-A362-FD3251443E22}|project_name.csproj|solutionrelative:objects\\sidescrollplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F96BC28B-898B-46CD-A362-FD3251443E22}|project_name.csproj|c:\\users\\andre\\onedrive\\\u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\project_name\\objects\\mechanicslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F96BC28B-898B-46CD-A362-FD3251443E22}|project_name.csproj|solutionrelative:objects\\mechanicslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MechanicSlot.cs",
+              "DocumentMoniker": "C:\\Users\\andre\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\project_name\\objects\\MechanicSlot.cs",
+              "RelativeDocumentMoniker": "objects\\MechanicSlot.cs",
+              "ToolTip": "C:\\Users\\andre\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\project_name\\objects\\MechanicSlot.cs",
+              "RelativeToolTip": "objects\\MechanicSlot.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T16:10:37.457Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SidescrollPlayer.cs",
+              "DocumentMoniker": "C:\\Users\\andre\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\project_name\\objects\\SidescrollPlayer.cs",
+              "RelativeDocumentMoniker": "objects\\SidescrollPlayer.cs",
+              "ToolTip": "C:\\Users\\andre\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\project_name\\objects\\SidescrollPlayer.cs",
+              "RelativeToolTip": "objects\\SidescrollPlayer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T16:09:53.961Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
