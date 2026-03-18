@@ -11,7 +11,11 @@ public partial class SidescrollPlayer : Player
     public bool Topdown { get; set; }
 
     private MechanicManager? _mechanicManager;
+    [Export]
     private bool _movementEnabled;
+
+    [Export]
+    public MechanicTarget Target { get; set; } = MechanicTarget.Player;
 
     public override void _Ready()
     {
@@ -25,7 +29,6 @@ public partial class SidescrollPlayer : Player
         }
 
         _mechanicManager.MovementEnabledChanged += OnMovementEnabledChanged;
-        _movementEnabled = _mechanicManager.IsMovementEnabled(MechanicTarget.Player);
     }
 
     public override void _ExitTree()
@@ -68,7 +71,7 @@ public partial class SidescrollPlayer : Player
 
     private void OnMovementEnabledChanged(long target, bool enabled)
     {
-        if ((MechanicTarget)target != MechanicTarget.Player)
+        if ((MechanicTarget)target != Target)
         {
             return;
         }
