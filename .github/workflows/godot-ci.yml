@@ -1,0 +1,161 @@
+name: Godot CI
+
+on:
+  push:
+    branches:
+      - master
+      - main
+  workflow_dispatch:
+
+env:
+  GODOT_VERSION: 4.6.1
+  PROJECT_PATH: .
+
+jobs:
+  metadata:
+    name: Read project metadata
+    runs-on: ubuntu-24.04
+    outputs:
+      project_name: ${{ steps.project.outputs.project_name }}
+      project_version: ${{ steps.project.outputs.project_version }}
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Extract project metadata
+        id: project
+        shell: bash
+        run: |
+          set -euo pipefail
+          project_name="$(grep -m1 '^config/name=' "$PROJECT_PATH/project.godot" | cut -d= -f2-)"
+          version="$(grep -m1 '^config/version=' "$PROJECT_PATH/project.godot" | cut -d= -f2-)"
+
+          project_name="${project_name#\"}"
+          project_name="${project_name%\"}"
+          version="${version#\"}"
+          version="${version%\"}"
+
+          if [ -z "$project_name" ]; then
+            echo "Could not read config/name from $PROJECT_PATH/project.godot" >&2
+            exit 1
+          fi
+
+          if [ -z "$version" ]; then
+            echo "Could not read config/version from $PROJECT_PATH/project.godot" >&2
+            exit 1
+          fi
+
+          echo "project_name=$project_name" >> "$GITHUB_OUTPUT"
+          echo "project_version=$version" >> "$GITHUB_OUTPUT"
+
+  export:
+    name: Export ${{ matrix.name }}
+    runs-on: ${{ matrix.runner }}
+    needs: metadata
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Windows Desktop
+            runner: ubuntu-24.04
+            preset: Windows Desktop
+            artifact_name: windows
+            export_suffix: win.zip
+          - name: Linux
+            runner: ubuntu-24.04
+            preset: Linux
+            artifact_name: linux
+            export_suffix: linux.zip
+          - name: macOS
+            runner: ubuntu-24.04
+            preset: macOS
+            artifact_name: mac
+            export_suffix: mac.app.zip
+    container:
+      image: barichello/godot-ci:mono-4.6.1
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          lfs: true
+
+      - name: Setup Godot Mono project
+        uses: ./.github/actions/godot-setup
+        with:
+          godot-version: ${{ env.GODOT_VERSION }}
+          project-path: ${{ env.PROJECT_PATH }}
+
+      - name: Resolve export path
+        id: export_path
+        shell: bash
+        run: |
+          set -euo pipefail
+          export_path="$PROJECT_PATH/build/${{ needs.metadata.outputs.project_name }}.${{ matrix.export_suffix }}"
+          mkdir -pv "$(dirname "$export_path")"
+
+          echo "relative=$export_path" >> "$GITHUB_OUTPUT"
+          echo "absolute=$(readlink -f "$export_path")" >> "$GITHUB_OUTPUT"
+
+      - name: Export ${{ matrix.name }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot \
+            --headless \
+            --path "$PROJECT_PATH" \
+            --verbose \
+            --export-release "${{ matrix.preset }}" \
+            "${{ steps.export_path.outputs.absolute }}"
+
+      - name: Upload ${{ matrix.name }} artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: ${{ matrix.artifact_name }}
+          path: ${{ steps.export_path.outputs.relative }}
+          if-no-files-found: error
+
+  deploy-itchio:
+    name: Deploy ${{ matrix.name }} to Itch.io
+    if: ${{ vars.ITCHIO_USERNAME != '' && vars.ITCHIO_GAME != '' }}
+    runs-on: ${{ matrix.runner }}
+    needs:
+      - metadata
+      - export
+    env:
+      ITCHIO_USERNAME: ${{ vars.ITCHIO_USERNAME }}
+      ITCHIO_GAME: ${{ vars.ITCHIO_GAME }}
+      BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Windows
+            runner: ubuntu-24.04
+            artifact_name: windows
+            artifact_path: build/windows
+            butler_channel: windows
+          - name: Linux
+            runner: ubuntu-24.04
+            artifact_name: linux
+            artifact_path: build/linux
+            butler_channel: linux
+          - name: macOS
+            runner: ubuntu-24.04
+            artifact_name: mac
+            artifact_path: build/mac
+            butler_channel: mac
+    container:
+      image: barichello/godot-ci:mono-4.6.1
+    steps:
+      - name: Download ${{ matrix.name }} artifact
+        uses: actions/download-artifact@v8
+        with:
+          name: ${{ matrix.artifact_name }}
+          path: ${{ matrix.artifact_path }}
+
+      - name: Upload ${{ matrix.name }} build
+        shell: bash
+        run: |
+          set -euo pipefail
+          butler push \
+            "${{ matrix.artifact_path }}" \
+            "$ITCHIO_USERNAME/$ITCHIO_GAME:${{ matrix.butler_channel }}" \
+            --userversion "${{ needs.metadata.outputs.project_version }}"
