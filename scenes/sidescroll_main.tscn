@@ -35,7 +35,7 @@ tile_map_data = PackedByteArray("AADl/wAAAAAIAAUAAADl/wEAAAAIAAUAAADl/wIAAAAIAAU
 
 [node name="Player" parent="." unique_id=1109341166 instance=ExtResource("4_5i410")]
 position = Vector2(-40, -32)
-Jump = -200.0
+Jump = 0.0
 Topdown = false
 _movementEnabled = false
 Target = 0
@@ -55,10 +55,6 @@ shape = SubResource("CapsuleShape2D_3o35n")
 position = Vector2(0, -20)
 scale = Vector2(1, 3.9375)
 region_rect = Rect2(416, 48, 16, 16)
-
-[node name="test_npc" parent="." unique_id=205667818 instance=ExtResource("3_b2s4m")]
-visible = false
-position = Vector2(40, -8)
 
 [node name="test_npc2" parent="." unique_id=2100226800 instance=ExtResource("3_b2s4m")]
 position = Vector2(600, -7)
@@ -89,6 +85,7 @@ stretch_mode = 4
 script = ExtResource("6_m4hha")
 
 [node name="chat" type="TextureButton" parent="CanvasLayer/BoxContainer" unique_id=562790469 node_paths=PackedStringArray("dialog")]
+visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 focus_mode = 0
