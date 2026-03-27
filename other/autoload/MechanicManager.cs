@@ -9,10 +9,10 @@ public partial class MechanicManager : Node
     public static MechanicManager? Instance { get; private set; }
 
     [Signal]
-    public delegate void MovementEnabledChangedEventHandler(long target, bool enabled);
+    public delegate void TargetStateChangedEventHandler(long target, MechanicEntityState state);
 
     private readonly SortedDictionary<int, (MechanicTarget Target, MechanicStrategy Strategy)> _slotMechanics = new();
-    private readonly Dictionary<MechanicTarget, bool> _movementEnabledByTarget = new();
+    private readonly Dictionary<MechanicTarget, MechanicEntityState> _statesByTarget = new();
 
     public override void _Ready()
     {
@@ -48,9 +48,22 @@ public partial class MechanicManager : Node
         RebuildState();
     }
 
-    public bool IsMovementEnabled(MechanicTarget target)
+    public MechanicEntityState GetTargetState(MechanicTarget target)
     {
-        return _movementEnabledByTarget.TryGetValue(target, out bool enabled) && enabled;
+        return _statesByTarget.TryGetValue(target, out MechanicEntityState? state)
+            ? state.DuplicateState()
+            : new MechanicEntityState();
+    }
+
+    public bool TryGetTargetValue(MechanicTarget target, StringName key, out Variant value)
+    {
+        if (_statesByTarget.TryGetValue(target, out MechanicEntityState? state))
+        {
+            return state.TryGetValue(key, out value);
+        }
+
+        value = default;
+        return false;
     }
 
     public void process_mechanic()
@@ -69,18 +82,19 @@ public partial class MechanicManager : Node
 
         foreach (MechanicTarget target in Enum.GetValues<MechanicTarget>())
         {
-            UpdateMovementEnabled(target, state.For(target).MovementEnabled);
+            UpdateTargetState(target, state.For(target));
         }
     }
 
-    private void UpdateMovementEnabled(MechanicTarget target, bool enabled)
+    private void UpdateTargetState(MechanicTarget target, MechanicEntityState state)
     {
-        if (IsMovementEnabled(target) == enabled)
+        if (_statesByTarget.TryGetValue(target, out MechanicEntityState? currentState) && currentState.HasSameValues(state))
         {
             return;
         }
 
-        _movementEnabledByTarget[target] = enabled;
-        EmitSignal(SignalName.MovementEnabledChanged, (long)target, enabled);
+        MechanicEntityState snapshot = state.DuplicateState();
+        _statesByTarget[target] = snapshot;
+        EmitSignal(SignalName.TargetStateChanged, (long)target, snapshot.DuplicateState());
     }
 }

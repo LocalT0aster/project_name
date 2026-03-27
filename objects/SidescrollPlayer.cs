@@ -28,14 +28,15 @@ public partial class SidescrollPlayer : Player
             return;
         }
 
-        _mechanicManager.MovementEnabledChanged += OnMovementEnabledChanged;
+        _mechanicManager.TargetStateChanged += OnTargetStateChanged;
+        ApplyMechanicState(_mechanicManager.GetTargetState(Target));
     }
 
     public override void _ExitTree()
     {
         if (_mechanicManager is not null)
         {
-            _mechanicManager.MovementEnabledChanged -= OnMovementEnabledChanged;
+            _mechanicManager.TargetStateChanged -= OnTargetStateChanged;
         }
     }
 
@@ -69,13 +70,18 @@ public partial class SidescrollPlayer : Player
         MoveAndSlide();
     }
 
-    private void OnMovementEnabledChanged(long target, bool enabled)
+    private void OnTargetStateChanged(long target, MechanicEntityState state)
     {
         if ((MechanicTarget)target != Target)
         {
             return;
         }
 
-        _movementEnabled = enabled;
+        ApplyMechanicState(state);
+    }
+
+    private void ApplyMechanicState(MechanicEntityState state)
+    {
+        _movementEnabled = state.GetBool(MovementMechanic.EnabledStateKey);
     }
 }

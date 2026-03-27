@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://1a06uun4i4a7"]
 
-[ext_resource type="PackedScene" uid="uid://dvn2i13njdok2" path="res://objects/mechanic.tscn" id="1_rirpr"]
+[ext_resource type="PackedScene" uid="uid://dvn2i13njdok2" path="res://objects/mechanic/mechanic.tscn" id="1_rirpr"]
 [ext_resource type="Script" uid="uid://p4fkme0hsvmh" path="res://other/NinePatchRectWallsBuilder.cs" id="2_ajipv"]
 [ext_resource type="PackedScene" uid="uid://ddvw5xl0r0o83" path="res://objects/slot.tscn" id="2_dm0ec"]
 [ext_resource type="Texture2D" uid="uid://dqe17hk8fqung" path="res://img/ui.png" id="3_ajipv"]

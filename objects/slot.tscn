@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://gsx2kwjadidq" path="res://img/items/sample_slot.png" id="1_ks62j"]
 [ext_resource type="FontFile" uid="uid://dfq65daliuljq" path="res://other/system.fnt" id="1_rw4v0"]
-[ext_resource type="Script" uid="uid://c75yg7tgb6yux" path="res://objects/MechanicSlot.cs" id="2_rw4v0"]
+[ext_resource type="Script" uid="uid://c75yg7tgb6yux" path="res://objects/mechanic/MechanicSlot.cs" id="2_rw4v0"]
 
 [node name="Slot" type="VBoxContainer" unique_id=813269879 groups=["Slot"]]
 script = ExtResource("2_rw4v0")

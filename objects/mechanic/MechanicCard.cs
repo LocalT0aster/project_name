@@ -12,7 +12,7 @@ public partial class MechanicCard : RigidBody2D
     private const string PinJointPath = "PinJoint2D";
 
     [Export]
-    public MechanicStrategy Strategy { get; set; } = new MovementMechanic();
+    public MechanicStrategy? Strategy { get; set; }
 
     private MechanicDrager _dragProxy = null!;
     private PinJoint2D _pinJoint = null!;
@@ -72,8 +72,7 @@ public partial class MechanicCard : RigidBody2D
                 continue;
             }
 
-            slot.ProcessMechanic(this);
-            return true;
+            return slot.ProcessMechanic(this);
         }
 
         return false;

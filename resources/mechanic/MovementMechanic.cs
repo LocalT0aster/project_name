@@ -5,6 +5,8 @@ using Godot;
 [GlobalClass]
 public partial class MovementMechanic : MechanicStrategy
 {
+    public static readonly StringName EnabledStateKey = "movement_enabled";
+
     public MovementMechanic()
     {
         DisplayName = "Movement";
@@ -12,6 +14,6 @@ public partial class MovementMechanic : MechanicStrategy
 
     public override void Apply(MechanicRuntimeState state, MechanicTarget target)
     {
-        state.For(target).MovementEnabled = true;
+        state.For(target).SetValue(EnabledStateKey, true);
     }
 }

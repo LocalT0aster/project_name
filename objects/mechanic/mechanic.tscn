@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://dvn2i13njdok2"]
 
-[ext_resource type="Script" uid="uid://vcwhi7x6rdmi" path="res://objects/Mechanic.cs" id="1_5wv0l"]
-[ext_resource type="Script" uid="uid://bf3jqr8fblba0" path="res://objects/MechanicDrager.cs" id="3_fv68j"]
+[ext_resource type="Script" uid="uid://vcwhi7x6rdmi" path="res://objects/mechanic/MechanicCard.cs" id="1_5wv0l"]
+[ext_resource type="Script" uid="uid://bf3jqr8fblba0" path="res://objects/mechanic/MechanicDrager.cs" id="3_fv68j"]
 [ext_resource type="Texture2D" uid="uid://cykwnrfl3unr5" path="res://img/items/sample_mechanic.png" id="3_ygjlt"]
+[ext_resource type="Resource" uid="uid://8pttttud4m7i" path="res://resources/mechanic/movement_mechanic.tres" id="4_v8m8v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lt7x8"]
 size = Vector2(48, 64)
@@ -12,6 +13,7 @@ radius = 8.0
 
 [node name="mechanic" type="RigidBody2D" unique_id=143471950]
 script = ExtResource("1_5wv0l")
+Strategy = ExtResource("4_v8m8v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2092788459]
 shape = SubResource("RectangleShape2D_lt7x8")

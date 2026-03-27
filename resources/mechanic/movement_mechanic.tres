@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="MovementMechanic" format=3 uid="uid://8pttttud4m7i"]
+
+[ext_resource type="Script" uid="uid://6ct68t503675" path="res://resources/mechanic/MovementMechanic.cs" id="1_j113n"]
+
+[resource]
+script = ExtResource("1_j113n")
+DisplayName = "Movement"
+metadata/_custom_type_script = "uid://6ct68t503675"

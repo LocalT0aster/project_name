@@ -33,8 +33,22 @@ public partial class MechanicSlot : VBoxContainer
         _label.Text = BuildLabel(Target);
     }
 
-    public void ProcessMechanic(MechanicCard mechanicCard)
+    public bool ProcessMechanic(MechanicCard mechanicCard)
     {
+        MechanicStrategy? strategy = mechanicCard.Strategy;
+        if (strategy is null)
+        {
+            GD.PushWarning($"{nameof(MechanicCard)} '{mechanicCard.Name}' is missing a {nameof(MechanicCard.Strategy)} resource.");
+            return false;
+        }
+
+        MechanicManager? manager = GetManager();
+        if (manager is null)
+        {
+            GD.PushWarning($"{nameof(MechanicSlot)} '{Name}' could not find the {nameof(MechanicManager)} autoload.");
+            return false;
+        }
+
         if (CurrentMechanic is not null && CurrentMechanic != mechanicCard)
         {
             CurrentMechanic.EjectFromSlot(this);
@@ -42,7 +56,8 @@ public partial class MechanicSlot : VBoxContainer
 
         CurrentMechanic = mechanicCard;
         mechanicCard.AssignToSlot(this);
-        GetManager()?.SetSlotMechanic(Index, Target, mechanicCard.Strategy);
+        manager.SetSlotMechanic(Index, Target, strategy);
+        return true;
     }
 
     public void ClearMechanic(MechanicCard mechanicCard)
