@@ -98,10 +98,6 @@ dialog = NodePath("../../dialogue_system")
 visible = false
 
 [node name="PROGRAMMING" parent="CanvasLayer" unique_id=1071180434 instance=ExtResource("4_lyb0h")]
-offset_left = 127.0
-offset_top = 10.0
-offset_right = 127.0
-offset_bottom = 10.0
 script = ExtResource("10_3o35n")
 
 [connection signal="toggled" from="CanvasLayer/BoxContainer/ide" to="CanvasLayer/PROGRAMMING" method="_on_ide_toggled"]
