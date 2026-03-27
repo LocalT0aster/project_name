@@ -13,7 +13,7 @@ public partial class MechanicSlot : VBoxContainer
     [Export]
     public MechanicTarget Target { get; set; } = MechanicTarget.Player;
 
-    public Mechanic? CurrentMechanic { get; private set; }
+    public MechanicCard? CurrentMechanic { get; private set; }
 
     private Label _label = null!;
     private TextureRect _dropArea = null!;
@@ -33,21 +33,21 @@ public partial class MechanicSlot : VBoxContainer
         _label.Text = BuildLabel(Target);
     }
 
-    public void ProcessMechanic(Mechanic mechanic)
+    public void ProcessMechanic(MechanicCard mechanicCard)
     {
-        if (CurrentMechanic is not null && CurrentMechanic != mechanic)
+        if (CurrentMechanic is not null && CurrentMechanic != mechanicCard)
         {
             CurrentMechanic.EjectFromSlot(this);
         }
 
-        CurrentMechanic = mechanic;
-        mechanic.AssignToSlot(this);
-        GetManager()?.SetSlotMechanic(Index, Target, mechanic.Strategy);
+        CurrentMechanic = mechanicCard;
+        mechanicCard.AssignToSlot(this);
+        GetManager()?.SetSlotMechanic(Index, Target, mechanicCard.Strategy);
     }
 
-    public void ClearMechanic(Mechanic mechanic)
+    public void ClearMechanic(MechanicCard mechanicCard)
     {
-        if (CurrentMechanic != mechanic)
+        if (CurrentMechanic != mechanicCard)
         {
             return;
         }

@@ -2,7 +2,7 @@
 
 using Godot;
 
-public partial class Mechanic : RigidBody2D
+public partial class MechanicCard : RigidBody2D
 {
     private const string ActionLeftMouse = "ui_left_mouse";
     private const string GroupSlot = "Slot";
