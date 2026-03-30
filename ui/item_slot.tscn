@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://brvofplgoit6f"]
+
+[ext_resource type="Texture2D" uid="uid://dyvwyby3x8vqx" path="res://img/itemslot.png" id="1_lxngi"]
+[ext_resource type="Script" uid="uid://dr0507jqdktnp" path="res://ui/item_slot.gd" id="2_gpwhp"]
+
+[node name="ItemSlot" type="TextureRect" unique_id=195078708]
+texture = ExtResource("1_lxngi")
+stretch_mode = 4
+script = ExtResource("2_gpwhp")
+
+[node name="Icon" type="TextureRect" parent="." unique_id=534527937]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
