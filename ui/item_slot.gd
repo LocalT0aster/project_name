@@ -5,7 +5,7 @@ extends TextureRect
 	set(value):
 		item_changed.emit(item)
 		item = value
-@export var type : String
+@export_enum("blue", "yellow") var slot : String
 @export var fsm : PackedScene
 @export var default_mech : String = "Idle"
 @export var disabled : bool
@@ -39,7 +39,7 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 	return self
 
 func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
-	if (type != "" and data.item.slot != type) or disabled: return false
+	if (slot != "" and data.item.slot != slot) or disabled: return false
 	return true
 
 func _drop_data(_at_position: Vector2, data: Variant) -> void:

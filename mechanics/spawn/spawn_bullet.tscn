@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cg33uuov4gl8k"]
+
+[ext_resource type="Script" uid="uid://cyhb2l586ennb" path="res://mechanics/spawn/SpawnFSM.gd" id="1_wh8as"]
+[ext_resource type="Script" uid="uid://ntvwuhki1uj7" path="res://mechanics/spawn/idle.gd" id="2_hcqi7"]
+[ext_resource type="Script" uid="uid://b0n3jk8xa1onp" path="res://mechanics/spawn/spawn.gd" id="3_wh8as"]
+[ext_resource type="PackedScene" uid="uid://bx57kjgx36vc7" path="res://objects/bullet.tscn" id="4_sotbp"]
+
+[node name="Spawn" type="Node" unique_id=2005448656 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("1_wh8as")
+initial_state = NodePath("idle")
+
+[node name="idle" type="Node" parent="." unique_id=1267282509]
+script = ExtResource("2_hcqi7")
+metadata/_custom_type_script = "uid://bk7opuu8p0c46"
+
+[node name="spawn" type="Node" parent="." unique_id=321675937]
+script = ExtResource("3_wh8as")
+prefab = ExtResource("4_sotbp")
+metadata/_custom_type_script = "uid://bk7opuu8p0c46"
