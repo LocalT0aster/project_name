@@ -13,7 +13,7 @@ extends Control
 @onready var chcswindow = get_node(chcswin)
 @export var textSpeed = 0.05
 var finished = false
-var link = preload("res://ui/lbtn.tscn")
+var link = preload("res://dil/lbtn.tscn")
 var dialogdata
 @export var guypath : NodePath
 @onready var guy = get_node(guypath)
@@ -101,11 +101,11 @@ func setup(dilstart):
 	chcswindow.hide()
 	
 	var data = dialogdata[dilstart]
-	if "command" in data:
-		cp.process_general(data.command[0], data.command[1])
-	
-	if "sound" in data:
-		ostmanager.playsound(data.sound)
+	#if "command" in data:
+		#cp.process_general(data.command[0], data.command[1])
+	#
+	#if "sound" in data:
+		#ostmanager.playsound(data.sound)
 	if "texture" in data:
 		guy.show()
 		guy.texture = load("res://img/characters/" + data.texture)
@@ -153,8 +153,8 @@ func setup(dilstart):
 	indicator.visible = true
 
 func on_btn_prst(option):
-	if "command" in option:
-		cp.process_general(option.command[0], option.command[1])
+	#if "command" in option:
+		#cp.process_general(option.command[0], option.command[1])
 	if finished:
 		chcswindow.hide()
 		if option.next == "-1":
