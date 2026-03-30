@@ -111,7 +111,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Player" type="VBoxContainer" parent="Slots" unique_id=2117432284]
-visible = false
 layout_mode = 2
 
 [node name="ItemSlot" parent="Slots/Player" unique_id=1248439775 instance=ExtResource("2_qed5x")]

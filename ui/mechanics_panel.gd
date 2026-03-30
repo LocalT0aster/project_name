@@ -18,3 +18,16 @@ func on_button_toggle(togled_on : bool, button_name : String):
 		if button == button_name.to_lower(): continue
 		entities[button].button_pressed = false
 	slots.get(button_name.to_lower()).show()
+
+var data_bk
+func _notification (what: int) -> void:
+	if what == Node. NOTIFICATION_DRAG_BEGIN:
+		data_bk = get_viewport().gui_get_drag_data()
+	if what == Node. NOTIFICATION_DRAG_END:
+		if not is_drag_successful():
+			if data_bk:
+				data_bk.update_ui()
+				data_bk = null
+
+func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
+	return false
