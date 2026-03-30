@@ -7,12 +7,23 @@ extends TextureRect
 		item = value
 @export_enum("blue", "yellow") var slot : String
 @export var fsm : PackedScene
+@export var entity: StringName
+@export var slot_index: int = 0
 @export var default_mech : String = "Idle"
 @export var disabled : bool
 
-signal item_changed(item : Item)
+signal item_changed(item: Item)
+
+func set_slot_mechanic(item: Item):
+	if not entity or entity == "":
+		return
+	if item:
+		MechanicManager.object_tree[entity].set_slot(slot_index, item.mechanic)
+	else:
+		MechanicManager.object_tree[entity].set_slot(slot_index, null)
 
 func _ready() -> void:
+	item_changed.connect(set_slot_mechanic)
 	update_ui()
 
 func update_ui() -> void:

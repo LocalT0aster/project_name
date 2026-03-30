@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://umsei4jfaj2j"]
 
 [ext_resource type="Script" uid="uid://bkw6obcm1dpvs" path="res://objects/player/player.gd" id="1_x4w5f"]
-[ext_resource type="Texture2D" uid="uid://dfpovggfoph6c" path="res://icon.svg" id="2_r86bn"]
+[ext_resource type="Texture2D" uid="uid://dvtqb24ydldie" path="res://img/spritesheet.png" id="2_gnkmh"]
 [ext_resource type="PackedScene" uid="uid://ctrq8i6yvgixu" path="res://mechanics/mechanics_tree.tscn" id="3_ssrue"]
 [ext_resource type="PackedScene" uid="uid://vtv3y1kcldqt" path="res://mechanics/movement/movement.tscn" id="4_gnkmh"]
 [ext_resource type="PackedScene" uid="uid://3q0px3w68bek" path="res://mechanics/spawn/spawn.tscn" id="5_xkryw"]
@@ -13,13 +13,15 @@ radius = 16.0
 script = ExtResource("1_x4w5f")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=792193039]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_r86bn")
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_gnkmh")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=595134198]
 shape = SubResource("CircleShape2D_xnc2w")
 
 [node name="MechanicsTree" parent="." unique_id=323197346 instance=ExtResource("3_ssrue")]
-slots = Array[PackedScene]([ExtResource("4_gnkmh"), ExtResource("5_xkryw")])
+default_slots = Array[PackedScene]([ExtResource("4_gnkmh"), ExtResource("5_xkryw")])
 
 [editable path="MechanicsTree"]

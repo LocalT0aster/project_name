@@ -116,10 +116,15 @@ layout_mode = 2
 [node name="ItemSlot" parent="Slots/Player" unique_id=1248439775 instance=ExtResource("2_qed5x")]
 layout_mode = 2
 texture = ExtResource("10_tiin1")
+slot = "blue"
+entity = &"player"
 
 [node name="ItemSlot2" parent="Slots/Player" unique_id=1969672670 instance=ExtResource("2_qed5x")]
 layout_mode = 2
 texture = ExtResource("11_joka8")
+slot = "yellow"
+entity = &"player"
+slot_index = 1
 
 [node name="Golem" type="VBoxContainer" parent="Slots" unique_id=1600486851]
 visible = false
@@ -128,3 +133,5 @@ layout_mode = 2
 [node name="ItemSlot" parent="Slots/Golem" unique_id=1685174338 instance=ExtResource("2_qed5x")]
 layout_mode = 2
 texture = ExtResource("10_tiin1")
+slot = "blue"
+entity = &"golem"

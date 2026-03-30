@@ -14,7 +14,9 @@ func _ready() -> void:
 func set_slot(index: int, scene: PackedScene) -> void:
 	if index >= default_slots.size() or index < 0:
 		printerr("MechanicsTree: got out of bounds index")
-	loaded[index].queue_free()
+	if loaded[index]:
+		loaded[index].process_mode = Node.PROCESS_MODE_DISABLED
+		loaded[index].queue_free()
 	if not scene:
 		scene = default_slots[index]
 	var fsm = scene.instantiate() as FSM
