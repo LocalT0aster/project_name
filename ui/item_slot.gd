@@ -22,7 +22,7 @@ func update_ui() -> void:
 		return
 	icon.show()
 	icon.texture = item.sprite
-	tooltip_text = item.item_name
+	tooltip_text = item.mechanic_name
 
 func _get_drag_data(_at_position: Vector2) -> Variant:
 	if not item:

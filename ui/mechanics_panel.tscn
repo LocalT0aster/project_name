@@ -4,8 +4,11 @@
 [ext_resource type="Script" uid="uid://de7dihihndvcp" path="res://ui/mechanics_panel.gd" id="1_wlcnm"]
 [ext_resource type="PackedScene" uid="uid://brvofplgoit6f" path="res://ui/item_slot.tscn" id="2_qed5x"]
 [ext_resource type="Texture2D" uid="uid://cvgspq6t3n0vq" path="res://img/playerSceneButtonDefault.png" id="3_3ypaj"]
+[ext_resource type="Resource" uid="uid://dqod2uls5x2t6" path="res://items/spawn_bullet.tres" id="4_8a6gg"]
 [ext_resource type="Texture2D" uid="uid://rar4j12lpecu" path="res://img/playerSceneButtonSelected.png" id="4_wlcnm"]
 [ext_resource type="Texture2D" uid="uid://caedyghwskxn0" path="res://img/playerSceneButtonHover.png" id="5_8uqng"]
+[ext_resource type="Resource" uid="uid://xf0hu5fhwt6o" path="res://items/spawn_crate.tres" id="5_v3ev7"]
+[ext_resource type="Resource" uid="uid://cxq3tn5n4ko46" path="res://items/walk.tres" id="6_l6l7g"]
 [ext_resource type="Texture2D" uid="uid://dolha77ij8iky" path="res://img/golemSceneButtonDefault.png" id="7_ll4xt"]
 [ext_resource type="Texture2D" uid="uid://qliugrhkipwb" path="res://img/golemSceneButtonSelected.png" id="8_ovxay"]
 [ext_resource type="Texture2D" uid="uid://dvnrj81s5mfrd" path="res://img/golemSceneButtonHover.png" id="9_tiin1"]
@@ -49,6 +52,24 @@ grow_vertical = 2
 columns = 6
 
 [node name="ItemSlot" parent="inventory" unique_id=195078708 instance=ExtResource("2_qed5x")]
+layout_mode = 2
+item = ExtResource("4_8a6gg")
+
+[node name="ItemSlot2" parent="inventory" unique_id=1328272987 instance=ExtResource("2_qed5x")]
+layout_mode = 2
+item = ExtResource("5_v3ev7")
+
+[node name="ItemSlot3" parent="inventory" unique_id=1696389710 instance=ExtResource("2_qed5x")]
+layout_mode = 2
+item = ExtResource("6_l6l7g")
+
+[node name="ItemSlot4" parent="inventory" unique_id=1992241172 instance=ExtResource("2_qed5x")]
+layout_mode = 2
+
+[node name="ItemSlot5" parent="inventory" unique_id=2137786134 instance=ExtResource("2_qed5x")]
+layout_mode = 2
+
+[node name="ItemSlot6" parent="inventory" unique_id=32993356 instance=ExtResource("2_qed5x")]
 layout_mode = 2
 
 [node name="Entities" type="VBoxContainer" parent="." unique_id=885528995]

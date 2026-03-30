@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://xf0hu5fhwt6o"]
+
+[ext_resource type="Script" uid="uid://cl5pgg4hly830" path="res://other/item.gd" id="1_ga8e4"]
+[ext_resource type="Texture2D" uid="uid://c4vv3vvlnvg3u" path="res://img/boxSpawnMechanicCard.png" id="2_fkssi"]
+
+[resource]
+script = ExtResource("1_ga8e4")
+sprite = ExtResource("2_fkssi")
+mechanic_name = "Spawn_Crate"
+slot = "Yellow"
+metadata/_custom_type_script = "uid://cl5pgg4hly830"

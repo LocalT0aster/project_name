@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://cxq3tn5n4ko46"]
+
+[ext_resource type="Script" uid="uid://cl5pgg4hly830" path="res://other/item.gd" id="1_bi61n"]
+[ext_resource type="Texture2D" uid="uid://cg0thphlcg4in" path="res://img/controlMechanicCard.png" id="2_cnip5"]
+
+[resource]
+script = ExtResource("1_bi61n")
+sprite = ExtResource("2_cnip5")
+mechanic_name = "Walk"
+slot = "Blue"
+metadata/_custom_type_script = "uid://cl5pgg4hly830"
