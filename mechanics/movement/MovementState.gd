@@ -4,4 +4,4 @@ extends State
 var parent: MovementFSM
 
 func _ready() -> void:
-    parent = get_parent() as MovementFSM
+	parent = get_parent() as MovementFSM

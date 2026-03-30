@@ -1,10 +1,10 @@
 extends TextureRect
 
 @onready var icon: TextureRect = $Icon
-@export var item : Item:
-	set(value):
-		item_changed.emit(item)
-		item = value
+@export var item : Item#:
+	#set(value):
+		#item_changed.emit(item)
+		#item = value
 @export_enum("blue", "yellow") var slot : String
 @export var fsm : PackedScene
 @export var entity: StringName
@@ -12,10 +12,10 @@ extends TextureRect
 @export var default_mech : String = "Idle"
 @export var disabled : bool
 
-signal item_changed(item: Item)
+#signal item_changed(item: Item)
 
 func set_slot_mechanic(item: Item):
-	if not entity or entity == "":
+	if (not entity) or (entity == "") or (not slot) or (slot == "") or (not MechanicManager.object_tree[entity]):
 		return
 	if item:
 		MechanicManager.object_tree[entity].set_slot(slot_index, item.mechanic)
@@ -23,7 +23,7 @@ func set_slot_mechanic(item: Item):
 		MechanicManager.object_tree[entity].set_slot(slot_index, null)
 
 func _ready() -> void:
-	item_changed.connect(set_slot_mechanic)
+	#item_changed.connect(set_slot_mechanic)
 	update_ui()
 
 func update_ui() -> void:
@@ -56,7 +56,10 @@ func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	var tmp = item
 	item = data.item
-	item_changed.emit(item)
+	if slot and slot != "":
+		set_slot_mechanic(item)
+	elif data.slot and data.slot != "":
+		data.set_slot_mechanic(tmp)
 	data.item = tmp
 	#icon.show()
 	#data.icon.show()
