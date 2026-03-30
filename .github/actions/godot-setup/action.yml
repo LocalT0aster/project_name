@@ -1,0 +1,47 @@
+name: Godot Setup
+description: Prepare Godot export templates, import assets
+
+inputs:
+  godot-version:
+    description: Godot version matching the export templates in the CI container
+    required: false
+    default: "4.6.1"
+  project-path:
+    description: Path to the Godot project root containing project.godot
+    required: false
+    default: "."
+
+runs:
+  using: composite
+  steps:
+    - name: Prepare Godot config and export templates
+      shell: bash
+      run: |
+        set -euo pipefail
+
+        template_dir="$HOME/.local/share/godot/export_templates/${{ inputs.godot-version }}.stable"
+        root_template_dir="/root/.local/share/godot/export_templates/${{ inputs.godot-version }}.stable"
+
+        mkdir -pv "$(dirname "$template_dir")" "$HOME/.config"
+
+        if [ -d /root/.config/godot ] && [ ! -e "$HOME/.config/godot" ]; then
+          mv /root/.config/godot "$HOME/.config/godot"
+        fi
+
+        if [ ! -d "$template_dir" ]; then
+          if [ ! -d "$root_template_dir" ]; then
+            echo "Missing Godot export templates at $root_template_dir" >&2
+            exit 1
+          fi
+
+          mv "$root_template_dir" "$template_dir"
+        fi
+
+    - name: Import project assets
+      shell: bash
+      run: |
+        set -euo pipefail
+
+        if ! godot --headless --path "${{ inputs.project-path }}" --verbose --import; then
+          echo "::warning::Godot import reported errors; continuing because the export step will revalidate project data."
+        fi
