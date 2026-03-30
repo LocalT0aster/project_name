@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://olg8me2f6hdb"]
+[gd_scene format=3 uid="uid://c2j1hy68bh508"]
 
-[ext_resource type="Script" uid="uid://r8ps5kvxd1f2" path="res://ui/dialogue_system.gd" id="1_18bea"]
+[ext_resource type="Script" path="res://ui/dialogue_system.gd" id="1_18bea"]
 [ext_resource type="Texture2D" uid="uid://dqe17hk8fqung" path="res://img/ui.png" id="1_best7"]
 [ext_resource type="Texture2D" uid="uid://dagl3jkqflf1u" path="res://img/uishish.png" id="2_18bea"]
 
@@ -17,8 +17,8 @@ cnm = NodePath("HBoxContainer2/MarginContainer2/Name/CenterContainer/Label")
 chcs = NodePath("HBoxContainer2/MarginContainer2/MarginContainer/CenterContainer/VBoxContainer")
 chcswin = NodePath("HBoxContainer2/MarginContainer2/MarginContainer")
 ind = NodePath("HBoxContainer2/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/TextureRect")
-name_window = NodePath("HBoxContainer2/MarginContainer2/Name")
 guypath = NodePath("character")
+name_window = NodePath("HBoxContainer2/MarginContainer2/Name")
 
 [node name="Timer" type="Timer" parent="." unique_id=2014448934]
 

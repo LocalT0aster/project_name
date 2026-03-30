@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://ddfgtdiaa8g75"]
+
+[ext_resource type="Texture2D" uid="uid://dvtqb24ydldie" path="res://img/spritesheet.png" id="1_0nrqi"]
+[ext_resource type="Script" uid="uid://bra76kkxuop57" path="res://objects/button.gd" id="1_bri14"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bri14"]
+size = Vector2(20, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8wdun"]
+size = Vector2(20, 10)
+
+[node name="button" type="Area2D" unique_id=530869141]
+script = ExtResource("1_bri14")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1507121564]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_bri14")
+
+[node name="default" type="Sprite2D" parent="." unique_id=624641812]
+position = Vector2(0, -8)
+texture = ExtResource("1_0nrqi")
+region_enabled = true
+region_rect = Rect2(32, 32, 16, 16)
+
+[node name="pressed" type="Sprite2D" parent="." unique_id=1127611055]
+visible = false
+position = Vector2(0, -8)
+texture = ExtResource("1_0nrqi")
+region_enabled = true
+region_rect = Rect2(48, 32, 16, 16)
+
+[node name="broken" type="Sprite2D" parent="." unique_id=159270109]
+visible = false
+position = Vector2(0, -8)
+texture = ExtResource("1_0nrqi")
+region_enabled = true
+region_rect = Rect2(32, 48, 16, 16)
+
+[node name="hurtbox" type="StaticBody2D" parent="." unique_id=1486254453]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox" unique_id=494732463]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_8wdun")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

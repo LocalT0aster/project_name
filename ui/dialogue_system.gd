@@ -13,7 +13,7 @@ extends Control
 @onready var chcswindow = get_node(chcswin)
 @export var textSpeed = 0.05
 var finished = false
-var link = preload("res://dil/lbtn.tscn")
+var link = preload("res://ui/lbtn.tscn")
 var dialogdata
 @export var guypath : NodePath
 @onready var guy = get_node(guypath)
@@ -103,7 +103,7 @@ func setup(dilstart):
 	var data = dialogdata[dilstart]
 	#if "command" in data:
 		#cp.process_general(data.command[0], data.command[1])
-	#
+	
 	#if "sound" in data:
 		#ostmanager.playsound(data.sound)
 	if "texture" in data:
@@ -146,10 +146,9 @@ func setup(dilstart):
 		next = str(int(next) + 1)
 	
 #	choices.get_child(1).grab_focus()
-	
+	finished = true
 	if opt:
 		chcswindow.show()
-	finished = true
 	indicator.visible = true
 
 func on_btn_prst(option):
@@ -158,7 +157,9 @@ func on_btn_prst(option):
 	if finished:
 		chcswindow.hide()
 		if option.next == "-1":
-			stop()
+			visible = false
+			next = "0"
+			emit_signal("finished_dialog")
 		else:
 			next = option.next
 			setup(option.next)
@@ -169,7 +170,6 @@ func stop():
 	finished = false
 	for child in choices.get_children():
 		child.queue_free()
-	opt = false
 	chcswindow.hide()
 	visible = false
 	next = "0"
