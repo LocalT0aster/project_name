@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cs0ktgtmjktqa"]
+
+[ext_resource type="PackedScene" uid="uid://umsei4jfaj2j" path="res://objects/player/player.tscn" id="1_mdkgh"]
+[ext_resource type="PackedScene" uid="uid://vtv3y1kcldqt" path="res://mechanics/movement/movement.tscn" id="2_crk2t"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g6e1r"]
+radius = 13.0
+height = 80.0
+
+[node name="golem" unique_id=2040731108 instance=ExtResource("1_mdkgh")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=792193039]
+region_rect = Rect2(64, 0, 16, 32)
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=595134198]
+shape = SubResource("CapsuleShape2D_g6e1r")
+
+[node name="MechanicsTree" parent="." index="2" unique_id=323197346]
+default_slots = Array[PackedScene]([ExtResource("2_crk2t")])
+
+[editable path="MechanicsTree"]

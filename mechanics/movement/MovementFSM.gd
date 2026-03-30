@@ -3,11 +3,11 @@ extends FSM
 
 @export var character: CharacterBody2D
 
-const ACTION_JUMP: StringName = &"ui_accept"
-const ACTION_RIGHT: StringName = &"ui_right"
-const ACTION_LEFT: StringName = &"ui_left"
-const ACTION_DOWN: StringName = &"ui_down"
-const ACTION_UP: StringName = &"ui_up"
+const ACTION_JUMP: StringName = &"jump"
+const ACTION_RIGHT: StringName = &"right"
+const ACTION_LEFT: StringName = &"left"
+const ACTION_DOWN: StringName = &"down"
+const ACTION_UP: StringName = &"up"
 
 @export var push_force = 80.0
 
