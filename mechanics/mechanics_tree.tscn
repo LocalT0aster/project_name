@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://ctrq8i6yvgixu"]
+
+[ext_resource type="PackedScene" uid="uid://bc13vpqc62d28" path="res://mechanics/movement/sidescroll/movement_sidescroll.tscn" id="1_e2elc"]
+
+[node name="MechanicsTree" type="Node" unique_id=323197346]
+
+[node name="Movement" parent="." unique_id=808798700 instance=ExtResource("1_e2elc")]

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bc13vpqc62d28"]
+
+[ext_resource type="PackedScene" uid="uid://vtv3y1kcldqt" path="res://mechanics/movement/movement.tscn" id="1_2hq27"]
+[ext_resource type="Script" uid="uid://b0j7vq3n0oo01" path="res://mechanics/movement/sidescroll/idle.gd" id="2_g5c3d"]
+[ext_resource type="Script" uid="uid://cwn2svbtm84ib" path="res://mechanics/movement/sidescroll/jump.gd" id="3_qwpyj"]
+[ext_resource type="Script" uid="uid://by8r2qkm2isy3" path="res://mechanics/movement/sidescroll/walk.gd" id="4_qwpyj"]
+
+[node name="Movement" unique_id=808798700 instance=ExtResource("1_2hq27")]
+
+[node name="idle" parent="." index="0" unique_id=1299775373]
+script = ExtResource("2_g5c3d")
+
+[node name="jump" type="Node" parent="." index="1" unique_id=380476694]
+script = ExtResource("3_qwpyj")
+
+[node name="walk" type="Node" parent="." index="2" unique_id=559998583]
+script = ExtResource("4_qwpyj")

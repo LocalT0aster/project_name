@@ -10,7 +10,7 @@ func _ready() -> void:
 	for child in get_children():
 		if child is State:
 			states[child.name.to_lower()] = child
-			child.transitioned.connect(on_child_transition)
+			child.transition.connect(on_child_transition)
 	
 	if initial_state:
 		initial_state.enter()
@@ -37,3 +37,5 @@ func on_child_transition(state, new_state_name):
 	
 	if current_state:
 		current_state.exit()
+	new_state.enter()
+	current_state = new_state

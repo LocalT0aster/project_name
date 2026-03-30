@@ -2,8 +2,8 @@ extends Node
 class_name State
 
 @warning_ignore("UNUSED_SIGNAL")
-signal transitioned
-#transitioned.emit("name_of_new_state")
+signal transition
+#transition.emit("name_of_new_state")
 func enter():
 	pass
 func exit():
