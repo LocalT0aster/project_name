@@ -38,7 +38,6 @@ func on_collision(coll):
 		move_vec /= 2
 		move_vec = move_vec.bounce(coll.get_normal())
 		return
-	$Line2D.add_point(global_position)
 	queue_free()
 
 func _on_timer_timeout() -> void:

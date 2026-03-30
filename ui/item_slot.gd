@@ -6,6 +6,8 @@ extends TextureRect
 		item_changed.emit(item)
 		item = value
 @export var type : String
+@export var fsm : PackedScene
+@export var default_mech : String = "Idle"
 @export var disabled : bool
 
 signal item_changed(item : Item)
