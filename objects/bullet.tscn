@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bx57kjgx36vc7"]
+
+[ext_resource type="Script" uid="uid://hhdh0r2epom2" path="res://objects/bullet.gd" id="1_hkcap"]
+[ext_resource type="Texture2D" uid="uid://dvtqb24ydldie" path="res://img/spritesheet.png" id="2_hyuyi"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hkcap"]
+radius = 5.0
+height = 14.0
+
+[node name="bullet" type="CharacterBody2D" unique_id=83715169]
+script = ExtResource("1_hkcap")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1043639821]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_hkcap")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=555071738]
+texture = ExtResource("2_hyuyi")
+region_enabled = true
+region_rect = Rect2(0, 32, 16, 16)
+
+[node name="Timer" type="Timer" parent="." unique_id=448997243]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

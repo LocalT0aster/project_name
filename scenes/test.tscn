@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ci3nclc18swwj"]
 
-[ext_resource type="PackedScene" uid="uid://umsei4jfaj2j" path="res://obj/player/player.tscn" id="1_errlg"]
-[ext_resource type="PackedScene" uid="uid://bip1jkrarx5u2" path="res://obj/crate.tscn" id="2_bl13t"]
+[ext_resource type="PackedScene" uid="uid://umsei4jfaj2j" path="res://objects/player/player.tscn" id="1_errlg"]
+[ext_resource type="PackedScene" uid="uid://bip1jkrarx5u2" path="res://objects/crate.tscn" id="2_bl13t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ij1v8"]
 size = Vector2(711, 20)
