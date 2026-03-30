@@ -12,12 +12,12 @@ const ACTION_UP: StringName = &"ui_up"
 @export var push_force = 80.0
 
 func _ready():
-    super()
-    var _parent = get_parent()
-    while(_parent != null and _parent != get_tree()):
-        if _parent is CharacterBody2D:
-            character = _parent as CharacterBody2D
-            break
-        _parent = _parent.get_parent()
-    if character == null or _parent == null or _parent == get_tree():
-        printerr("MovementFSM: unable to find ancestor CharacterBody2D")
+	super()
+	var _parent = get_parent()
+	while(_parent != null and _parent != get_tree()):
+		if _parent is CharacterBody2D:
+			character = _parent as CharacterBody2D
+			break
+		_parent = _parent.get_parent()
+	if character == null or _parent == null or _parent == get_tree():
+		printerr("MovementFSM: unable to find ancestor CharacterBody2D")

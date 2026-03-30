@@ -1,8 +1,7 @@
 class_name MechanicsTree
 extends Node
 
-func _ready() -> void:
-	pass
+@export var slots: Array[PackedScene]
 
-func _process(delta: float) -> void:
-	pass
+func _ready() -> void:
+	MechanicManager.object_tree[get_parent().name] = self
