@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cs1uatrp5346i"]
+
+[ext_resource type="Script" uid="uid://7dg0yeufdi7o" path="res://ui/lbtn.gd" id="1_35xyq"]
+[ext_resource type="FontFile" uid="uid://dfq65daliuljq" path="res://other/system.fnt" id="1_te1jr"]
+
+[node name="btn" type="HBoxContainer"]
+offset_right = 148.0
+offset_bottom = 19.0
+script = ExtResource("1_35xyq")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_te1jr")
+text = ">"
+
+[node name="LinkButton" type="LinkButton" parent="."]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_te1jr")
+theme_override_font_sizes/font_size = 28
+text = "asfdfsdf"
