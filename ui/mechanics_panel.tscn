@@ -45,10 +45,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 24.0
 offset_top = 18.119934
-offset_right = -26.0
-offset_bottom = -25.0
+offset_right = -1148.0
+offset_bottom = -170.20001
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2.5, 2.5)
 columns = 6
 
 [node name="ItemSlot" parent="inventory" unique_id=195078708 instance=ExtResource("2_qed5x")]
@@ -105,21 +106,28 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 1585.0
 offset_top = 73.0
-offset_right = -23.0
-offset_bottom = -369.0
+offset_right = -210.19995
+offset_bottom = -751.8
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2.5, 2.5)
 
 [node name="Player" type="VBoxContainer" parent="Slots" unique_id=2117432284]
 layout_mode = 2
 
-[node name="ItemSlot" parent="Slots/Player" unique_id=1248439775 instance=ExtResource("2_qed5x")]
+[node name="CenterContainer" type="CenterContainer" parent="Slots/Player" unique_id=1305414828]
+layout_mode = 2
+
+[node name="ItemSlot" parent="Slots/Player/CenterContainer" unique_id=1248439775 instance=ExtResource("2_qed5x")]
 layout_mode = 2
 texture = ExtResource("10_tiin1")
 slot = "blue"
 entity = &"player"
 
-[node name="ItemSlot2" parent="Slots/Player" unique_id=1969672670 instance=ExtResource("2_qed5x")]
+[node name="CenterContainer2" type="CenterContainer" parent="Slots/Player" unique_id=1402346948]
+layout_mode = 2
+
+[node name="ItemSlot2" parent="Slots/Player/CenterContainer2" unique_id=1969672670 instance=ExtResource("2_qed5x")]
 layout_mode = 2
 texture = ExtResource("11_joka8")
 slot = "yellow"
@@ -130,7 +138,10 @@ slot_index = 1
 visible = false
 layout_mode = 2
 
-[node name="ItemSlot" parent="Slots/Golem" unique_id=1685174338 instance=ExtResource("2_qed5x")]
+[node name="CenterContainer" type="CenterContainer" parent="Slots/Golem" unique_id=1513289918]
+layout_mode = 2
+
+[node name="ItemSlot" parent="Slots/Golem/CenterContainer" unique_id=1685174338 instance=ExtResource("2_qed5x")]
 layout_mode = 2
 texture = ExtResource("10_tiin1")
 slot = "blue"
