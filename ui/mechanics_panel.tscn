@@ -22,6 +22,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_wlcnm")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=154757105]
@@ -50,6 +51,7 @@ offset_bottom = -170.20001
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2.5, 2.5)
+mouse_filter = 0
 columns = 6
 
 [node name="ItemSlot" parent="inventory" unique_id=195078708 instance=ExtResource("2_qed5x")]
@@ -84,6 +86,7 @@ offset_right = -1578.0
 offset_bottom = -360.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 0
 
 [node name="Player" type="TextureButton" parent="Entities" unique_id=500356727]
 layout_mode = 2
@@ -113,7 +116,9 @@ grow_vertical = 2
 scale = Vector2(2.5, 2.5)
 
 [node name="Player" type="VBoxContainer" parent="Slots" unique_id=2117432284]
+visible = false
 layout_mode = 2
+mouse_filter = 0
 
 [node name="CenterContainer" type="CenterContainer" parent="Slots/Player" unique_id=1305414828]
 layout_mode = 2
@@ -137,6 +142,7 @@ slot_index = 1
 [node name="Golem" type="VBoxContainer" parent="Slots" unique_id=1600486851]
 visible = false
 layout_mode = 2
+mouse_filter = 0
 
 [node name="CenterContainer" type="CenterContainer" parent="Slots/Golem" unique_id=1513289918]
 layout_mode = 2

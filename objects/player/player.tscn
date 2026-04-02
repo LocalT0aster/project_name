@@ -24,4 +24,10 @@ shape = SubResource("CircleShape2D_xnc2w")
 [node name="MechanicsTree" parent="." unique_id=323197346 instance=ExtResource("3_ssrue")]
 default_slots = Array[PackedScene]([ExtResource("4_gnkmh"), ExtResource("5_xkryw")])
 
+[node name="Movement" parent="." unique_id=808798700 node_paths=PackedStringArray("character") instance=ExtResource("4_gnkmh")]
+character = NodePath("..")
+
+[node name="Spawn" parent="." unique_id=2005448656 node_paths=PackedStringArray("character") instance=ExtResource("5_xkryw")]
+character = NodePath("..")
+
 [editable path="MechanicsTree"]
