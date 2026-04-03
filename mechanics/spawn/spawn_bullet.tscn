@@ -7,6 +7,7 @@
 
 [node name="Spawn" type="Node" unique_id=2005448656 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_wh8as")
+prefab = ExtResource("4_sotbp")
 initial_state = NodePath("idle")
 
 [node name="idle" type="Node" parent="." unique_id=1267282509]
@@ -15,5 +16,4 @@ metadata/_custom_type_script = "uid://bk7opuu8p0c46"
 
 [node name="spawn" type="Node" parent="." unique_id=321675937]
 script = ExtResource("3_wh8as")
-prefab = ExtResource("4_sotbp")
 metadata/_custom_type_script = "uid://bk7opuu8p0c46"

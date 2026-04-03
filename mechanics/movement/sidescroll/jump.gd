@@ -1,11 +1,9 @@
 extends MovementStateSS
 
-@export var jump_velocity = -400
-
 func enter():
-	super()
-	parent.character.velocity.y = jump_velocity
-	transition.emit(self, "walk")
+	super ()
+	get_parent().character.velocity.y = - get_parent().jump_velocity
+	transition.emit(self , "walk")
 
 func _physics_process(_delta: float) -> void:
-	transition.emit(self, "walk")
+	transition.emit(self , "walk")

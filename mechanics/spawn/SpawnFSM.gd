@@ -1,13 +1,16 @@
 class_name SpawnFSM
 extends FSM
 
-@export var character: CharacterBody2D
+@export var prefab: PackedScene
+@export var distance: float = 32.0
 @export var at_cursor: bool = false
+const SPAWN_ACTION: StringName = &"left_mouse_click"
+@export var character: CharacterBody2D
 
 func _ready():
-	super()
+	super ()
 	var _parent = get_parent()
-	while(_parent != null and _parent != get_tree()):
+	while (_parent != null and _parent != get_tree()):
 		if _parent is CharacterBody2D:
 			character = _parent as CharacterBody2D
 			break

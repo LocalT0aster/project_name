@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://bafpwq7lju6wu" path="res://mechanics/mechanics_tree.gd" id="1_slvxu"]
 
-[node name="MechanicsTree" type="Node" unique_id=323197346]
+[node name="MechanicsTree" type="Node" unique_id=323197346 groups=["MechanicEntity"]]
 script = ExtResource("1_slvxu")

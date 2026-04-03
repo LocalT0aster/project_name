@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cs0ktgtmjktqa"]
 
 [ext_resource type="PackedScene" uid="uid://umsei4jfaj2j" path="res://objects/player/player.tscn" id="1_mdkgh"]
-[ext_resource type="PackedScene" uid="uid://vtv3y1kcldqt" path="res://mechanics/movement/movement.tscn" id="2_crk2t"]
+[ext_resource type="PackedScene" uid="uid://ded1f5llquggq" path="res://mechanics/noop.tscn" id="2_crk2t"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g6e1r"]
 radius = 13.0

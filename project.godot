@@ -88,6 +88,10 @@ project/assembly_name="project_name"
 
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 
+[global_group]
+
+MechanicEntity="Group for entities with MechanicTree"
+
 [gui]
 
 theme/custom_font="uid://c63w35tw2uwe3"

@@ -4,7 +4,5 @@
 [ext_resource type="PackedScene" uid="uid://bip1jkrarx5u2" path="res://objects/crate.tscn" id="2_u6kn4"]
 
 [node name="Spawn" unique_id=2005448656 instance=ExtResource("1_boa8e")]
-at_cursor = true
-
-[node name="spawn" parent="." index="1" unique_id=321675937]
 prefab = ExtResource("2_u6kn4")
+at_cursor = true
