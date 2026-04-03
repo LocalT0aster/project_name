@@ -1,6 +1,6 @@
 extends Node
 
-@export var object_tree: Dictionary[StringName, MechanicsTree] = {}
+@export var entity_trees: Dictionary[int, MechanicsTree] = {}
 
 func _ready() -> void:
 	pass

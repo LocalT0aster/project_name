@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://bkw6obcm1dpvs" path="res://objects/player/player.gd" id="1_x4w5f"]
 [ext_resource type="Texture2D" uid="uid://dvtqb24ydldie" path="res://img/spritesheet.png" id="2_gnkmh"]
 [ext_resource type="PackedScene" uid="uid://ctrq8i6yvgixu" path="res://mechanics/mechanics_tree.tscn" id="3_ssrue"]
-[ext_resource type="PackedScene" uid="uid://ded1f5llquggq" path="res://mechanics/noop.tscn" id="4_jnjyq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xnc2w"]
 radius = 16.0
@@ -21,6 +20,6 @@ region_rect = Rect2(0, 0, 16, 16)
 shape = SubResource("CircleShape2D_xnc2w")
 
 [node name="MechanicsTree" parent="." unique_id=323197346 instance=ExtResource("3_ssrue")]
-default_slots = Array[PackedScene]([ExtResource("4_jnjyq"), ExtResource("4_jnjyq")])
+enabled_slots = Array[bool]([false, true, true, false])
 
 [editable path="MechanicsTree"]

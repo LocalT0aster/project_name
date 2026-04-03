@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cs0ktgtmjktqa"]
 
 [ext_resource type="PackedScene" uid="uid://umsei4jfaj2j" path="res://objects/player/player.tscn" id="1_mdkgh"]
-[ext_resource type="PackedScene" uid="uid://ded1f5llquggq" path="res://mechanics/noop.tscn" id="2_crk2t"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g6e1r"]
 radius = 13.0
@@ -16,6 +15,6 @@ region_rect = Rect2(64, 0, 16, 32)
 shape = SubResource("CapsuleShape2D_g6e1r")
 
 [node name="MechanicsTree" parent="." index="2" unique_id=323197346]
-default_slots = Array[PackedScene]([ExtResource("2_crk2t")])
+enabled_slots = Array[bool]([false, true, false, false])
 
 [editable path="MechanicsTree"]

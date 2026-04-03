@@ -15,12 +15,7 @@ extends TextureRect
 #signal item_changed(item: Item)
 
 func set_slot_mechanic(item: Item):
-	if (not entity) or (entity == "") or (not slot) or (slot == "") or (not MechanicManager.object_tree[entity]):
-		return
-	if item:
-		MechanicManager.object_tree[entity].set_slot(slot_index, item.mechanic)
-	else:
-		MechanicManager.object_tree[entity].set_slot(slot_index, null)
+	pass
 
 func _ready() -> void:
 	#item_changed.connect(set_slot_mechanic)

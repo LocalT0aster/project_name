@@ -1,28 +1,44 @@
 class_name MechanicsTree
 extends Node
 
-@export var default_slots: Array[PackedScene]
-@export var loaded: Array[FSM]
+var e_name: StringName:
+	get:
+		return get_parent().name
+	set(value):
+		get_parent().name = value
+@export var enabled_slots: Array[bool] = [false, false, false, false]
+var slots: Dictionary[Slot.Colors, Slot] = {}
 
 func _ready() -> void:
-	MechanicManager.object_tree[get_parent().name] = self
-	loaded.resize(default_slots.size())
-	var i = 0
-	for s in default_slots:
-		var fsm = s.instantiate() as FSM
-		loaded.set(i, fsm)
-		add_child(fsm)
-		i+=1
+	MechanicManager.entity_trees[get_parent().get_instance_id()] = self
+	if get_child_count() == 0:
+		for i in range(1, Slot.Colors.size()):
+			if not enabled_slots[i]:
+				continue
+			var s = Slot.new()
+			s.color = i
+			slots[i] = s
+			add_child(s)
+	else:
+		for c in get_children():
+			assert(c is Slot, "MechanicTree must contain Slots.")
+			if enabled_slots[c.color] and not slots.has(c.color): # if enabled and is not a duplicate color
+				slots[c.color] = c
+			else:
+				c.queue_free()
 
-func set_slot(index: int, scene: PackedScene) -> void:
-	if index >= default_slots.size() or index < 0:
-		printerr("MechanicsTree: got out of bounds index")
-	if loaded[index]:
-		loaded[index].process_mode = Node.PROCESS_MODE_DISABLED
-		loaded[index].queue_free()
-		loaded[index] = null
-	if not scene:
-		scene = default_slots[index]
-	var fsm = scene.instantiate() as FSM
-	loaded[index] = fsm
-	add_child(fsm)
+
+func get_slot(color: Slot.Colors) -> Slot:
+	return slots[color] if enabled_slots[color] else null
+
+
+func get_slot_mechanic(color: Slot.Colors) -> FSM:
+	return slots[color].get_child(0) if enabled_slots[color] else null
+
+
+func set_slot_mechanic(color: Slot.Colors, scene: PackedScene) -> bool:
+	if enabled_slots[color]:
+		return slots[color].set_mechanic(scene)
+	else:
+		printerr("Tried to set mechanic to disabled slot.")
+		return false
