@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://da40dr8c8aunh"]
+
+[ext_resource type="Theme" uid="uid://140a1ctc1t05" path="res://other/base_theme.tres" id="1_d6xae"]
+[ext_resource type="Texture2D" uid="uid://b2dqnxou7ppj0" path="res://img/CharacterIcon.png" id="2_sphfc"]
+[ext_resource type="Script" uid="uid://nqep546o1qxh" path="res://ui/entity_button.gd" id="3_sphfc"]
+
+[node name="Player" type="Button" unique_id=545617279]
+theme = ExtResource("1_d6xae")
+toggle_mode = true
+text = "Player"
+icon = ExtResource("2_sphfc")
+alignment = 0
+script = ExtResource("3_sphfc")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

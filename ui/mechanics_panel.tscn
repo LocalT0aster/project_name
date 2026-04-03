@@ -3,11 +3,10 @@
 [ext_resource type="Script" uid="uid://de7dihihndvcp" path="res://ui/mechanics_panel.gd" id="1_wlcnm"]
 [ext_resource type="Texture2D" uid="uid://cg2spk08mxs1c" path="res://img/SceneNPR.png" id="2_ggcyv"]
 [ext_resource type="PackedScene" uid="uid://brvofplgoit6f" path="res://ui/item_slot.tscn" id="2_qed5x"]
+[ext_resource type="PackedScene" uid="uid://da40dr8c8aunh" path="res://ui/entity_button.tscn" id="3_joka8"]
 [ext_resource type="Resource" uid="uid://dqod2uls5x2t6" path="res://items/spawn_bullet.tres" id="4_8a6gg"]
 [ext_resource type="Resource" uid="uid://xf0hu5fhwt6o" path="res://items/spawn_crate.tres" id="5_v3ev7"]
 [ext_resource type="Resource" uid="uid://cxq3tn5n4ko46" path="res://items/walk.tres" id="6_l6l7g"]
-[ext_resource type="Texture2D" uid="uid://b2dqnxou7ppj0" path="res://img/CharacterIcon.png" id="7_ggcyv"]
-[ext_resource type="Theme" uid="uid://140a1ctc1t05" path="res://other/base_theme.tres" id="7_l6l7g"]
 [ext_resource type="Texture2D" uid="uid://ds6ybb5d86j3n" path="res://img/ViewNPR.png" id="8_8a6gg"]
 [ext_resource type="Texture2D" uid="uid://blwrp0eo1wqkf" path="res://img/InventoryNPR.png" id="10_dam2m"]
 [ext_resource type="Texture2D" uid="uid://bors8f18elgqx" path="res://img/blueMechanicSlot.png" id="10_tiin1"]
@@ -67,22 +66,13 @@ theme_override_constants/margin_bottom = 5
 layout_mode = 2
 mouse_filter = 0
 
-[node name="Player" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer2/Entities" unique_id=99017378]
+[node name="Player" parent="HBoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer2/Entities" unique_id=545617279 instance=ExtResource("3_joka8")]
 layout_mode = 2
-theme = ExtResource("7_l6l7g")
-toggle_mode = true
-text = "Player"
-icon = ExtResource("7_ggcyv")
-alignment = 0
 
-[node name="Golem" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer2/Entities" unique_id=1005090142]
+[node name="Golem" parent="HBoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer2/Entities" unique_id=385951878 instance=ExtResource("3_joka8")]
 layout_mode = 2
-theme = ExtResource("7_l6l7g")
-toggle_mode = true
 text = "Golem
 "
-icon = ExtResource("7_ggcyv")
-alignment = 0
 
 [node name="View" type="NinePatchRect" parent="HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1701797413]
 layout_mode = 2
