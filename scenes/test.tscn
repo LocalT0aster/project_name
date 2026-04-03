@@ -2,9 +2,26 @@
 
 [ext_resource type="PackedScene" uid="uid://umsei4jfaj2j" path="res://objects/player/player.tscn" id="1_errlg"]
 [ext_resource type="PackedScene" uid="uid://bip1jkrarx5u2" path="res://objects/crate.tscn" id="2_bl13t"]
+[ext_resource type="PackedScene" uid="uid://b4l3vep3dj0na" path="res://ui/mechanics_panel.tscn" id="3_iyx0m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ij1v8"]
 size = Vector2(711, 20)
+
+[sub_resource type="GDScript" id="GDScript_bl13t"]
+resource_name = "dial"
+script/source = "extends Area2D
+
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if Dialogic.current_timeline != null:
+		return
+	Dialogic.start('test1')
+	get_viewport().set_input_as_handled()
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iyx0m"]
+radius = 19.026299
 
 [node name="test" type="Node2D" unique_id=2141244955]
 
@@ -18,5 +35,21 @@ shape = SubResource("RectangleShape2D_ij1v8")
 [node name="player" parent="." unique_id=2040731108 instance=ExtResource("1_errlg")]
 position = Vector2(101, 306)
 
+[node name="Camera2D" type="Camera2D" parent="player" unique_id=771185327]
+
 [node name="RigidBody2D" parent="." unique_id=736076425 instance=ExtResource("2_bl13t")]
 position = Vector2(276, 339)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1275103445]
+position = Vector2(431, 351)
+script = SubResource("GDScript_bl13t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=215158574]
+position = Vector2(0, 7)
+shape = SubResource("CircleShape2D_iyx0m")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1985957901]
+
+[node name="MechanicsPanel" parent="CanvasLayer" unique_id=1660838940 instance=ExtResource("3_iyx0m")]
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
