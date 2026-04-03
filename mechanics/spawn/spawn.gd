@@ -5,7 +5,7 @@ extends State
 
 func enter():
 	var character = (get_parent() as SpawnFSM).character
-	var cursor = (character as Node2D).global_position
+	#var cursor = (character as Node2D).global_position
 	var object = (prefab.instantiate() as Node2D)
 	if (get_parent() as SpawnFSM).at_cursor:
 		object.global_position = character.get_global_mouse_position()

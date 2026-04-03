@@ -7,5 +7,5 @@ func enter():
 	parent.character.velocity.y = jump_velocity
 	transition.emit(self, "walk")
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	transition.emit(self, "walk")

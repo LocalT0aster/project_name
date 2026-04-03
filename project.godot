@@ -22,18 +22,14 @@ config/icon="res://icon.svg"
 MechanicManager="*uid://dlvfjeaeuqx0x"
 Dialogic="*uid://ds2q0uclmolvu"
 
-[debug]
-
-gdscript/warnings/directory_rules={
-"res://addons": 0,
-"res://addons/dialogic": 1
-}
-
 [dialogic]
 
 directories/dch_directory={}
 directories/dtl_directory={}
 layout/style_directory={}
+layout/style_list=[]
+layout/default_style="Default"
+glossary/default_case_sensitive=true
 
 [display]
 

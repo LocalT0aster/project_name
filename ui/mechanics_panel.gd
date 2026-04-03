@@ -29,5 +29,5 @@ func _notification (what: int) -> void:
 				data_bk.update_ui()
 				data_bk = null
 
-func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
+func _can_drop_data(_at_position: Vector2, _data: Variant) -> bool:
 	return false

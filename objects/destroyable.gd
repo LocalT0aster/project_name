@@ -1,4 +1,4 @@
 extends PhysicsBody2D
 
-func hurt(a,b):
+func hurt(_a, _b):
 	queue_free()
