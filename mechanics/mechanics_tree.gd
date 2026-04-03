@@ -10,7 +10,7 @@ var e_name: StringName:
 var slots: Dictionary[Slot.Colors, Slot] = {}
 
 func _ready() -> void:
-	MechanicManager.entity_trees[get_parent().get_instance_id()] = self
+	# MechanicManager.entity_trees[get_instance_id()] = self
 	if get_child_count() == 0:
 		for i in range(1, Slot.Colors.size()):
 			if not enabled_slots[i]:

@@ -9,4 +9,4 @@ script = ExtResource("1_bi61n")
 sprite = ExtResource("2_cnip5")
 mechanic_name = "Walk"
 mechanic = ExtResource("1_kco8d")
-slot = "blue"
+color = 1

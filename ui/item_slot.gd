@@ -1,24 +1,14 @@
 extends TextureRect
 
 @onready var icon: TextureRect = $Icon
-@export var item : Item#:
-	#set(value):
-		#item_changed.emit(item)
-		#item = value
-@export_enum("blue", "yellow") var slot : String
-@export var fsm : PackedScene
-@export var entity: StringName
-@export var slot_index: int = 0
-@export var default_mech : String = "Idle"
-@export var disabled : bool
+@export var item: Item = null
+@export var color: Slot.Colors = Slot.Colors.NONE
+@export var entity: int = 0
+@export var disabled: bool = false
 
-#signal item_changed(item: Item)
-
-func set_slot_mechanic(item: Item):
-	pass
+signal item_changed(item: Item)
 
 func _ready() -> void:
-	#item_changed.connect(set_slot_mechanic)
 	update_ui()
 
 func update_ui() -> void:
@@ -33,7 +23,7 @@ func update_ui() -> void:
 func _get_drag_data(_at_position: Vector2) -> Variant:
 	if not item:
 		return
-	var preview : TextureRect = duplicate()
+	var preview: TextureRect = duplicate()
 	var c = Control.new()
 	preview.texture = null
 	#preview.position -= Vector2(32, 8)
@@ -45,16 +35,16 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 	return self
 
 func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
-	if (slot != "" and data.item.slot != slot) or disabled: return false
+	if (color != Slot.Colors.NONE and data.item.color != color) or disabled: return false
 	return true
 
 func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	var tmp = item
 	item = data.item
-	if slot and slot != "":
-		set_slot_mechanic(item)
-	elif data.slot and data.slot != "":
-		data.set_slot_mechanic(tmp)
+	if color != Slot.Colors.NONE and entity != 0:
+		item_changed.emit(item)
+	elif data.color != Slot.Colors.NONE:
+		data.item_changed.emit(tmp)
 	data.item = tmp
 	#icon.show()
 	#data.icon.show()

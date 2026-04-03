@@ -9,4 +9,4 @@ script = ExtResource("1_ga8e4")
 sprite = ExtResource("2_fkssi")
 mechanic_name = "SpawnCrate"
 mechanic = ExtResource("1_2v7f3")
-slot = "yellow"
+color = 2
