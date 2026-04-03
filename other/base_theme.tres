@@ -1,0 +1,59 @@
+[gd_resource type="Theme" format=3 uid="uid://140a1ctc1t05"]
+
+[ext_resource type="FontFile" uid="uid://c63w35tw2uwe3" path="res://other/system.fnt" id="1_sl8ok"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sl8ok"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.06778619, 0.12169791, 0.21608019, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0s77r"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1764706, 0.35686275, 0.52156866, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y2l5o"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1764706, 0.35686275, 0.52156866, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fhx8v"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.2522932, 0.58462536, 0.776771, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lekan"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1254902, 0.20392157, 0.34117648, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ov0f2"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.20392157, 0.5137255, 0.6901961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tjakl"]
+bg_color = Color(0.105882354, 0.13725491, 0.2627451, 1)
+
+[resource]
+default_font = ExtResource("1_sl8ok")
+Button/colors/font_color = Color(0.85490197, 0.88235295, 0.8980392, 1)
+Button/styles/disabled = SubResource("StyleBoxFlat_sl8ok")
+Button/styles/focus = SubResource("StyleBoxFlat_0s77r")
+Button/styles/hover = SubResource("StyleBoxFlat_y2l5o")
+Button/styles/hover_pressed = SubResource("StyleBoxFlat_fhx8v")
+Button/styles/normal = SubResource("StyleBoxFlat_lekan")
+Button/styles/pressed = SubResource("StyleBoxFlat_ov0f2")
+Panel/styles/panel = SubResource("StyleBoxFlat_tjakl")

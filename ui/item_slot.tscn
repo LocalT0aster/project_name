@@ -4,7 +4,11 @@
 [ext_resource type="Script" uid="uid://dr0507jqdktnp" path="res://ui/item_slot.gd" id="2_gpwhp"]
 
 [node name="ItemSlot" type="TextureRect" unique_id=195078708]
-scale = Vector2(2.5, 2.5)
+anchors_preset = -1
+anchor_right = 0.040000003
+anchor_bottom = 0.065000005
+offset_right = -24.000002
+offset_bottom = -26.000002
 texture = ExtResource("1_lxngi")
 stretch_mode = 4
 script = ExtResource("2_gpwhp")

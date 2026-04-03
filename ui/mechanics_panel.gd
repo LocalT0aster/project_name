@@ -1,17 +1,20 @@
 extends Control
 
+@export var entities_cont : Control
+@export var slots_cont : Control
+
 var entities : Dictionary
 var slots : Dictionary
 #entities and slots should have similar names
 func _ready() -> void:
-	for button in $Entities.get_children():
+	for button in entities_cont.get_children():
 		entities[button.name.to_lower()] = button
 		button.toggled.connect(on_button_toggle.bind(button.name))
-	for slot in $Slots.get_children():
+	for slot in slots_cont.get_children():
 		slots[slot.name.to_lower()] = slot
 
 func on_button_toggle(togled_on : bool, button_name : String):
-	for slot in $Slots.get_children():
+	for slot in slots_cont.get_children():
 		slot.hide()
 	if !togled_on: return
 	for button in entities.keys():

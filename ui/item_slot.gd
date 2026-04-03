@@ -41,7 +41,7 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 	var preview : TextureRect = duplicate()
 	var c = Control.new()
 	preview.texture = null
-	preview.position -= Vector2(32, 8)
+	#preview.position -= Vector2(32, 8)
 	c.rotation = deg_to_rad(-30)
 	c.modulate = Color(c.modulate, 0.5)
 	c.add_child(preview)

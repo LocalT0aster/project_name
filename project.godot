@@ -33,10 +33,12 @@ glossary/default_case_sensitive=true
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
+window/size/viewport_width=600
+window/size/viewport_height=400
 window/size/mode=2
 window/size/sharp_corners=true
+window/stretch/mode="canvas_items"
+window/stretch/scale_mode="integer"
 
 [dotnet]
 
@@ -45,6 +47,10 @@ project/assembly_name="project_name"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
+
+[gui]
+
+theme/custom_font="uid://c63w35tw2uwe3"
 
 [input]
 

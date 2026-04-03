@@ -22,7 +22,6 @@ region_rect = Rect2(64, 32, 16, 16)
 [node name="player" parent="." unique_id=2040731108 instance=ExtResource("2_dwgg1")]
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=1722819244]
-zoom = Vector2(3, 3)
 
 [node name="golem" parent="." unique_id=313941808 instance=ExtResource("3_dwgg1")]
 position = Vector2(690, 145)
