@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="DialogicStyle" format=3 uid="uid://drv7ax87b6kai"]
+
+[ext_resource type="PackedScene" uid="uid://drwsv53nqnusn" path="res://dil_UI/CustomNewFile/custom_new_file.tscn" id="1_30tx8"]
+[ext_resource type="Script" uid="uid://bwg6yncmh2cml" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="2_4ema0"]
+[ext_resource type="Script" uid="uid://dv08k6ljua6fm" path="res://addons/dialogic/Resources/dialogic_style.gd" id="11_oooeh"]
+
+[sub_resource type="Resource" id="Resource_3tyru"]
+script = ExtResource("2_4ema0")
+scene = ExtResource("1_30tx8")
+overrides = {
+"canvas_layer": "5.0"
+}
+
+[resource]
+script = ExtResource("11_oooeh")
+name = "New_File"
+layer_info = {
+"": SubResource("Resource_3tyru")
+}
+metadata/_latest_layer = ""

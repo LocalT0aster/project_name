@@ -31,11 +31,11 @@ directories/dtl_directory={
 "test1": "res://timelines/test1.dtl"
 }
 layout/style_directory={
-"": "res://dil_UI/style.tres",
-"style": "res://dil_UI/style.tres"
+"": "res://dil_UI/New_File.tres",
+"New_File": "res://dil_UI/New_File.tres"
 }
-layout/style_list=[]
-layout/default_style=""
+layout/style_list=["res://dil_UI/New_File.tres"]
+layout/default_style="res://dil_UI/New_File.tres"
 glossary/default_case_sensitive=true
 variables={}
 text/letter_speed=0.01
