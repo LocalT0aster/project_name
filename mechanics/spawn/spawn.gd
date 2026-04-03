@@ -1,7 +1,7 @@
 extends State
 
 @export var prefab: PackedScene
-@export var distance: float = 64.0
+@export var distance: float = 32.0
 
 func enter():
 	var character = (get_parent() as SpawnFSM).character

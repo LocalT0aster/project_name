@@ -1,18 +1,21 @@
 [gd_scene format=3 uid="uid://bip1jkrarx5u2"]
 
+[ext_resource type="Script" uid="uid://bqvxwmamlaiuf" path="res://objects/destroyable.gd" id="1_qvndx"]
 [ext_resource type="Texture2D" uid="uid://dvtqb24ydldie" path="res://img/spritesheet.png" id="1_qx60w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bl13t"]
-size = Vector2(63, 63)
+size = Vector2(32, 32)
 
 [node name="RigidBody2D" type="RigidBody2D" unique_id=736076425]
+mass = 10.0
+can_sleep = false
+script = ExtResource("1_qvndx")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=514956651]
-scale = Vector2(5, 5)
+scale = Vector2(2.5, 2.5)
 texture = ExtResource("1_qx60w")
 region_enabled = true
 region_rect = Rect2(50, 19, 13, 13)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=50694223]
-position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_bl13t")
