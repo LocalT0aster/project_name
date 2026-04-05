@@ -44,6 +44,30 @@ content_margin_right = 4.0
 content_margin_bottom = 4.0
 bg_color = Color(0.20392157, 0.5137255, 0.6901961, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pwapx"]
+bg_color = Color(1, 1, 1, 0.4)
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5cf8l"]
+bg_color = Color(1, 1, 1, 0.75)
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i577e"]
+bg_color = Color(0.75, 0.75, 0.75, 0.75)
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_80np0"]
+content_margin_left = 0.0
+content_margin_top = 1.0
+content_margin_right = 0.0
+content_margin_bottom = 1.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 6
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tjakl"]
 bg_color = Color(0.105882354, 0.13725491, 0.2627451, 1)
 
@@ -87,6 +111,10 @@ Button/styles/hover = SubResource("StyleBoxFlat_y2l5o")
 Button/styles/hover_pressed = SubResource("StyleBoxFlat_fhx8v")
 Button/styles/normal = SubResource("StyleBoxFlat_lekan")
 Button/styles/pressed = SubResource("StyleBoxFlat_ov0f2")
+HScrollBar/styles/grabber = SubResource("StyleBoxFlat_pwapx")
+HScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_5cf8l")
+HScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_i577e")
+HScrollBar/styles/scroll = SubResource("StyleBoxFlat_80np0")
 Panel/styles/panel = SubResource("StyleBoxFlat_tjakl")
 VScrollBar/styles/grabber = SubResource("StyleBoxFlat_s782m")
 VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_qi18l")

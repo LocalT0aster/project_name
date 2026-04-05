@@ -5,6 +5,7 @@ extends Control
 
 @export var entities_container: Control
 @export var inspectors_container: Control
+@export var inventory_container: Control
 
 var _id2button: Dictionary[int, EntityButton] = {}
 var _id2inspector: Dictionary[int, EntityInspector] = {}

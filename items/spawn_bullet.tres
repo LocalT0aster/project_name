@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Item" format=3 uid="uid://dqod2uls5x2t6"]
+[gd_resource type="Resource" script_class="ItemMechanic" format=3 uid="uid://dqod2uls5x2t6"]
 
 [ext_resource type="Script" uid="uid://cl5pgg4hly830" path="res://other/item_mechanic.gd" id="1_24v60"]
 [ext_resource type="PackedScene" uid="uid://cg33uuov4gl8k" path="res://mechanics/spawn/spawn_bullet.tscn" id="1_jsbmw"]

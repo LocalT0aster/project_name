@@ -8,7 +8,15 @@ extends TextureRect
 
 signal item_changed(item: ItemMechanic)
 
+@export var color_texture: Dictionary[Slot.Colors, Texture2D] = {
+	Slot.Colors.NONE: preload("res://img/itemslot.png"),
+	Slot.Colors.BLUE: preload("res://img/blueMechanicSlot.png"),
+	Slot.Colors.YELLOW: preload("res://img/yellowMechanicSlot.png"),
+	Slot.Colors.GREEN: preload("res://img/greenMechanicSlot.png")
+}
+
 func _ready() -> void:
+	texture = color_texture[color]
 	update_ui()
 
 func update_ui() -> void:
