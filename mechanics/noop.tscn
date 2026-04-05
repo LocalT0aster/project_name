@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bk7opuu8p0c46" path="res://other/State.gd" id="2_n6q11"]
 
 [node name="Noop" type="Node" unique_id=1863611656 node_paths=PackedStringArray("initial_state")]
+editor_description = "Mechanic (FSM) that does nothing"
 script = ExtResource("1_ttijo")
 initial_state = NodePath("idle")
 metadata/_custom_type_script = "uid://41yhgwjxxhn5"

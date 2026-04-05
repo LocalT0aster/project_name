@@ -10,12 +10,11 @@
 [ext_resource type="Resource" uid="uid://cxq3tn5n4ko46" path="res://items/walk.tres" id="6_l6l7g"]
 [ext_resource type="Texture2D" uid="uid://ds6ybb5d86j3n" path="res://img/ViewNPR.png" id="8_8a6gg"]
 [ext_resource type="Texture2D" uid="uid://blwrp0eo1wqkf" path="res://img/InventoryNPR.png" id="10_dam2m"]
-[ext_resource type="Texture2D" uid="uid://bors8f18elgqx" path="res://img/blueMechanicSlot.png" id="10_tiin1"]
-[ext_resource type="Texture2D" uid="uid://ccwcuvaji1noi" path="res://img/yellowMechanicSlot.png" id="11_joka8"]
+[ext_resource type="PackedScene" uid="uid://cuxa2reyudsr3" path="res://ui/entity_inspector.tscn" id="12_v3ev7"]
 [ext_resource type="PackedScene" uid="uid://by758n0rxwl5x" path="res://other/quit_game.tscn" id="14_8a6gg"]
 [ext_resource type="Texture2D" uid="uid://dkcblfp0agbcr" path="res://img/InspectorNPR.png" id="15_0ycoe"]
 
-[node name="MechanicsPanel" type="Control" unique_id=1660838940 node_paths=PackedStringArray("entities_cont", "slots_cont")]
+[node name="MechanicsPanel" type="Control" unique_id=1660838940 node_paths=PackedStringArray("entities_container", "inspectors_container")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,8 +23,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_wlcnm")
-entities_cont = NodePath("HBoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer2/ScrollContainer/Entities")
-slots_cont = NodePath("HBoxContainer/Inspector/Slots")
+entities_container = NodePath("HBoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer2/ScrollContainer/Entities")
+inspectors_container = NodePath("HBoxContainer/InspectorFrame/Inspectors")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1476382815]
 layout_mode = 1
@@ -68,7 +67,7 @@ theme_override_constants/margin_bottom = 5
 layout_mode = 2
 theme = ExtResource("3_un5c5")
 horizontal_scroll_mode = 0
-vertical_scroll_mode = 4
+vertical_scroll_mode = 2
 scroll_hint_mode = 1
 
 [node name="Entities" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer2/ScrollContainer" unique_id=885528995]
@@ -77,11 +76,6 @@ mouse_filter = 0
 
 [node name="Player" parent="HBoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer2/ScrollContainer/Entities" unique_id=545617279 instance=ExtResource("3_joka8")]
 layout_mode = 2
-
-[node name="Golem" parent="HBoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer2/ScrollContainer/Entities" unique_id=385951878 instance=ExtResource("3_joka8")]
-layout_mode = 2
-text = "Golem
-"
 
 [node name="View" type="NinePatchRect" parent="HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1701797413]
 layout_mode = 2
@@ -137,7 +131,7 @@ layout_mode = 2
 [node name="ItemSlot6" parent="HBoxContainer/VBoxContainer/MarginContainer/MarginContainer/inventory" unique_id=32993356 instance=ExtResource("2_qed5x")]
 layout_mode = 2
 
-[node name="Inspector" type="NinePatchRect" parent="HBoxContainer" unique_id=1951402087]
+[node name="InspectorFrame" type="NinePatchRect" parent="HBoxContainer" unique_id=1951402087]
 layout_mode = 2
 texture = ExtResource("15_0ycoe")
 patch_margin_left = 53
@@ -145,7 +139,7 @@ patch_margin_top = 15
 patch_margin_right = 4
 patch_margin_bottom = 3
 
-[node name="Slots" type="MarginContainer" parent="HBoxContainer/Inspector" unique_id=1077605027]
+[node name="Inspectors" type="MarginContainer" parent="HBoxContainer/InspectorFrame" unique_id=1077605027]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -153,39 +147,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 17
+theme_override_constants/margin_top = 19
 theme_override_constants/margin_right = 6
 theme_override_constants/margin_bottom = 5
 
-[node name="Player" type="VBoxContainer" parent="HBoxContainer/Inspector/Slots" unique_id=2117432284]
+[node name="Player" parent="HBoxContainer/InspectorFrame/Inspectors" unique_id=1071468728 instance=ExtResource("12_v3ev7")]
 layout_mode = 2
-mouse_filter = 0
-
-[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/Inspector/Slots/Player" unique_id=1305414828]
-layout_mode = 2
-
-[node name="ItemSlot" parent="HBoxContainer/Inspector/Slots/Player/CenterContainer" unique_id=1248439775 instance=ExtResource("2_qed5x")]
-layout_mode = 2
-texture = ExtResource("10_tiin1")
-
-[node name="CenterContainer2" type="CenterContainer" parent="HBoxContainer/Inspector/Slots/Player" unique_id=1402346948]
-layout_mode = 2
-
-[node name="ItemSlot2" parent="HBoxContainer/Inspector/Slots/Player/CenterContainer2" unique_id=1969672670 instance=ExtResource("2_qed5x")]
-layout_mode = 2
-texture = ExtResource("11_joka8")
-
-[node name="Golem" type="VBoxContainer" parent="HBoxContainer/Inspector/Slots" unique_id=1600486851]
-visible = false
-layout_mode = 2
-mouse_filter = 0
-
-[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/Inspector/Slots/Golem" unique_id=1513289918]
-layout_mode = 2
-
-[node name="ItemSlot" parent="HBoxContainer/Inspector/Slots/Golem/CenterContainer" unique_id=1685174338 instance=ExtResource("2_qed5x")]
-layout_mode = 2
-texture = ExtResource("10_tiin1")
 
 [node name="QuitGame" parent="." unique_id=1789896429 instance=ExtResource("14_8a6gg")]
 layout_mode = 0

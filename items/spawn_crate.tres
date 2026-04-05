@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="Item" format=3 uid="uid://xf0hu5fhwt6o"]
+[gd_resource type="Resource" script_class="ItemMechanic" format=3 uid="uid://xf0hu5fhwt6o"]
 
 [ext_resource type="PackedScene" uid="uid://cp8ng5weksopl" path="res://mechanics/spawn/spawn_crate.tscn" id="1_2v7f3"]
-[ext_resource type="Script" uid="uid://cl5pgg4hly830" path="res://other/item.gd" id="1_ga8e4"]
+[ext_resource type="Script" uid="uid://cl5pgg4hly830" path="res://other/item_mechanic.gd" id="1_ga8e4"]
 [ext_resource type="Texture2D" uid="uid://c4vv3vvlnvg3u" path="res://img/boxSpawnMechanicCard.png" id="2_fkssi"]
 
 [resource]

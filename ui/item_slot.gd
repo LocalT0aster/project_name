@@ -1,12 +1,12 @@
+class_name ItemSlot
 extends TextureRect
 
 @onready var icon: TextureRect = $Icon
-@export var item: Item = null
+@export var item: ItemMechanic = null
 @export var color: Slot.Colors = Slot.Colors.NONE
-@export var entity: int = 0
 @export var disabled: bool = false
 
-signal item_changed(item: Item)
+signal item_changed(item: ItemMechanic)
 
 func _ready() -> void:
 	update_ui()
@@ -41,7 +41,7 @@ func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	var tmp = item
 	item = data.item
-	if color != Slot.Colors.NONE and entity != 0:
+	if color != Slot.Colors.NONE:
 		item_changed.emit(item)
 	elif data.color != Slot.Colors.NONE:
 		data.item_changed.emit(tmp)

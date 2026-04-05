@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://cuxa2reyudsr3"]
+
+[ext_resource type="Script" uid="uid://dbhw2gbdrinm" path="res://ui/entity_inspector.gd" id="1_4ovl3"]
+[ext_resource type="PackedScene" uid="uid://brvofplgoit6f" path="res://ui/item_slot.tscn" id="1_nuska"]
+[ext_resource type="Texture2D" uid="uid://bors8f18elgqx" path="res://img/blueMechanicSlot.png" id="2_4ovl3"]
+[ext_resource type="Texture2D" uid="uid://ccwcuvaji1noi" path="res://img/yellowMechanicSlot.png" id="3_5mntv"]
+
+[node name="EntityInspector" type="VBoxContainer" unique_id=1367658130 node_paths=PackedStringArray("slots_container", "params_container")]
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = -1896.0
+offset_bottom = 64.0
+grow_horizontal = 2
+script = ExtResource("1_4ovl3")
+slots_container = NodePath("CenterContainer/Slots")
+params_container = NodePath("Parameters")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=457176989]
+layout_mode = 2
+
+[node name="Slots" type="VBoxContainer" parent="CenterContainer" unique_id=1028771330]
+layout_mode = 2
+
+[node name="ItemSlot" parent="CenterContainer/Slots" unique_id=195078708 instance=ExtResource("1_nuska")]
+layout_mode = 2
+texture = ExtResource("2_4ovl3")
+
+[node name="ItemSlot2" parent="CenterContainer/Slots" unique_id=1107666780 instance=ExtResource("1_nuska")]
+layout_mode = 2
+texture = ExtResource("3_5mntv")
+
+[node name="HSeparator" type="HSeparator" parent="." unique_id=284699115]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Parameters" type="VBoxContainer" parent="." unique_id=1750278727]
+layout_mode = 2

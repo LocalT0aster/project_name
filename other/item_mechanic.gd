@@ -1,6 +1,6 @@
 extends Resource
 
-class_name Item
+class_name ItemMechanic
 
 @export var sprite : Texture
 @export var mechanic_name: String

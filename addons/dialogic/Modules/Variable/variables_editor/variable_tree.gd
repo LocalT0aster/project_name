@@ -221,7 +221,7 @@ func _on_item_edited() -> void:
 
 
 func item_add_undoable(parent_item:TreeItem, item_name:String, type:String, value:Variant) -> void:
-	undo.create_action("Add Item")
+	undo.create_action("Add ItemMechanic")
 	undo.add_do_method(
 		add_item.bind(
 			get_item_path(parent_item),
@@ -243,7 +243,7 @@ func add_item(parent_path:String, text:String, type:String, value:Variant) -> vo
 
 
 func item_remove_undoable(item:TreeItem) -> void:
-	undo.create_action("Remove Item")
+	undo.create_action("Remove ItemMechanic")
 	undo.add_do_method(remove_item.bind(get_item_path(item)))
 	undo.add_undo_method(
 		add_item.bind(
@@ -264,7 +264,7 @@ func item_rename_undoable(item:TreeItem) -> void:
 	var old_name: String = item.get_metadata(0)
 	item.set_text(0, item.get_metadata(0))
 	var old_item_path := get_item_path(item)
-	undo.create_action("Renamed Item")
+	undo.create_action("Renamed ItemMechanic")
 	undo.add_do_method(item_rename.bind(old_item_path, new_name, old_name))
 	undo.add_undo_method(item_rename.bind(new_item_path, old_name, new_name))
 	undo.commit_action()

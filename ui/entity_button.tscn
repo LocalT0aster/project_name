@@ -5,7 +5,13 @@
 [ext_resource type="Script" uid="uid://nqep546o1qxh" path="res://ui/entity_button.gd" id="3_sphfc"]
 
 [node name="Player" type="Button" unique_id=545617279]
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = -1858.0
+offset_bottom = 20.0
+grow_horizontal = 2
 theme = ExtResource("1_d6xae")
+theme_override_font_sizes/font_size = 12
 toggle_mode = true
 text = "Player"
 icon = ExtResource("2_sphfc")

@@ -5,10 +5,10 @@
 
 [node name="ItemSlot" type="TextureRect" unique_id=195078708]
 anchors_preset = -1
-anchor_right = 0.040000003
-anchor_bottom = 0.065000005
-offset_right = -24.000002
-offset_bottom = -26.000002
+anchor_right = 0.021000002
+anchor_bottom = 0.041
+offset_right = -0.3200035
+offset_bottom = -0.07999802
 texture = ExtResource("1_lxngi")
 stretch_mode = 4
 script = ExtResource("2_gpwhp")
