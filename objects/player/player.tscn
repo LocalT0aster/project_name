@@ -20,6 +20,11 @@ region_rect = Rect2(0, 0, 16, 16)
 shape = SubResource("CircleShape2D_xnc2w")
 
 [node name="MechanicsTree" parent="." unique_id=323197346 instance=ExtResource("3_ssrue")]
-enabled_slots = Array[bool]([false, true, true, false])
+enabled_slots = Dictionary[int, bool]({
+0: false,
+1: true,
+2: true,
+3: false
+})
 
 [editable path="MechanicsTree"]

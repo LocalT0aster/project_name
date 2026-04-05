@@ -37,7 +37,8 @@ func _ready() -> void:
 func set_mechanic(scene: PackedScene) -> bool:
 	if _loaded_this_frame or _loaded_fsm == scene:
 		return false
-	
+	for c in get_children():
+		c.queue_free()
 	var instance: FSM
 	if not scene:
 		scene = DEFAULT_FSM

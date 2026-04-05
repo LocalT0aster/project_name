@@ -11,20 +11,25 @@ var e_name: StringName:
 		MechanicManager.entity_update.emit(get_instance_id())
 
 ## Enabled [enum Slot.Colors], starting from [constant Slot.Colors.NONE]
-@export var enabled_slots: Array[bool] = [false, false, false, false]
+@export var enabled_slots: Dictionary[Slot.Colors, bool] = {
+	Slot.Colors.NONE: false,
+	Slot.Colors.BLUE: false,
+	Slot.Colors.YELLOW: false,
+	Slot.Colors.GREEN: false
+}
 ## Slot by color dict
 var slots: Dictionary[Slot.Colors, Slot] = {}
 
 func _ready() -> void:
 	# If we have no children, create empty slots from enabled_slots
 	if get_child_count() == 0:
-		for i in range(1, Slot.Colors.size()):
-			if not enabled_slots[i]:
+		for c in enabled_slots.keys():
+			if not enabled_slots[c]:
 				continue
 			var s = Slot.new()
-			s.color = i
-			s.name = "Slot" + Slot.ColorsToStr[i as Slot.Colors]
-			slots[i] = s
+			s.color = c
+			s.name = "Slot" + Slot.ColorsToStr[c]
+			slots[c] = s
 			add_child(s)
 	else: # We have predefined slots, use them
 		for c in get_children():

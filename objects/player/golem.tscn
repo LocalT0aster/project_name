@@ -15,6 +15,11 @@ region_rect = Rect2(64, 0, 16, 32)
 shape = SubResource("CapsuleShape2D_g6e1r")
 
 [node name="MechanicsTree" parent="." index="2" unique_id=323197346]
-enabled_slots = Array[bool]([false, true, false, false])
+enabled_slots = Dictionary[int, bool]({
+0: false,
+1: true,
+2: false,
+3: false
+})
 
 [editable path="MechanicsTree"]

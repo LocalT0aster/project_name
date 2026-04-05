@@ -46,6 +46,7 @@ func _init_entity_inspector(id: int) -> EntityInspector:
 	ins.entity_id = id
 	ins.init_slots()
 	_id2inspector[id] = ins
+	ins.visible = false
 	inspectors_container.add_child(ins)
 	return ins
 	

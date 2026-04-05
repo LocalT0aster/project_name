@@ -19,8 +19,8 @@ func clear() -> void:
 func init_slots() -> void:
 	clear()
 	var entity: MechanicsTree = MechanicManager.entity_trees[entity_id]
-	for color in Slot.Colors.keys():
-		if not entity.enabled_slots[color as int]:
+	for color in Slot.Colors.values():
+		if not entity.enabled_slots[color]:
 			continue
 		var slot: ItemSlot = entity_inspector_slot.instantiate()
 		slot.color = entity.get_slot(color).color
@@ -29,7 +29,7 @@ func init_slots() -> void:
 		slots_container.add_child(slot)
 
 func _on_item_changed(item: ItemMechanic, color: Slot.Colors) -> void:
-	MechanicManager.entity_trees[entity_id].set_slot_mechanic(color, item.mechanic)
+	MechanicManager.entity_trees[entity_id].set_slot_mechanic(color, item.mechanic if item else null)
 
 func eject_all() -> void:
 	push_warning("NotImplemented: eject_all %d" % entity_id)
