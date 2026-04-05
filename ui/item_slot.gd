@@ -21,11 +21,13 @@ func _ready() -> void:
 
 func update_ui() -> void:
 	if item == null:
-		icon.texture = null
-		icon.hide()
+		if icon:
+			icon.texture = null
+			icon.hide()
 		return
-	icon.show()
-	icon.texture = item.sprite
+	if icon:
+		icon.show()
+		icon.texture = item.sprite
 	tooltip_text = item.mechanic_name
 
 func _get_drag_data(_at_position: Vector2) -> Variant:
@@ -47,14 +49,17 @@ func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 	return true
 
 func _drop_data(_at_position: Vector2, data: Variant) -> void:
+	swap_item_with(data)
+
+func swap_item_with(slot: ItemSlot) -> void:
+	if self == slot:
+		return
 	var tmp = item
-	item = data.item
+	item = slot.item
 	if color != Slot.Colors.NONE:
 		item_changed.emit(item)
-	elif data.color != Slot.Colors.NONE:
-		data.item_changed.emit(tmp)
-	data.item = tmp
-	#icon.show()
-	#data.icon.show()
+	elif slot.color != Slot.Colors.NONE:
+		slot.item_changed.emit(tmp)
+	slot.item = tmp
 	update_ui()
-	data.update_ui()
+	slot.update_ui()

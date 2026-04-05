@@ -22,12 +22,6 @@ func _ready() -> void:
 		_init_entity_button(id)
 		_init_entity_inspector(id)
 
-	# for button in entities_container.get_children():
-	# 	entities[button.name.to_lower()] = button
-	# 	button.toggled.connect(on_button_toggle.bind(button.name))
-	# for slot in inspectors_container.get_children():
-	# 	slots[slot.name.to_lower()] = slot
-
 ## Initialize EntityButton
 func _init_entity_button(id: int) -> EntityButton:
 	var btn: EntityButton = entity_button.instantiate()
@@ -45,6 +39,7 @@ func _init_entity_inspector(id: int) -> EntityInspector:
 	var ins: EntityInspector = entity_inspector.instantiate()
 	ins.name = MechanicManager.entity_trees[id].e_name
 	ins.entity_id = id
+	ins.inventory_ref = weakref(inventory_container)
 	ins.init_slots()
 	_id2inspector[id] = ins
 	ins.visible = false

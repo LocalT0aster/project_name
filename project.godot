@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="project_name"
-config/version="0.12"
+config/version="0.13"
 run/main_scene="uid://ba7qsi4xc05y4"
 config/features=PackedStringArray("4.6", "Forward Plus")
 run/max_fps=240
