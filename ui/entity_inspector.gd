@@ -28,7 +28,7 @@ func init_slots() -> void:
 		if not entity.enabled_slots[color]:
 			continue
 		var slot: ItemSlot = entity_inspector_slot.instantiate()
-		slot.color = entity.get_slot(color).color
+		slot.color = color
 		slot.item_changed.connect(_on_item_changed.bind(color))
 		_color2slot[color] = slot
 		slots_container.add_child(slot)

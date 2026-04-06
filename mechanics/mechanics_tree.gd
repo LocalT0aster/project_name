@@ -21,6 +21,9 @@ var e_name: StringName:
 var slots: Dictionary[Slot.Colors, Slot] = {}
 
 func _ready() -> void:
+	print(e_name + " ready")
+
+func init() -> void:
 	# If we have no children, create empty slots from enabled_slots
 	if get_child_count() == 0:
 		for c in enabled_slots.keys():
@@ -39,6 +42,7 @@ func _ready() -> void:
 				slots[c.color] = c
 			else: # destroy otherwise
 				c.queue_free()
+	print(e_name + " init")
 
 ## Get [class Slot] by color
 func get_slot(color: Slot.Colors) -> Slot:
