@@ -12,12 +12,15 @@ func init() -> void:
 	if not loaded.get(MechanicManager.SCRIPT_ID):
 		MechanicManager._ready()
 		MechanicManager.ready.emit()
+	loaded[MechanicManager.SCRIPT_ID].init()
+	
+	for e in MechanicManager.entity_trees.values():
+		e.init()
+	
 	if loaded.get(MechanicPanel.SCRIPT_ID):
-		loaded[MechanicManager.SCRIPT_ID].init()
-		for e in MechanicManager.entity_trees.values():
-			e.init()
 		loaded[MechanicPanel.SCRIPT_ID].init()
 	else:
 		printerr("Where MechanicPanel?")
+	
 	print("LoadOrdering ready")
 	loaded[SCRIPT_ID] = self

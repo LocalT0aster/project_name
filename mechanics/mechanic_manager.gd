@@ -14,7 +14,7 @@ const SCRIPT_ID: StringName = &"MechanicManager"
 
 func _ready() -> void:
 	# init()
-	print("MechanicManager ready")
+	print(SCRIPT_ID + " ready")
 	LoadManager.get_ordering().loaded[SCRIPT_ID] = self
 
 func init() -> void:
@@ -23,6 +23,7 @@ func init() -> void:
 		entity_trees[e.get_instance_id()] = e
 		## on [signal tree_exiting] parent of [class MechanicTree]
 		e.get_parent().tree_exiting.connect(_on_entity_exiting.bind(e))
+	print(SCRIPT_ID + " init")
 
 func _notification(what: int) -> void:
 	match what:
