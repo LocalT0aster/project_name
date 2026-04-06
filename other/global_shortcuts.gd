@@ -9,6 +9,7 @@ func _shortcut_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 
 	elif event.is_action_pressed(RELOAD_SCENE_ACTION):
+		print("reloading scene")
 		var err: Error = get_tree().reload_current_scene()
 		if err != OK:
 			push_warning("Reload failed: %s" % err)
@@ -17,3 +18,4 @@ func _shortcut_input(event: InputEvent) -> void:
 
 func _toggle_fullscreen() -> void:
 	get_window().mode = Window.MODE_WINDOWED if get_window().mode == Window.MODE_FULLSCREEN else Window.MODE_FULLSCREEN
+	print("toggled fullscreen")

@@ -1,4 +1,4 @@
-extends Node2D
+extends BaseLevel
 
 func _ready() -> void:
-	MechanicManager._ready()
+	super ()

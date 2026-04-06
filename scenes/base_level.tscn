@@ -1,12 +1,15 @@
 [gd_scene format=3 uid="uid://byvgnentk2hny"]
 
+[ext_resource type="Script" uid="uid://dsw42yx7samix" path="res://scenes/base_level.gd" id="1_3aqo6"]
 [ext_resource type="TileSet" uid="uid://s3k36aatj0i7" path="res://other/tile_set.tres" id="2_u6ue0"]
 [ext_resource type="PackedScene" uid="uid://dk1372ylikaor" path="res://objects/exit.tscn" id="3_fal5o"]
 [ext_resource type="PackedScene" uid="uid://umsei4jfaj2j" path="res://objects/player/player.tscn" id="5_3rj88"]
 [ext_resource type="PackedScene" uid="uid://b4l3vep3dj0na" path="res://ui/mechanics_panel.tscn" id="7_i8j8g"]
 [ext_resource type="Script" uid="uid://dcowt6juj6hji" path="res://other/load_ordering.gd" id="8_bvxmy"]
 
-[node name="Level" type="Node2D" unique_id=2115088242]
+[node name="Level" type="Node2D" unique_id=59110311]
+script = ExtResource("1_3aqo6")
+metadata/_custom_type_script = "uid://dsw42yx7samix"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1082057099]
 tile_set = ExtResource("2_u6ue0")

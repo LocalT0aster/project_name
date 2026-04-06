@@ -6,7 +6,8 @@ var loaded: Dictionary[StringName, Node] = {}
 const SCRIPT_ID: StringName = &"LoadOrdering"
 
 func _ready() -> void:
-	get_tree().get_root().ready.connect(init)
+	get_node(^"/root/Level").ready.connect(init)
+	print(SCRIPT_ID + " ready")
 
 func init() -> void:
 	if not loaded.get(MechanicManager.SCRIPT_ID):
@@ -22,5 +23,5 @@ func init() -> void:
 	else:
 		printerr("Where MechanicPanel?")
 	
-	print("LoadOrdering ready")
+	print(SCRIPT_ID + " init")
 	loaded[SCRIPT_ID] = self
