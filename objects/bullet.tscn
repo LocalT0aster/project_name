@@ -8,6 +8,8 @@ radius = 5.0
 height = 14.0
 
 [node name="bullet" type="CharacterBody2D" unique_id=83715169]
+collision_layer = 0
+collision_mask = 3
 script = ExtResource("1_hkcap")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1043639821]

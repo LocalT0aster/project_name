@@ -21,4 +21,4 @@ func hurt(_damage, _stuff):
 	dead = true
 	$broken.show()
 	$default.hide()
-	$broken.hide()
+	$pressed.hide()

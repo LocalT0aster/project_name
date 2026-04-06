@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dvtqb24ydldie" path="res://img/spritesheet.png" id="1_0nrqi"]
 [ext_resource type="Script" uid="uid://bra76kkxuop57" path="res://objects/button.gd" id="1_bri14"]
+[ext_resource type="Script" uid="uid://bid41n2okn1po" path="res://objects/hurtbox.gd" id="3_8wdun"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bri14"]
 size = Vector2(20, 18)
@@ -13,7 +14,7 @@ size = Vector2(20, 10)
 script = ExtResource("1_bri14")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1507121564]
-position = Vector2(0, -9)
+position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_bri14")
 
 [node name="default" type="Sprite2D" parent="." unique_id=624641812]
@@ -39,9 +40,10 @@ region_rect = Rect2(32, 48, 16, 16)
 [node name="hurtbox" type="StaticBody2D" parent="." unique_id=1486254453]
 collision_layer = 2
 collision_mask = 2
+script = ExtResource("3_8wdun")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox" unique_id=494732463]
-position = Vector2(0, -5)
+position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_8wdun")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

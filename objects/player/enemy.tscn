@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bfsgyvebymsyg"]
+
+[ext_resource type="Script" uid="uid://bgg3su7vnls2t" path="res://objects/enemy.gd" id="1_ktd15"]
+[ext_resource type="Texture2D" uid="uid://dvtqb24ydldie" path="res://img/spritesheet.png" id="2_wsg34"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ktd15"]
+size = Vector2(36, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ow02"]
+size = Vector2(44, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wsg34"]
+size = Vector2(44, 30)
+
+[node name="enemy" type="CharacterBody2D" unique_id=2040731108 groups=["enemy"]]
+script = ExtResource("1_ktd15")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=792193039]
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_wsg34")
+region_enabled = true
+region_rect = Rect2(80, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=595134198]
+position = Vector2(-2, 10)
+shape = SubResource("RectangleShape2D_ktd15")
+
+[node name="walldetector" type="Area2D" parent="." unique_id=45184983]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walldetector" unique_id=1324286492]
+position = Vector2(-2, 7)
+shape = SubResource("RectangleShape2D_4ow02")
+debug_color = Color(0.5705974, 0.38859463, 1, 0.06666667)
+
+[node name="hurtbox" type="Area2D" parent="." unique_id=671039467]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox" unique_id=408468157]
+position = Vector2(-2, 5)
+shape = SubResource("RectangleShape2D_wsg34")
+debug_color = Color(0.9756326, 0, 0.41438022, 0.0627451)
+
+[connection signal="body_entered" from="walldetector" to="." method="_on_walldetector_body_entered"]
+[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]

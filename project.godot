@@ -26,9 +26,11 @@ Dialogic="*uid://ds2q0uclmolvu"
 [dialogic]
 
 directories/dch_directory={
-"test": "res://characters/test.dch"
+"test": "res://characters/test.dch",
+"yellow": "res://characters/yellow.dch"
 }
 directories/dtl_directory={
+"level1": "res://timelines/level1.dtl",
 "test1": "res://timelines/test1.dtl"
 }
 layout/style_directory={
@@ -93,6 +95,8 @@ enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 [global_group]
 
 MechanicEntity="Group for entities with MechanicTree"
+enemy=""
+player=""
 
 [gui]
 
