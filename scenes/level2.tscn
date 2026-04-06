@@ -8,8 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://b4l3vep3dj0na" path="res://ui/mechanics_panel.tscn" id="5_xa7n4"]
 [ext_resource type="PackedScene" uid="uid://ddfgtdiaa8g75" path="res://objects/button.tscn" id="7_hrcei"]
 [ext_resource type="PackedScene" uid="uid://b4daofcbwahuq" path="res://objects/door.tscn" id="8_xa7n4"]
+[ext_resource type="Script" uid="uid://dcowt6juj6hji" path="res://other/load_ordering.gd" id="9_xa7n4"]
 
-[node name="Level1" type="Node2D" unique_id=2115088242]
+[node name="Level" type="Node2D" unique_id=2115088242]
 script = ExtResource("1_yqkch")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=439490453]
@@ -37,6 +38,10 @@ position = Vector2(344, 192)
 
 [node name="Door" parent="." unique_id=1056444764 instance=ExtResource("8_xa7n4")]
 position = Vector2(544, 160)
+
+[node name="LoadOrdering" type="Node" parent="." unique_id=1935108709]
+script = ExtResource("9_xa7n4")
+metadata/_custom_type_script = "uid://dcowt6juj6hji"
 
 [connection signal="toggled" from="button" to="Door" method="toggle"]
 

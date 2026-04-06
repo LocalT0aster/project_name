@@ -8,8 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://b4l3vep3dj0na" path="res://ui/mechanics_panel.tscn" id="5_rupth"]
 [ext_resource type="PackedScene" uid="uid://ddfgtdiaa8g75" path="res://objects/button.tscn" id="6_6lxtr"]
 [ext_resource type="PackedScene" uid="uid://b4daofcbwahuq" path="res://objects/door.tscn" id="7_b72m1"]
+[ext_resource type="Script" uid="uid://dcowt6juj6hji" path="res://other/load_ordering.gd" id="9_rupth"]
 
-[node name="Level1" type="Node2D" unique_id=2115088242]
+[node name="Level" type="Node2D" unique_id=2115088242]
 script = ExtResource("1_5mhml")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=439490453]
@@ -102,6 +103,10 @@ position = Vector2(3136, -544)
 
 [node name="enemy14" parent="enemies" unique_id=1709231446 instance=ExtResource("5_7uttt")]
 position = Vector2(3248, -544)
+
+[node name="LoadOrdering" type="Node" parent="." unique_id=117588646]
+script = ExtResource("9_rupth")
+metadata/_custom_type_script = "uid://dcowt6juj6hji"
 
 [connection signal="toggled" from="stuff/button" to="stuff/Door" method="toggle"]
 [connection signal="toggled" from="stuff/button" to="stuff/Door2" method="toggle"]

@@ -2,13 +2,14 @@
 
 [ext_resource type="Script" uid="uid://bc3dsh5naj8sj" path="res://scenes/level_1.gd" id="1_ejswk"]
 [ext_resource type="TileSet" uid="uid://s3k36aatj0i7" path="res://other/tile_set.tres" id="1_m7ahb"]
+[ext_resource type="Script" uid="uid://dcowt6juj6hji" path="res://other/load_ordering.gd" id="2_bbk5w"]
 [ext_resource type="PackedScene" uid="uid://umsei4jfaj2j" path="res://objects/player/player.tscn" id="2_dwgg1"]
 [ext_resource type="PackedScene" uid="uid://dk1372ylikaor" path="res://objects/exit.tscn" id="2_ru4tf"]
 [ext_resource type="PackedScene" uid="uid://bkc34o0rgta65" path="res://scenes/level2.tscn" id="3_6sh32"]
 [ext_resource type="PackedScene" uid="uid://cs0ktgtmjktqa" path="res://objects/player/golem.tscn" id="3_dwgg1"]
 [ext_resource type="PackedScene" uid="uid://b4l3vep3dj0na" path="res://ui/mechanics_panel.tscn" id="3_ru4tf"]
 
-[node name="Level1" type="Node2D" unique_id=2115088242]
+[node name="Level" type="Node2D" unique_id=2115088242]
 script = ExtResource("1_ejswk")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=439490453]
@@ -35,5 +36,9 @@ item = null
 
 [node name="ItemSlot2" parent="CanvasLayer/MechanicsPanel/HBoxContainer/VBoxContainer/MarginContainer/MarginContainer/ScrollContainer/inventory" parent_id_path=PackedInt32Array(1660838940, 2095223891) index="1" unique_id=1328272987]
 item = null
+
+[node name="LoadOrdering" type="Node" parent="." unique_id=731317886]
+script = ExtResource("2_bbk5w")
+metadata/_custom_type_script = "uid://dcowt6juj6hji"
 
 [editable path="CanvasLayer/MechanicsPanel"]

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="project_name"
-config/version="0.13"
+config/version="0.14"
 run/main_scene="uid://ba7qsi4xc05y4"
 config/features=PackedStringArray("4.6", "Forward Plus")
 run/max_fps=240
@@ -19,9 +19,10 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+LoadManager="*uid://dewxa638otr1g"
 MechanicManager="*uid://dlvfjeaeuqx0x"
-GlobalShortcuts="*uid://dl6xwi8i25s80"
 Dialogic="*uid://ds2q0uclmolvu"
+GlobalShortcuts="*uid://dl6xwi8i25s80"
 
 [dialogic]
 

@@ -1,3 +1,4 @@
+class_name MechanicPanel
 extends Control
 
 @export var entity_button: PackedScene = preload("res://ui/entity_button.tscn")
@@ -10,7 +11,14 @@ extends Control
 var _id2button: Dictionary[int, EntityButton] = {}
 var _id2inspector: Dictionary[int, EntityInspector] = {}
 
+const SCRIPT_ID: StringName = &"MechanicPanel"
+
 func _ready() -> void:
+	# init()
+	print("MechanicPanel ready")
+	LoadManager.get_ordering().loaded[SCRIPT_ID] = self
+
+func init() -> void:
 	# Free containers from predefined children (mock ui entries)
 	for c in entities_container.get_children(): c.queue_free()
 	for c in inspectors_container.get_children(): c.queue_free()
@@ -59,13 +67,18 @@ func on_button_toggle(togled_on: bool, entity_id: int):
 
 var drag_data
 func _notification(what: int) -> void:
-	if what == Node.NOTIFICATION_DRAG_BEGIN:
-		drag_data = get_viewport().gui_get_drag_data()
-	if what == Node.NOTIFICATION_DRAG_END:
-		if not is_drag_successful():
-			if drag_data:
-				drag_data.update_ui()
-				drag_data = null
+	match what:
+		Node.NOTIFICATION_DRAG_BEGIN:
+			drag_data = get_viewport().gui_get_drag_data()
+		Node.NOTIFICATION_DRAG_END:
+			if not is_drag_successful():
+				if drag_data:
+					drag_data.update_ui()
+					drag_data = null
+		Node.NOTIFICATION_SCENE_INSTANTIATED:
+			print("MechanicPanel NOTIFICATION_SCENE_INSTANTIATED")
+		Node.NOTIFICATION_POST_ENTER_TREE:
+			print("MechanicPanel NOTIFICATION_POST_ENTER_TREE")
 
 func _can_drop_data(_at_position: Vector2, _data: Variant) -> bool:
 	return false
