@@ -25,13 +25,13 @@ func exit() -> void:
 ## Runs every rendered frame while this state is active.
 ## [br][br]
 ## [b]Returns[/b]: the next state's name to transition, or `null` to remain active.
-func update(_delta : float) -> Variant:
+func update(_delta: float) -> Variant:
 	return null
 
 ## Runs on every physics tick while this state is active.
 ## [br][br]
 ## [b]Returns[/b]: the next state's name to transition, or `null` to remain active.
-func physics_update(_delta : float) -> Variant:
+func physics_update(_delta: float) -> Variant:
 	return null
 
 ## Runs for unhandled input while this state is active.

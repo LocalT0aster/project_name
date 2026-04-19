@@ -8,12 +8,12 @@ class_name FSM
 ## lifecycle callbacks.
 
 ## State entered first when the machine becomes ready.
-@export var initial_state : State
+@export var initial_state: State
 
 ## All registered states keyed by lowercase node name.
-var states : Dictionary[StringName, State] = {}
+var states: Dictionary[StringName, State] = {}
 ## Currently active state, or `null` before initialization completes.
-var current_state : State = null
+var current_state: State = null
 
 ## Registers child states and enters [member initial_state] when present.
 func _ready() -> void:
