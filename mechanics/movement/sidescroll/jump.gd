@@ -1,9 +1,13 @@
 extends MovementStateSS
 
 func enter():
-	super ()
-	get_parent().character.velocity.y = - get_parent().jump_velocity
-	transition.emit(self , "walk")
+	print("jump")
+	character.velocity -= character.velocity.project(c_up)
+	character.velocity += jump_velocity * c_up
+	character.move_and_slide()
+	return &"walk"
 
-func _physics_process(_delta: float) -> void:
-	transition.emit(self , "walk")
+func physics_update(_delta: float) -> Variant:
+	super (_delta) # Horizontal movement & box sliding
+	character.move_and_slide()
+	return &"walk"

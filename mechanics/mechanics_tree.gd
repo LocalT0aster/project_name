@@ -24,7 +24,7 @@ func _ready() -> void:
 	print(e_name + " ready")
 
 func init() -> void:
-	# If we have no children, create empty slots from enabled_slots
+	## If we have no children, create empty slots from enabled_slots
 	if get_child_count() == 0:
 		for c in enabled_slots.keys():
 			if not enabled_slots[c]:
@@ -34,10 +34,10 @@ func init() -> void:
 			s.name = "Slot" + Slot.ColorsToStr[c]
 			slots[c] = s
 			add_child(s)
-	else: # We have predefined slots, use them
+	else: ## We have predefined slots, use them
 		for c in get_children():
 			assert(c is Slot, "MechanicTree must contain Slots.")
-			# add to [member enabled_slots] if enabled and is not a duplicate color
+			## add to [member enabled_slots] if enabled and is not a duplicate color
 			if enabled_slots[c.color] and not slots.has(c.color):
 				slots[c.color] = c
 			else: # destroy otherwise
