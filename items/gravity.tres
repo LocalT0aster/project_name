@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemMechanic" format=3 uid="uid://domtbus33dju2"]
+
+[ext_resource type="Script" uid="uid://cl5pgg4hly830" path="res://other/item_mechanic.gd" id="2_7q7go"]
+[ext_resource type="Texture2D" uid="uid://desqagsmo4rq1" path="res://img/gravityMechanicCard.png" id="2_mq2js"]
+
+[resource]
+script = ExtResource("2_7q7go")
+sprite = ExtResource("2_mq2js")
+mechanic_name = "Gravity"
+color = 3

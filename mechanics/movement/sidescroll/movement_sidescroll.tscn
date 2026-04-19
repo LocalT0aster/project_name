@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bc13vpqc62d28"]
 
-[ext_resource type="Script" uid="uid://bvf5nm6qen850" path="res://mechanics/movement/MovementFSM.gd" id="1_qwpyj"]
+[ext_resource type="Script" uid="uid://bvf5nm6qen850" path="res://mechanics/movement/movement_fsm.gd" id="1_qwpyj"]
 [ext_resource type="Script" uid="uid://cwn2svbtm84ib" path="res://mechanics/movement/sidescroll/jump.gd" id="3_qwpyj"]
 [ext_resource type="Script" uid="uid://by8r2qkm2isy3" path="res://mechanics/movement/sidescroll/walk.gd" id="4_qwpyj"]
 

@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://brvofplgoit6f" path="res://ui/item_slot.tscn" id="1_nuska"]
 [ext_resource type="Texture2D" uid="uid://bors8f18elgqx" path="res://img/blueMechanicSlot.png" id="2_4ovl3"]
 [ext_resource type="Texture2D" uid="uid://ccwcuvaji1noi" path="res://img/yellowMechanicSlot.png" id="3_5mntv"]
+[ext_resource type="Texture2D" uid="uid://l8m7ww176kig" path="res://img/greenMechanicSlot.png" id="5_5mntv"]
 
 [node name="EntityInspector" type="VBoxContainer" unique_id=1367658130 node_paths=PackedStringArray("slots_container", "params_container")]
 anchors_preset = 10
@@ -24,10 +25,17 @@ layout_mode = 2
 [node name="ItemSlot" parent="CenterContainer/Slots" unique_id=195078708 instance=ExtResource("1_nuska")]
 layout_mode = 2
 texture = ExtResource("2_4ovl3")
+color = 1
 
 [node name="ItemSlot2" parent="CenterContainer/Slots" unique_id=1107666780 instance=ExtResource("1_nuska")]
 layout_mode = 2
 texture = ExtResource("3_5mntv")
+color = 2
+
+[node name="ItemSlot3" parent="CenterContainer/Slots" unique_id=2121010188 instance=ExtResource("1_nuska")]
+layout_mode = 2
+texture = ExtResource("5_5mntv")
+color = 3
 
 [node name="HSeparator" type="HSeparator" parent="." unique_id=284699115]
 layout_mode = 2

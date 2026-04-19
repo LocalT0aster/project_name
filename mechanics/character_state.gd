@@ -1,7 +1,7 @@
 class_name CharacterState
 extends State
 
-## Binding of the character to the FSM's value
+## Binding of the character to the CharacterFSM value
 var character: CharacterBody2D:
 	get: return get_parent().character
 

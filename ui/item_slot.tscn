@@ -12,9 +12,7 @@ offset_bottom = -0.07999802
 texture = ExtResource("1_lxngi")
 stretch_mode = 4
 script = ExtResource("2_gpwhp")
-color = null
 disabled = null
-color_texture = null
 
 [node name="Icon" type="TextureRect" parent="." unique_id=534527937]
 layout_mode = 1

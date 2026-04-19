@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dtqt3cilaba0o"]
+
+[ext_resource type="Script" uid="uid://41yhgwjxxhn5" path="res://other/FSM.gd" id="1_08r0c"]
+
+[node name="Gravity" type="Node" unique_id=312112140]
+script = ExtResource("1_08r0c")
+metadata/_custom_type_script = "uid://41yhgwjxxhn5"

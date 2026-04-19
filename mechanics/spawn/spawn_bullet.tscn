@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cg33uuov4gl8k"]
 
-[ext_resource type="Script" uid="uid://cyhb2l586ennb" path="res://mechanics/spawn/SpawnFSM.gd" id="1_wh8as"]
+[ext_resource type="Script" uid="uid://cyhb2l586ennb" path="res://mechanics/spawn/spawn_fsm.gd" id="1_wh8as"]
 [ext_resource type="Script" uid="uid://ntvwuhki1uj7" path="res://mechanics/spawn/idle.gd" id="2_hcqi7"]
 [ext_resource type="Script" uid="uid://b0n3jk8xa1onp" path="res://mechanics/spawn/spawn.gd" id="3_wh8as"]
 [ext_resource type="PackedScene" uid="uid://bx57kjgx36vc7" path="res://objects/bullet.tscn" id="4_sotbp"]
