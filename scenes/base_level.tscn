@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://dk1372ylikaor" path="res://objects/exit.tscn" id="3_fal5o"]
 [ext_resource type="PackedScene" uid="uid://umsei4jfaj2j" path="res://objects/player/player.tscn" id="5_3rj88"]
 [ext_resource type="PackedScene" uid="uid://b4l3vep3dj0na" path="res://ui/mechanics_panel.tscn" id="7_i8j8g"]
-[ext_resource type="Script" uid="uid://dcowt6juj6hji" path="res://other/load_ordering.gd" id="8_bvxmy"]
 
 [node name="Level" type="Node2D" unique_id=59110311 node_paths=PackedStringArray("panel")]
 script = ExtResource("1_3aqo6")
@@ -25,7 +24,3 @@ ignore_rotation = false
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1144738011]
 
 [node name="MechanicsPanel" parent="CanvasLayer" unique_id=1660838940 instance=ExtResource("7_i8j8g")]
-
-[node name="LoadOrdering" type="Node" parent="." unique_id=731317886]
-script = ExtResource("8_bvxmy")
-metadata/_custom_type_script = "uid://dcowt6juj6hji"

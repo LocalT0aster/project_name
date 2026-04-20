@@ -19,7 +19,6 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-LoadManager="*uid://dewxa638otr1g"
 MechanicManager="*uid://dlvfjeaeuqx0x"
 Dialogic="*uid://ds2q0uclmolvu"
 GlobalShortcuts="*uid://dl6xwi8i25s80"
