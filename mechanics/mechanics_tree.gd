@@ -55,7 +55,7 @@ func get_slot_mechanic(color: Slot.Colors) -> FSM:
 ## Set [class FSM] (scene) by color[br]
 ## Returns: [code]true[/code] on success
 func set_slot_mechanic(color: Slot.Colors, scene: PackedScene) -> bool:
-	if enabled_slots[color]:
+	if enabled_slots[color] and slots.get(color):
 		return slots[color].set_mechanic(scene)
 	else:
 		printerr("Tried to set mechanic to disabled slot.")

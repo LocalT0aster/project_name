@@ -7,8 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://b4l3vep3dj0na" path="res://ui/mechanics_panel.tscn" id="7_i8j8g"]
 [ext_resource type="Script" uid="uid://dcowt6juj6hji" path="res://other/load_ordering.gd" id="8_bvxmy"]
 
-[node name="Level" type="Node2D" unique_id=59110311]
+[node name="Level" type="Node2D" unique_id=59110311 node_paths=PackedStringArray("panel")]
 script = ExtResource("1_3aqo6")
+panel = NodePath("CanvasLayer/MechanicsPanel")
 metadata/_custom_type_script = "uid://dsw42yx7samix"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1082057099]

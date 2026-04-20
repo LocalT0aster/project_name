@@ -5,7 +5,7 @@ extends Node
 
 const MECHANIC_TREE_GROUP: StringName = &"MechanicEntity"
 
-# signal entity_update(entity_id: int) ## ?
+signal entity_create(entity_id: int) ## ?
 signal entity_removed(entity_id: int) ## Called when the entity is exiting tree
 
 var _instantiated: bool = true
@@ -15,13 +15,15 @@ const SCRIPT_ID: StringName = &"MechanicManager"
 func _ready() -> void:
 	# init()
 	print(SCRIPT_ID + " ready")
-	LoadManager.get_ordering().loaded[SCRIPT_ID] = self
+	#LoadManager.get_ordering().loaded[SCRIPT_ID] = self
 
 func init() -> void:
 	entity_trees.clear()
 	for e in get_tree().get_nodes_in_group(MECHANIC_TREE_GROUP):
 		entity_trees[e.get_instance_id()] = e
 		## on [signal tree_exiting] parent of [class MechanicTree]
+		if e.get_parent().tree_exiting.has_connections():
+			e.get_parent().tree_exiting.disconnect(_on_entity_exiting)
 		e.get_parent().tree_exiting.connect(_on_entity_exiting.bind(e))
 	print(SCRIPT_ID + " init")
 

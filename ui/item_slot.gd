@@ -53,6 +53,8 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 
 func swap_item_with(slot: ItemSlot) -> void:
 	if self == slot:
+		update_ui()
+		slot.update_ui()
 		return
 	var tmp = item
 	item = slot.item

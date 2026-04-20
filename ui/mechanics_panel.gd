@@ -16,13 +16,15 @@ const SCRIPT_ID: StringName = &"MechanicPanel"
 func _ready() -> void:
 	# init()
 	print("MechanicPanel ready")
-	LoadManager.get_ordering().loaded[SCRIPT_ID] = self
+	#LoadManager.get_ordering().loaded[SCRIPT_ID] = self
 
 func init() -> void:
 	# Free containers from predefined children (mock ui entries)
 	for c in entities_container.get_children(): c.queue_free()
 	for c in inspectors_container.get_children(): c.queue_free()
-
+	
+	if MechanicManager.entity_removed.has_connections():
+		MechanicManager.entity_removed.disconnect(_on_entity_remove)
 	MechanicManager.entity_removed.connect(_on_entity_remove)
 
 	# Instantiate new entity entries
@@ -73,6 +75,7 @@ func _notification(what: int) -> void:
 		Node.NOTIFICATION_DRAG_END:
 			if not is_drag_successful():
 				if drag_data:
+					print("huh")
 					drag_data.update_ui()
 					drag_data = null
 		Node.NOTIFICATION_SCENE_INSTANTIATED:

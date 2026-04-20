@@ -24,4 +24,13 @@ item = null
 [node name="spawn_bullet" parent="CanvasLayer/MechanicsPanel/HBoxContainer/VBoxContainer/MarginContainer/MarginContainer/ScrollContainer/inventory" parent_id_path=PackedInt32Array(1660838940, 2095223891) index="2" unique_id=1696389710]
 item = null
 
+[node name="Button" type="Button" parent="CanvasLayer" parent_id_path=PackedInt32Array(1144738011) index="1" unique_id=1908204865]
+offset_left = 144.0
+offset_top = 32.0
+offset_right = 308.0
+offset_bottom = 80.0
+text = "ses"
+
+[connection signal="pressed" from="CanvasLayer/Button" to="LoadOrdering" method="_on_button_pressed"]
+
 [editable path="CanvasLayer/MechanicsPanel"]

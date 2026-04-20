@@ -1,7 +1,7 @@
 extends MovementStateSS
 
 func enter():
-	print("jump")
+	#print("jump")
 	character.velocity -= character.velocity.project(c_up)
 	character.velocity += jump_velocity * c_up
 	character.move_and_slide()

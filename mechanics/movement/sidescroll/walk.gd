@@ -1,7 +1,7 @@
 extends MovementStateSS
 
 func enter() -> Variant:
-	print("walk")
+	#print("walk")
 	return null
 
 func physics_update(_delta: float) -> Variant:
