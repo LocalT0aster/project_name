@@ -27,6 +27,7 @@ func physics_update(_delta: float) -> Variant:
 	var direction: float = Input.get_axis(ACTION_LEFT, ACTION_RIGHT)
 	
 	if direction:
+		character.sprite.scale.x = sign(direction) * abs(character.sprite.scale.x)
 		## Zero movement to the character's local right
 		character.velocity -= character.velocity.project(c_right)
 		## Add movement to the character's local right
@@ -36,11 +37,12 @@ func physics_update(_delta: float) -> Variant:
 		var v_velocity: Vector2 = character.velocity.project(c_up)
 		character.velocity = v_velocity + h_velocity.move_toward(Vector2.ZERO, speed)
 
-    ## Box sliding or something
-	for i in character.get_slide_collision_count():
-		var c = character.get_slide_collision(i)
-		if c.get_collider() is RigidBody2D:
-			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
+	## Box sliding or something
+	if character.move_and_slide():
+		for i in character.get_slide_collision_count():
+			var c = character.get_slide_collision(i)
+			if c.get_collider() is RigidBody2D:
+				c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
 
 	## move_and_slide manually when needed
 	return null

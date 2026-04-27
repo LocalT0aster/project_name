@@ -5,6 +5,9 @@ extends State
 var character: CharacterBody2D:
 	get: return get_parent().character
 
+var character_sprite: Sprite2D:
+	get: return character.sprite
+
 var c_up: Vector2:
 	get: return get_parent().character.up_direction
 	set(value): get_parent().character.up_direction = value

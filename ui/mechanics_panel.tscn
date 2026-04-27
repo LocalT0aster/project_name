@@ -25,7 +25,7 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_wlcnm")
 entities_container = NodePath("HBoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer2/ScrollContainer/Entities")
-inspectors_container = NodePath("HBoxContainer/InspectorFrame/Inspectors")
+inspectors_container = NodePath("HBoxContainer/MarginContainer2/InspectorFrame/Inspectors")
 inventory_container = NodePath("HBoxContainer/VBoxContainer/MarginContainer/MarginContainer/ScrollContainer/inventory")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1476382815]
@@ -48,6 +48,7 @@ size_flags_vertical = 3
 theme_override_constants/separation = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1868200188]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 
 [node name="Scene" type="NinePatchRect" parent="HBoxContainer/VBoxContainer/HBoxContainer/MarginContainer" unique_id=1419332959]
@@ -74,6 +75,8 @@ scroll_hint_mode = 1
 
 [node name="Entities" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer2/ScrollContainer" unique_id=885528995]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 mouse_filter = 0
 
 [node name="Player" parent="HBoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer2/ScrollContainer/Entities" unique_id=545617279 instance=ExtResource("3_joka8")]
@@ -90,6 +93,7 @@ patch_margin_right = 1
 patch_margin_bottom = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer" unique_id=1131483659]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 
 [node name="NinePatchRect" type="NinePatchRect" parent="HBoxContainer/VBoxContainer/MarginContainer" unique_id=1958012019]
@@ -142,7 +146,11 @@ disabled = false
 layout_mode = 2
 disabled = false
 
-[node name="InspectorFrame" type="NinePatchRect" parent="HBoxContainer" unique_id=1951402087]
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer" unique_id=463738480]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="InspectorFrame" type="NinePatchRect" parent="HBoxContainer/MarginContainer2" unique_id=1951402087]
 layout_mode = 2
 texture = ExtResource("15_0ycoe")
 patch_margin_left = 53
@@ -150,7 +158,7 @@ patch_margin_top = 15
 patch_margin_right = 4
 patch_margin_bottom = 3
 
-[node name="Inspectors" type="MarginContainer" parent="HBoxContainer/InspectorFrame" unique_id=1077605027]
+[node name="Inspectors" type="MarginContainer" parent="HBoxContainer/MarginContainer2/InspectorFrame" unique_id=1077605027]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -162,7 +170,7 @@ theme_override_constants/margin_top = 19
 theme_override_constants/margin_right = 6
 theme_override_constants/margin_bottom = 5
 
-[node name="Player" parent="HBoxContainer/InspectorFrame/Inspectors" unique_id=1071468728 instance=ExtResource("12_v3ev7")]
+[node name="Player" parent="HBoxContainer/MarginContainer2/InspectorFrame/Inspectors" unique_id=1071468728 instance=ExtResource("12_v3ev7")]
 layout_mode = 2
 
 [node name="QuitGame" parent="." unique_id=1789896429 instance=ExtResource("14_8a6gg")]
