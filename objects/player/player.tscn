@@ -30,6 +30,5 @@ enabled_slots = Dictionary[int, bool]({
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=100110159]
 ignore_rotation = false
-position_smoothing_enabled = true
 
 [editable path="MechanicsTree"]

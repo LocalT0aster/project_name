@@ -18,9 +18,6 @@ tile_set = ExtResource("2_u6ue0")
 
 [node name="player" parent="." unique_id=2040731108 instance=ExtResource("5_3rj88")]
 
-[node name="Camera2D" type="Camera2D" parent="player" unique_id=1722819244]
-ignore_rotation = false
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1144738011]
 
 [node name="MechanicsPanel" parent="CanvasLayer" unique_id=1660838940 instance=ExtResource("7_i8j8g")]

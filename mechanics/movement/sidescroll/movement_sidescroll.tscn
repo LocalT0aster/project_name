@@ -7,6 +7,7 @@
 [node name="Movement" type="Node" unique_id=808798700 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_qwpyj")
 speed = 200.0
+jump_velocity = 300.0
 push_force = 350.0
 initial_state = NodePath("walk")
 metadata/_custom_type_script = "uid://bvf5nm6qen850"
