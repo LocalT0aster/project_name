@@ -50,6 +50,9 @@ func set_mechanic(scene: PackedScene) -> bool:
 	set_deferred("_loaded_this_frame", false)
 	return true
 
+func is_empty() -> bool:
+	return _loaded_fsm == DEFAULT_FSM
+
 ## for modulation, idk
 # const ColorsToColor: Dictionary[Colors, Color] = {
 #     Colors.NONE: Color.GRAY,

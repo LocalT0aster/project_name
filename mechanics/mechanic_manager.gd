@@ -5,7 +5,7 @@ extends Node
 
 const MECHANIC_TREE_GROUP: StringName = &"MechanicEntity"
 
-signal entity_create(entity_id: int) ## ?
+signal entity_update(entity_id: int) ## Called when entity is created/updated
 signal entity_removed(entity_id: int) ## Called when the entity is exiting tree
 
 var _instantiated: bool = true

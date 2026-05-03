@@ -32,6 +32,8 @@ func init_slots() -> void:
 		slot.item_changed.connect(_on_item_changed.bind(color))
 		_color2slot[color] = slot
 		slots_container.add_child(slot)
+	if entity.has_non_empty_slots():
+		pass
 
 func _on_item_changed(item: ItemMechanic, color: Slot.Colors) -> void:
 	MechanicManager.entity_trees[entity_id].set_slot_mechanic(color, item.mechanic if item else null)
