@@ -23,9 +23,8 @@ func init() -> void:
 	for c in entities_container.get_children(): c.queue_free()
 	for c in inspectors_container.get_children(): c.queue_free()
 	
-	if MechanicManager.entity_removed.has_connections():
-		MechanicManager.entity_removed.disconnect(_on_entity_remove)
-	MechanicManager.entity_removed.connect(_on_entity_remove)
+	Util.connect_only(MechanicManager.entity_removed, _on_entity_remove)
+	Util.connect_only(MechanicManager.entity_update, _on_entity_update)
 
 	# Instantiate new entity entries
 	for id in MechanicManager.entity_trees.keys():
@@ -95,3 +94,15 @@ func _on_entity_remove(id: int) -> void:
 	_id2inspector[id].eject_all()
 	_id2inspector[id].queue_free()
 	_id2inspector.erase(id)
+
+func _on_entity_update(id: int) -> void:
+	var btn: EntityButton = _id2button.get(id)
+	var ins: EntityInspector = _id2inspector.get(id)
+	if btn:
+		btn.text = MechanicManager.entity_trees[id].e_name
+		btn.name = MechanicManager.entity_trees[id].e_name
+	else:
+		_init_entity_button(id)
+	if ins:
+		ins.name = MechanicManager.entity_trees[id].e_name
+		

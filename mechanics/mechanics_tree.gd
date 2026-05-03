@@ -29,21 +29,27 @@ func init() -> void:
 		for c in enabled_slots.keys():
 			if not enabled_slots[c]:
 				continue
-			var s = Slot.new()
-			s.color = c
-			s.name = "Slot" + Slot.ColorsToStr[c]
-			slots[c] = s
-			add_child(s)
+			_create_slot(c)
 	else: ## We have predefined slots, use them
-		for c in get_children():
-			assert(c is Slot, "MechanicTree must contain Slots.")
+		for child in get_children():
+			assert(child is Slot, "MechanicTree must contain Slots.")
 			## add to [member enabled_slots] if enabled and is not a duplicate color
-			if enabled_slots[c.color] and not slots.has(c.color):
-				slots[c.color] = c
-			else: # destroy otherwise
-				c.queue_free()
+			if enabled_slots[child.color] and not slots.has(child.color):
+				slots[child.color] = child
+			else: ## destroy otherwise
+				child.queue_free()
+		for color in Slot.Colors.values(): ## If we're still missing some slots of certain color, create them
+			if enabled_slots[color] and not slots.has(color):
+				_create_slot(color)
 		# MechanicManager.entity_update.emit(get_instance_id())
 	print(e_name + " init")
+
+func _create_slot(c: Slot.Colors) -> void:
+	var s = Slot.new()
+	s.color = c
+	s.name = "Slot" + Slot.ColorsToStr[c]
+	slots[c] = s
+	add_child(s)
 
 ## Get [class Slot] by color
 func get_slot(color: Slot.Colors) -> Slot:

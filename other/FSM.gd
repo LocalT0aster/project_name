@@ -15,8 +15,16 @@ var states: Dictionary[StringName, State] = {}
 ## Currently active state, or `null` before initialization completes.
 var current_state: State = null
 
-## [ItemMechanic] (card) that corresponds to this [FSM]'s scene.
-@export var representative_item: ItemMechanic = null
+## Path to the [ItemMechanic] card that corresponds to this [FSM]'s scene.[br]
+## Export via path avoids circular dependency with [ItemMechanic]
+@export_file("*.tres") var representative_card_path: String = ""
+
+## [ItemMechanic] card that corresponds to this [FSM]'s scene.
+var representative_item: ItemMechanic:
+	get:
+		if representative_card_path.is_empty():
+			return null
+		return load(representative_card_path) as ItemMechanic
 
 ## Registers child states and enters [member initial_state] when present.
 func _ready() -> void:

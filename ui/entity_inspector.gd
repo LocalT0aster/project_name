@@ -29,11 +29,16 @@ func init_slots() -> void:
 			continue
 		var slot: ItemSlot = entity_inspector_slot.instantiate()
 		slot.color = color
+		if not entity.is_slot_empty(color):
+			var card: ItemMechanic = entity.get_slot_mechanic(color).representative_item
+			if card:
+				slot.item = card.duplicate() as ItemMechanic
+			else:
+				printerr("Mechanic %s has no representative ItemMechanic." % entity.get_slot_mechanic(color).name)
 		slot.item_changed.connect(_on_item_changed.bind(color))
 		_color2slot[color] = slot
 		slots_container.add_child(slot)
-	if entity.has_non_empty_slots():
-		pass
+
 
 func _on_item_changed(item: ItemMechanic, color: Slot.Colors) -> void:
 	MechanicManager.entity_trees[entity_id].set_slot_mechanic(color, item.mechanic if item else null)

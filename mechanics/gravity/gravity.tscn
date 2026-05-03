@@ -1,9 +1,8 @@
 [gd_scene format=3 uid="uid://dtqt3cilaba0o"]
 
 [ext_resource type="Script" uid="uid://ds8lxtqjdggsq" path="res://mechanics/gravity/gravity.gd" id="1_08r0c"]
-[ext_resource type="Resource" uid="uid://domtbus33dju2" path="res://items/gravity.tres" id="2_43vvq"]
 
 [node name="Gravity" type="Node" unique_id=393154050]
 script = ExtResource("1_08r0c")
-representative_item = ExtResource("2_43vvq")
+representative_card_path = "uid://domtbus33dju2"
 metadata/_custom_type_script = "uid://t3334irup25d"

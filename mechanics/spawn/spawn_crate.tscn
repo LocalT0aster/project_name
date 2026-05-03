@@ -2,9 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://cg33uuov4gl8k" path="res://mechanics/spawn/spawn_bullet.tscn" id="1_boa8e"]
 [ext_resource type="PackedScene" uid="uid://bip1jkrarx5u2" path="res://objects/crate.tscn" id="2_u6kn4"]
-[ext_resource type="Resource" uid="uid://xf0hu5fhwt6o" path="res://items/spawn_crate.tres" id="3_u6kn4"]
 
 [node name="Spawn" unique_id=2005448656 instance=ExtResource("1_boa8e")]
 prefab = ExtResource("2_u6kn4")
 at_cursor = true
-representative_item = ExtResource("3_u6kn4")
+representative_card_path = "uid://xf0hu5fhwt6o"
