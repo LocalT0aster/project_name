@@ -24,6 +24,7 @@ scene = ExtResource("3_5xbjy")
 
 [node name="golem" parent="." index="3" unique_id=31088325 instance=ExtResource("2_bswci")]
 position = Vector2(690, 145)
+look_left_at_start = true
 
 [node name="Slot" type="Node" parent="player/MechanicsTree" parent_id_path=PackedInt32Array(2040731108, 323197346) index="0" unique_id=1360216181]
 script = ExtResource("6_pa8r4")
