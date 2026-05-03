@@ -11,12 +11,12 @@ extends Control
 var _id2button: Dictionary[int, EntityButton] = {}
 var _id2inspector: Dictionary[int, EntityInspector] = {}
 
+const _MECHANIC_TREE_PATH: NodePath = ^"./MechanicsTree"
 const SCRIPT_ID: StringName = &"MechanicPanel"
 
 func _ready() -> void:
 	# init()
 	print("MechanicPanel ready")
-	#LoadManager.get_ordering().loaded[SCRIPT_ID] = self
 
 func init() -> void:
 	# Free containers from predefined children (mock ui entries)
@@ -31,6 +31,8 @@ func init() -> void:
 	for id in MechanicManager.entity_trees.keys():
 		_init_entity_button(id)
 		_init_entity_inspector(id)
+	if %player:
+		_id2button[%player.get_node(_MECHANIC_TREE_PATH).get_instance_id()].button_pressed = true
 
 ## Initialize EntityButton
 func _init_entity_button(id: int) -> EntityButton:

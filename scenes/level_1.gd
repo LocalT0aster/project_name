@@ -7,6 +7,3 @@ func _ready() -> void:
 	Dialogic.start('level1')
 	get_viewport().set_input_as_handled()
 	super ()
-	
-	
-	

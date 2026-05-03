@@ -17,6 +17,7 @@ tile_set = ExtResource("2_u6ue0")
 [node name="Exit" parent="." unique_id=2036781549 instance=ExtResource("3_fal5o")]
 
 [node name="player" parent="." unique_id=2040731108 instance=ExtResource("5_3rj88")]
+unique_name_in_owner = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1144738011]
 

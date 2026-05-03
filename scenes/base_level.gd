@@ -3,13 +3,9 @@ extends Node2D
 
 @export var panel: MechanicPanel
 
-const LEVEL_NAME: StringName = &"Level"
 const SCRIPT_ID: StringName = &"BaseLevel"
 
 func _ready() -> void:
-	if name != LEVEL_NAME:
-		name = LEVEL_NAME
-		printerr('Please use name "Level" for root level node')
 	if not panel:
 		printerr("Where MechanicPanel?")
 	init()
