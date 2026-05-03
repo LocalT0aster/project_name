@@ -15,6 +15,9 @@ var states: Dictionary[StringName, State] = {}
 ## Currently active state, or `null` before initialization completes.
 var current_state: State = null
 
+## [ItemMechanic] (card) that corresponds to this [FSM]'s scene.
+@export var representative_item: ItemMechanic = null
+
 ## Registers child states and enters [member initial_state] when present.
 func _ready() -> void:
 	for child in get_children():
