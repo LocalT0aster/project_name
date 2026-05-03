@@ -8,6 +8,8 @@ extends Control
 @export var inspectors_container: Control
 @export var inventory_container: Control
 
+@export var death_msg: Label
+
 var _id2button: Dictionary[int, EntityButton] = {}
 var _id2inspector: Dictionary[int, EntityInspector] = {}
 
@@ -32,6 +34,7 @@ func init() -> void:
 		_init_entity_inspector(id)
 	if %player:
 		_id2button[%player.get_node(_MECHANIC_TREE_PATH).get_instance_id()].button_pressed = true
+		%player.tree_exited.connect(_on_player_dead)
 
 ## Initialize EntityButton
 func _init_entity_button(id: int) -> EntityButton:
@@ -106,3 +109,6 @@ func _on_entity_update(id: int) -> void:
 	if ins:
 		ins.name = MechanicManager.entity_trees[id].e_name
 		
+
+func _on_player_dead() -> void:
+	death_msg.show()

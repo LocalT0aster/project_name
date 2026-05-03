@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dkcblfp0agbcr" path="res://img/InspectorNPR.png" id="15_0ycoe"]
 [ext_resource type="Resource" uid="uid://domtbus33dju2" path="res://items/gravity.tres" id="15_dam2m"]
 
-[node name="MechanicsPanel" type="Control" unique_id=1660838940 node_paths=PackedStringArray("entities_container", "inspectors_container", "inventory_container")]
+[node name="MechanicsPanel" type="Control" unique_id=1660838940 node_paths=PackedStringArray("entities_container", "inspectors_container", "inventory_container", "death_msg")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,6 +27,7 @@ script = ExtResource("1_wlcnm")
 entities_container = NodePath("HBoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer2/ScrollContainer/Entities")
 inspectors_container = NodePath("HBoxContainer/MarginContainer2/InspectorFrame/Inspectors")
 inventory_container = NodePath("HBoxContainer/VBoxContainer/MarginContainer/MarginContainer/ScrollContainer/inventory")
+death_msg = NodePath("DeathMsgContainer/DeathMsg")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1476382815]
 layout_mode = 1
@@ -175,3 +176,20 @@ layout_mode = 2
 
 [node name="QuitGame" parent="." unique_id=1789896429 instance=ExtResource("14_8a6gg")]
 layout_mode = 0
+
+[node name="DeathMsgContainer" type="Control" parent="." unique_id=11045763]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="DeathMsg" type="Label" parent="DeathMsgContainer" unique_id=111083859]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 16.0
+grow_horizontal = 2
+text = "Press F5 to Restart"
+horizontal_alignment = 1
