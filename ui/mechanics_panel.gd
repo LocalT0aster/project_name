@@ -21,7 +21,7 @@ var _id2button: Dictionary[int, EntityButton] = {}
 var _id2inspector: Dictionary[int, EntityInspector] = {}
 var _active_entity_id: int = 0
 ## Active [ItemDragData], or [code]null[/code] when no item card is held.
-var drag_data = null
+var drag_data: ItemDragData = null
 
 const _MECHANIC_TREE_PATH: NodePath = ^"./MechanicsTree"
 const _empty_item_slot: PackedScene = preload("res://ui/item_slot.tscn")
@@ -93,7 +93,7 @@ func _notification(what: int) -> void:
 	match what:
 		Node.NOTIFICATION_DRAG_BEGIN:
 			drag_data = get_viewport().gui_get_drag_data()
-			if not _is_item_drag_data(drag_data):
+			if drag_data is not ItemDragData:
 				drag_data = null
 		Node.NOTIFICATION_DRAG_END:
 			if drag_data:
@@ -199,6 +199,3 @@ func _on_inspector_quick_transfer(slot: ItemSlot) -> void:
 		return
 	var ejected: ItemMechanic = slot.replace_item(null)
 	deposit_to_inventory(ejected)
-
-func _is_item_drag_data(data: Variant) -> bool:
-	return data is RefCounted and data.get_script() == ItemDragDataScript
