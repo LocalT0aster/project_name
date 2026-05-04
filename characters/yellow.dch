@@ -10,16 +10,43 @@
 "style": "",
 "suffix": ""
 },
-&"default_portrait": "Yellow Curious",
+&"default_portrait": "crying",
 &"description": "",
 &"display_name": "Юна",
 &"mirror": false,
 &"nicknames": [""],
 &"offset": Vector2(0, 0),
 &"portraits": {
-"Yellow Curious": {
+"crying": {
 "export_overrides": {
-"image": "\"res://img/characters/yellow_curious.png\""
+"image": "\"res://img/characters/yellow_crying.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"happy": {
+"export_overrides": {
+"image": "\"res://img/characters/yellow_happy.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"shocked": {
+"export_overrides": {
+"image": "\"res://img/characters/yellow_shocked.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"thinking": {
+"export_overrides": {
+"image": "\"res://img/characters/yellow_thinking.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),
