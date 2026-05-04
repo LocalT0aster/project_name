@@ -1,13 +1,23 @@
 class_name ItemSlot
 extends TextureRect
+## Drag-and-drop UI slot for item cards.
+##
+## Inventory slots use [constant Slot.Colors.NONE]. Colored slots represent
+## entity equipment slots and emit [signal item_changed] when their item changes.
 
 @onready var icon: TextureRect = $Icon
+## Card currently displayed in this slot.
 @export var item: ItemMechanic = null
+## Slot color accepted by this slot, or [constant Slot.Colors.NONE] for inventory.
 @export var color: Slot.Colors = Slot.Colors.NONE
+## Rejects new items while preserving the current visual state.
 @export var disabled: bool = false
+## Owning entity instance ID for inspector slots; [code]0[/code] for inventory.
 @export var entity_id: int = 0
 
+## Emitted by colored slots after [method replace_item] updates the equipped item.
 signal item_changed(item: ItemMechanic)
+## Emitted when the player requests quick equip or eject for this slot.
 signal quick_transfer_requested(slot: ItemSlot)
 
 const ItemDragDataScript: GDScript = preload("res://ui/item_drag_data.gd")
@@ -25,6 +35,7 @@ func _ready() -> void:
 		icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	update_ui()
 
+## Refreshes the icon and tooltip from [member item].
 func update_ui() -> void:
 	if item == null:
 		if icon:
@@ -37,11 +48,13 @@ func update_ui() -> void:
 		icon.texture = item.sprite
 	tooltip_text = item.mechanic_name
 
+## Returns whether [param new_item] can be placed into this slot.
 func can_accept_item(new_item: ItemMechanic) -> bool:
 	if disabled or not new_item:
 		return false
 	return color == Slot.Colors.NONE or new_item.color == color
 
+## Replaces [member item], updates the UI, and returns the previous item.
 func replace_item(new_item: ItemMechanic) -> ItemMechanic:
 	var previous: ItemMechanic = item
 	item = new_item
@@ -98,6 +111,7 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 		else:
 			drag_data.item = outgoing
 
+## Swaps the contents of this slot with [param slot].
 func swap_item_with(slot: ItemSlot) -> void:
 	if self == slot:
 		update_ui()

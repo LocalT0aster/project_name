@@ -1,24 +1,30 @@
 class_name EntityInspector
 extends Control
+## Displays and edits the colored equipment slots for one entity.
 
-## ItemSlot scene
+## Scene used to instantiate colored equipment slots.
 @export var entity_inspector_slot: PackedScene = preload("res://ui/item_slot.tscn")
 
-## Instace ID of the MechanicTree
+## Instance ID of the inspected [MechanicsTree].
 @export var entity_id: int = 0
 
+## Requests that an inspector slot be ejected into inventory.
 signal eject_slot(item: ItemSlot)
 
+## Container that receives generated equipment [ItemSlot] nodes.
 @export var slots_container: Control
+## Container reserved for generated mechanic parameters.
 @export var params_container: Control
 
 var _color2slot: Dictionary[Slot.Colors, ItemSlot] = {}
 
+## Removes generated slots and parameter controls.
 func clear() -> void:
 	for c in slots_container.get_children(): c.queue_free()
 	for c in params_container.get_children(): c.queue_free()
 	_color2slot.clear()
 
+## Rebuilds equipment slots from the current [member entity_id].
 func init_slots() -> void:
 	clear()
 	var entity: MechanicsTree = MechanicManager.entity_trees[entity_id]
@@ -46,11 +52,13 @@ func _on_item_changed(item: ItemMechanic, color: Slot.Colors) -> void:
 func _on_slot_quick_transfer_requested(slot: ItemSlot) -> void:
 	eject_slot.emit(slot)
 
+## Returns the compatible visible slot for [param item], or [code]null[/code].
 func get_slot_for_item(item: ItemMechanic) -> ItemSlot:
 	if not item:
 		return null
 	return _color2slot.get(item.color)
 
+## Unequips every non-empty slot and returns the removed items.
 func eject_all() -> Array[ItemMechanic]:
 	var ejected_items: Array[ItemMechanic] = []
 	var slots = slots_container.get_children()

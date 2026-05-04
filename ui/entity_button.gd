@@ -1,7 +1,8 @@
 class_name EntityButton
 extends Button
+## Button that selects an entity inspector and supports drag-over switching.
 
-## Instace ID of the MechanicTree
+## Instance ID of the represented [MechanicsTree].
 @export var entity_id: int = 0
 ## WeakRef to the owning [MechanicPanel].
 var drag_data_ref: WeakRef = null

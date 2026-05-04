@@ -1,18 +1,26 @@
 class_name MechanicPanel
 extends Control
+## Coordinates entity inspectors, inventory slots, and item drag cleanup.
 
+## Scene used for entity selection buttons.
 @export var entity_button: PackedScene = preload("res://ui/entity_button.tscn")
+## Scene used for per-entity equipment inspectors.
 @export var entity_inspector: PackedScene = preload("res://ui/entity_inspector.tscn")
 
+## Container holding [EntityButton] instances.
 @export var entities_container: Control
+## Container holding [EntityInspector] instances.
 @export var inspectors_container: Control
+## Container holding inventory [ItemSlot] instances.
 @export var inventory_container: Control
 
+## Message shown when the player exits the tree.
 @export var death_msg: Label
 
 var _id2button: Dictionary[int, EntityButton] = {}
 var _id2inspector: Dictionary[int, EntityInspector] = {}
 var _active_entity_id: int = 0
+## Active [ItemDragData], or [code]null[/code] when no item card is held.
 var drag_data = null
 
 const _MECHANIC_TREE_PATH: NodePath = ^"./MechanicsTree"
@@ -44,7 +52,7 @@ func init() -> void:
 		if not %player.tree_exited.is_connected(_on_player_dead):
 			%player.tree_exited.connect(_on_player_dead)
 
-## Initialize EntityButton
+# Initializes the selector button for [param id].
 func _init_entity_button(id: int) -> EntityButton:
 	var btn: EntityButton = entity_button.instantiate()
 	btn.text = MechanicManager.entity_trees[id].e_name
@@ -56,7 +64,7 @@ func _init_entity_button(id: int) -> EntityButton:
 	entities_container.add_child(btn)
 	return btn
 
-## Initialize EntityInspector
+# Initializes the equipment inspector for [param id].
 func _init_entity_inspector(id: int) -> EntityInspector:
 	var ins: EntityInspector = entity_inspector.instantiate()
 	ins.name = MechanicManager.entity_trees[id].e_name
@@ -69,6 +77,7 @@ func _init_entity_inspector(id: int) -> EntityInspector:
 	return ins
 	
 
+## Shows the inspector for [param entity_id] when its button is toggled on.
 func on_button_toggle(togled_on: bool, entity_id: int):
 	for i in inspectors_container.get_children():
 		i.hide()
@@ -127,9 +136,11 @@ func _on_entity_update(id: int) -> void:
 func _on_player_dead() -> void:
 	death_msg.show()
 
+## Returns whether an item card is currently being dragged.
 func has_active_drag() -> bool:
 	return drag_data != null and drag_data.item != null
 
+## Places [param item] into inventory, creating a new slot if needed.
 func deposit_to_inventory(item: ItemMechanic) -> ItemSlot:
 	if not item:
 		return null
@@ -144,6 +155,7 @@ func deposit_to_inventory(item: ItemMechanic) -> ItemSlot:
 	new_slot.replace_item(item)
 	return new_slot
 
+## Returns the currently visible [EntityInspector], or [code]null[/code].
 func get_active_inspector() -> EntityInspector:
 	return _id2inspector.get(_active_entity_id)
 
