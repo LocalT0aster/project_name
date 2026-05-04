@@ -20,9 +20,3 @@ func hurt(_a, _b):
 func _on_walldetector_body_entered(body: Node2D) -> void:
 	if body == self: return
 	direction *= -1.0
-
-
-func _on_hurtbox_body_entered(body: Node2D) -> void:
-	if body == self or !body.has_method("hurt"): return
-	if body.is_in_group("enemy"): return
-	body.hurt(1.0,Vector2.ZERO)
