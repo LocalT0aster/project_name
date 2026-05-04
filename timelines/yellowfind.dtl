@@ -1,0 +1,34 @@
+yellow (shocked): О как!
+yellow (happy): Знакомое лицо нарисовалось!
+yellow (happy): А ты тоже сначала думал, что спишь, а потом...
+yellow (crrying): А потом...
+
+blue (smile): Да-да. И тебе привет, Юна.
+blue (calming): С ходьбой разобралась уже?
+blue (calming): Там надо механику в инспектор перетащить.
+
+yellow (crying): Ну Конан!
+yellow (crying): Ну я понимаю, что прогер из меня никакущий, но не настолько!
+yellow (thinking): Конечно, я уже проверила инспектор.
+yellow (crying): А там фигня какая-то. Ходьбы нема.
+yellow (crying): Какие-то жёлтые прикольчики...
+yellow (happy): Зато хоть ты пришёл. Вместе думать веселее \:D
+yellow (happy): А, привет, кстати!
+
+blue (calming): Зачилься, я уже думаю.
+blue (calming): Но, похоже, ходьба тебе пока не светит.
+
+yellow (shocked): Да???
+yellow (shocked): А как я должна зачиллиться?
+yellow (crying): Вдруг ты меня тут бросишь T_T
+yellow (crying): Я до сих пор на фазе отрицания происходящего!
+
+blue (calming): Что ж.
+blue (calming): Попробуй сразу скипнуть к принятию.
+blue (smile): Конечно, я тебя не кину.
+blue (calming): Залезай давай.
+
+yellow (happy): Ура-ура, сейчас!
+do SceneSwitcher.switch_scene("res://scenes/level_2.tscn")
+
+[end_timeline]

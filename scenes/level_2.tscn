@@ -41,6 +41,9 @@ region_rect = Rect2(112, 16, 16, 32)
 position = Vector2(-1, -12)
 shape = SubResource("CapsuleShape2D_wo48x")
 
+[node name="Ponder" parent="CanvasLayer/MechanicsPanel/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(1660838940, 1279561075) index="0" unique_id=1178791099]
+dil = "level2hint"
+
 [node name="spawn_bullet" parent="CanvasLayer/MechanicsPanel/HBoxContainer/VBoxContainer/MarginContainer/MarginContainer/ScrollContainer/inventory" parent_id_path=PackedInt32Array(1660838940, 2095223891) index="2" unique_id=1696389710]
 item = null
 

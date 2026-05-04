@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 MechanicManager="*uid://dlvfjeaeuqx0x"
 Dialogic="*uid://ds2q0uclmolvu"
 GlobalShortcuts="*uid://dl6xwi8i25s80"
+SceneSwitcher="*uid://cx2h1d4pc4lhp"
 
 [dialogic]
 
@@ -35,7 +36,11 @@ directories/dch_directory={
 directories/dtl_directory={
 "Golem": "res://timelines/Golem.dtl",
 "level1": "res://timelines/level1.dtl",
-"test1": "res://timelines/test1.dtl"
+"level1hint": "res://timelines/level1hint.dtl",
+"level1new": "res://timelines/level1new.dtl",
+"level2hint": "res://timelines/level2hint.dtl",
+"test1": "res://timelines/test1.dtl",
+"yellowfind": "res://timelines/yellowfind.dtl"
 }
 layout/style_directory={
 "": "res://dil_UI/New_File.tres",

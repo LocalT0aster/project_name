@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://cx2h1d4pc4lhp"]
+
+[ext_resource type="Script" uid="uid://85jcvt3m3ld8" path="res://other/scene_switcher.gd" id="1_ipgvm"]
+
+[sub_resource type="Animation" id="Animation_1vjvg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ipgvm"]
+resource_name = "fade"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"finish_switch"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8meia"]
+_data = {
+&"RESET": SubResource("Animation_1vjvg"),
+&"fade": SubResource("Animation_ipgvm")
+}
+
+[node name="SceneSwitcher" type="CanvasLayer" unique_id=1172063923]
+script = ExtResource("1_ipgvm")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1101620118]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=223725609]
+libraries/ = SubResource("AnimationLibrary_8meia")
