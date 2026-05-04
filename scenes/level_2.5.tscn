@@ -5,7 +5,19 @@
 [ext_resource type="PackedScene" uid="uid://bc13vpqc62d28" path="res://mechanics/movement/sidescroll/movement_sidescroll.tscn" id="3_x6jmh"]
 [ext_resource type="PackedScene" uid="uid://cp8ng5weksopl" path="res://mechanics/spawn/spawn_crate.tscn" id="4_x6jmh"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aamkj"]
+radius = 11.0
+height = 56.0
+
 [node name="Level" unique_id=59110311 instance=ExtResource("1_h8a06")]
+
+[node name="Sprite" parent="player" parent_id_path=PackedInt32Array(2040731108) index="0" unique_id=792193039]
+position = Vector2(0, -19.999998)
+region_rect = Rect2(112, 16, 16, 32)
+
+[node name="CollisionShape2D" parent="player" parent_id_path=PackedInt32Array(2040731108) index="1" unique_id=595134198]
+position = Vector2(-1, -12)
+shape = SubResource("CapsuleShape2D_aamkj")
 
 [node name="SlotBlue" type="Node" parent="player/MechanicsTree" parent_id_path=PackedInt32Array(2040731108, 323197346) index="0" unique_id=1904494120]
 script = ExtResource("2_xytl1")
@@ -13,7 +25,7 @@ color = 1
 _loaded_fsm = ExtResource("3_x6jmh")
 metadata/_custom_type_script = "uid://cbttjjx2srib6"
 
-[node name="Movement" parent="player/MechanicsTree/SlotBlue" index="0" unique_id=808798700 node_paths=PackedStringArray("character") instance=ExtResource("3_x6jmh")]
+[node name="Movement" parent="player/MechanicsTree/SlotBlue" index="0" unique_id=322169273 node_paths=PackedStringArray("character") instance=ExtResource("3_x6jmh")]
 character = NodePath("../../..")
 
 [node name="SlotYellow" type="Node" parent="player/MechanicsTree" parent_id_path=PackedInt32Array(2040731108, 323197346) index="1" unique_id=645218428]
@@ -24,6 +36,9 @@ metadata/_custom_type_script = "uid://cbttjjx2srib6"
 
 [node name="Spawn" parent="player/MechanicsTree/SlotYellow" index="0" unique_id=2005448656 node_paths=PackedStringArray("character") instance=ExtResource("4_x6jmh")]
 character = NodePath("../../..")
+
+[node name="CanvasLayer" parent="." index="4" unique_id=1144738011]
+visible = false
 
 [editable path="player"]
 [editable path="player/MechanicsTree"]
