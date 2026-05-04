@@ -55,7 +55,7 @@ func eject_all() -> Array[ItemMechanic]:
 	var ejected_items: Array[ItemMechanic] = []
 	var slots = slots_container.get_children()
 	for s in slots:
-		var slot := s as ItemSlot
+		var slot: ItemSlot = s as ItemSlot
 		if not slot or not slot.item:
 			continue
 		ejected_items.append(slot.replace_item(null))

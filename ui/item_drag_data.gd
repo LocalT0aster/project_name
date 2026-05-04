@@ -27,8 +27,7 @@ func is_from_entity_slot() -> bool:
 func get_source_slot() -> ItemSlot:
 	if source_invalidated or not source_slot_ref:
 		return null
-	var source: Object = source_slot_ref.get_ref()
-	return source as ItemSlot
+	return source_slot_ref.get_ref() as ItemSlot
 
 func invalidate_source() -> void:
 	source_invalidated = true

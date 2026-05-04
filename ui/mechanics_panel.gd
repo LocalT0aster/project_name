@@ -134,7 +134,7 @@ func deposit_to_inventory(item: ItemMechanic) -> ItemSlot:
 	if not item:
 		return null
 	for child in inventory_container.get_children():
-		var inventory_slot := child as ItemSlot
+		var inventory_slot: ItemSlot = child as ItemSlot
 		if inventory_slot and not inventory_slot.item and inventory_slot.can_accept_item(item):
 			inventory_slot.replace_item(item)
 			return inventory_slot
@@ -149,7 +149,7 @@ func get_active_inspector() -> EntityInspector:
 
 func _connect_inventory_slots() -> void:
 	for child in inventory_container.get_children():
-		var slot := child as ItemSlot
+		var slot: ItemSlot = child as ItemSlot
 		if slot:
 			_connect_inventory_slot(slot)
 
@@ -172,20 +172,20 @@ func _finish_drag(data) -> void:
 func _on_inventory_quick_transfer(slot: ItemSlot) -> void:
 	if not slot.item:
 		return
-	var inspector := get_active_inspector()
+	var inspector: EntityInspector = get_active_inspector()
 	if not inspector:
 		return
-	var target := inspector.get_slot_for_item(slot.item)
+	var target: ItemSlot = inspector.get_slot_for_item(slot.item)
 	if not target or not target.can_accept_item(slot.item):
 		return
-	var item_to_equip := slot.item
-	var displaced := target.replace_item(item_to_equip)
+	var item_to_equip: ItemMechanic = slot.item
+	var displaced: ItemMechanic = target.replace_item(item_to_equip)
 	slot.replace_item(displaced)
 
 func _on_inspector_quick_transfer(slot: ItemSlot) -> void:
 	if not slot.item:
 		return
-	var ejected := slot.replace_item(null)
+	var ejected: ItemMechanic = slot.replace_item(null)
 	deposit_to_inventory(ejected)
 
 func _is_item_drag_data(data: Variant) -> bool:

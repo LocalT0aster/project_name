@@ -43,7 +43,7 @@ func can_accept_item(new_item: ItemMechanic) -> bool:
 	return color == Slot.Colors.NONE or new_item.color == color
 
 func replace_item(new_item: ItemMechanic) -> ItemMechanic:
-	var previous := item
+	var previous: ItemMechanic = item
 	item = new_item
 	update_ui()
 	if color != Slot.Colors.NONE:
@@ -89,7 +89,7 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	var drag_data = data
 	if not drag_data.item:
 		return
-	var outgoing := replace_item(drag_data.item)
+	var outgoing: ItemMechanic = replace_item(drag_data.item)
 	drag_data.item = null
 	if outgoing:
 		var source: ItemSlot = drag_data.get_source_slot()
@@ -103,7 +103,7 @@ func swap_item_with(slot: ItemSlot) -> void:
 		update_ui()
 		slot.update_ui()
 		return
-	var displaced := replace_item(slot.item)
+	var displaced: ItemMechanic = replace_item(slot.item)
 	slot.replace_item(displaced)
 
 func _is_item_drag_data(data: Variant) -> bool:
