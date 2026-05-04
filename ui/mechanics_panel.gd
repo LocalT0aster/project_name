@@ -108,32 +108,32 @@ func _can_drop_data(_at_position: Vector2, _data: Variant) -> bool:
 	return false
 
 func _on_entity_remove(id: int) -> void:
-	if drag_data and drag_data.source_entity_id == id:
-		drag_data.invalidate_source()
-
-	_id2button[id].queue_free()
-	_id2button.erase(id)
-
-	for item in _id2inspector[id].eject_all():
-		deposit_to_inventory(item)
-	_id2inspector[id].queue_free()
-	_id2inspector.erase(id)
-	if _active_entity_id == id:
-		_active_entity_id = 0
+	_remove_entity_ui(id)
 
 func _on_entity_update(id: int) -> void:
-	var btn: EntityButton = _id2button.get(id)
-	var ins: EntityInspector = _id2inspector.get(id)
+	if not MechanicManager.entity_trees.has(id):
+		_remove_entity_ui(id)
+		return
+
+	var entity: MechanicsTree = MechanicManager.entity_trees[id]
+	var btn: EntityButton = _id2button.get(id) as EntityButton
+	var ins: EntityInspector = _id2inspector.get(id) as EntityInspector
 	if btn:
-		btn.text = MechanicManager.entity_trees[id].e_name
-		btn.name = MechanicManager.entity_trees[id].e_name
+		btn.text = entity.e_name
+		btn.name = entity.e_name
 	else:
-		_init_entity_button(id)
+		btn = _init_entity_button(id)
 	if ins:
-		ins.name = MechanicManager.entity_trees[id].e_name
-		ins.update_slots()
+		ins.name = entity.e_name
+		_invalidate_drag_source_if_disabled(entity, id)
+		for item in ins.update_slots():
+			deposit_to_inventory(item)
 	else:
-		_init_entity_inspector(id)
+		ins = _init_entity_inspector(id)
+
+	var is_active: bool = _active_entity_id == id
+	btn.set_pressed_no_signal(is_active)
+	ins.visible = is_active
 
 func _on_player_dead() -> void:
 	death_msg.show()
@@ -201,3 +201,31 @@ func _on_inspector_quick_transfer(slot: ItemSlot) -> void:
 		return
 	var ejected: ItemMechanic = slot.replace_item(null)
 	deposit_to_inventory(ejected)
+
+func _remove_entity_ui(id: int) -> void:
+	if drag_data and drag_data.source_entity_id == id:
+		drag_data.invalidate_source()
+
+	var btn: EntityButton = _id2button.get(id) as EntityButton
+	if btn:
+		btn.queue_free()
+		_id2button.erase(id)
+
+	var ins: EntityInspector = _id2inspector.get(id) as EntityInspector
+	if ins:
+		for item in ins.eject_all():
+			deposit_to_inventory(item)
+		ins.queue_free()
+		_id2inspector.erase(id)
+
+	if _active_entity_id == id:
+		_active_entity_id = 0
+
+func _invalidate_drag_source_if_disabled(entity: MechanicsTree, id: int) -> void:
+	if not drag_data or drag_data.source_entity_id != id:
+		return
+	var source: ItemSlot = drag_data.get_source_slot()
+	if not source or source.color == Slot.Colors.NONE:
+		return
+	if not entity.enabled_slots.get(source.color, false):
+		drag_data.invalidate_source()

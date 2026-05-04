@@ -44,12 +44,33 @@ func init() -> void:
 		# MechanicManager.entity_update.emit(get_instance_id())
 	print(e_name + " init")
 
-func _create_slot(c: Slot.Colors) -> void:
-	var s = Slot.new()
+func _create_slot(c: Slot.Colors) -> Slot:
+	var s: Slot = Slot.new()
 	s.color = c
 	s.name = "Slot" + Slot.ColorsToStr[c]
 	slots[c] = s
 	add_child(s)
+	return s
+
+## Creates and returns the backend [Slot] for [param color] when it is enabled.
+func ensure_slot(color: Slot.Colors) -> Slot:
+	if not enabled_slots.get(color, false):
+		return null
+	var slot: Slot = slots.get(color) as Slot
+	if slot and is_instance_valid(slot) and not slot.is_queued_for_deletion():
+		return slot
+	slots.erase(color)
+	return _create_slot(color)
+
+## Stops and removes the backend [Slot] for [param color].
+func remove_slot(color: Slot.Colors) -> void:
+	var slot: Slot = slots.get(color) as Slot
+	if not slot:
+		return
+	slots.erase(color)
+	if is_instance_valid(slot) and not slot.is_queued_for_deletion():
+		slot.process_mode = Node.PROCESS_MODE_DISABLED
+		slot.queue_free()
 
 ## Get [class Slot] by color
 func get_slot(color: Slot.Colors) -> Slot:
