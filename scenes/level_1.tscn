@@ -34,7 +34,7 @@ position = Vector2(690, 145)
 look_left_at_start = true
 
 [node name="InteractableZone" parent="golem" index="4" unique_id=490466930 instance=ExtResource("6_pa8r4")]
-dialog = "test1"
+dialog = "Golem"
 
 [node name="Exit" parent="." index="5" unique_id=2036781549]
 position = Vector2(941, 168)

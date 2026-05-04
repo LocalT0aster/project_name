@@ -29,9 +29,11 @@ directories/dch_directory={
 "blue": "res://characters/blue.dch",
 "green": "res://characters/green.dch",
 "test": "res://characters/test.dch",
-"yellow": "res://characters/yellow.dch"
+"yellow": "res://characters/yellow.dch",
+"Голем": "res://characters/Голем.dch"
 }
 directories/dtl_directory={
+"Golem": "res://timelines/Golem.dtl",
 "level1": "res://timelines/level1.dtl",
 "test1": "res://timelines/test1.dtl"
 }

@@ -103,6 +103,9 @@ region_rect = Rect2(128, 8, 16, 40)
 position = Vector2(-1, 13)
 shape = SubResource("CapsuleShape2D_ah8om")
 
+[node name="Camera2D" parent="player" index="3" unique_id=100110159]
+position = Vector2(0, 27)
+
 [connection signal="toggled" from="stuff/button" to="stuff/Door" method="toggle"]
 [connection signal="toggled" from="stuff/button" to="stuff/Door2" method="toggle"]
 [connection signal="toggled" from="stuff/button" to="stuff/Door3" method="toggle"]
