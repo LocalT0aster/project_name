@@ -8,6 +8,7 @@
 [node name="Spawn" type="Node" unique_id=2005448656 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_wh8as")
 prefab = ExtResource("4_sotbp")
+distance = 50.0
 initial_state = NodePath("idle")
 representative_card_path = "uid://xf0hu5fhwt6o"
 

@@ -7,6 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://b4daofcbwahuq" path="res://objects/door.tscn" id="3_eqxsl"]
 [ext_resource type="PackedScene" uid="uid://d3dhegwgnw5s1" path="res://objects/ghost.tscn" id="6_wo48x"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wo48x"]
+radius = 11.0
+height = 56.0
+
 [node name="Level" unique_id=2115088242 instance=ExtResource("1_3bmlt")]
 script = ExtResource("2_b4j7a")
 
@@ -29,6 +33,14 @@ position = Vector2(544, 160)
 [node name="player" parent="." index="5" unique_id=2040731108]
 position = Vector2(-112, 176)
 
+[node name="Sprite" parent="player" index="0" unique_id=792193039]
+position = Vector2(0, -19.999998)
+region_rect = Rect2(112, 16, 16, 32)
+
+[node name="CollisionShape2D" parent="player" index="1" unique_id=595134198]
+position = Vector2(-1, -12)
+shape = SubResource("CapsuleShape2D_wo48x")
+
 [node name="spawn_bullet" parent="CanvasLayer/MechanicsPanel/HBoxContainer/VBoxContainer/MarginContainer/MarginContainer/ScrollContainer/inventory" parent_id_path=PackedInt32Array(1660838940, 2095223891) index="2" unique_id=1696389710]
 item = null
 
@@ -39,4 +51,6 @@ follow_who = NodePath("../player")
 
 [connection signal="toggled" from="button" to="Door" method="toggle"]
 
+[editable path="player"]
+[editable path="player/MechanicsTree"]
 [editable path="CanvasLayer/MechanicsPanel"]
