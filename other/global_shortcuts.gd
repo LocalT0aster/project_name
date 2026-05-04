@@ -17,5 +17,5 @@ func _shortcut_input(event: InputEvent) -> void:
 
 
 func _toggle_fullscreen() -> void:
-	get_window().mode = Window.MODE_WINDOWED if get_window().mode == Window.MODE_FULLSCREEN else Window.MODE_FULLSCREEN
+	get_window().mode = 0 if get_window().mode == 4 else 4
 	print("toggled fullscreen")
