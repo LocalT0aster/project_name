@@ -3,13 +3,9 @@
 [ext_resource type="Script" uid="uid://bkw6obcm1dpvs" path="res://objects/player/player.gd" id="1_x4w5f"]
 [ext_resource type="Texture2D" uid="uid://dvtqb24ydldie" path="res://img/spritesheet.png" id="2_gnkmh"]
 [ext_resource type="PackedScene" uid="uid://ctrq8i6yvgixu" path="res://mechanics/mechanics_tree.tscn" id="3_ssrue"]
-[ext_resource type="PackedScene" uid="uid://dpiisnnkhg7w" path="res://objects/interactor.tscn" id="4_jnjyq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xnc2w"]
 radius = 16.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_gnkmh"]
-radius = 26.076809
 
 [node name="player" type="CharacterBody2D" unique_id=2040731108 node_paths=PackedStringArray("sprite") groups=["player"]]
 script = ExtResource("1_x4w5f")
@@ -34,11 +30,5 @@ enabled_slots = Dictionary[int, bool]({
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=100110159]
 ignore_rotation = false
-
-[node name="Interactor" parent="." unique_id=528762793 instance=ExtResource("4_jnjyq")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactor" unique_id=1629680487]
-shape = SubResource("CircleShape2D_gnkmh")
-debug_color = Color(0.66640484, 0.45169103, 0.64133877, 0.41960785)
 
 [editable path="MechanicsTree"]
