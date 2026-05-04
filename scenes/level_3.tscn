@@ -73,19 +73,19 @@ position = Vector2(232, -176)
 position = Vector2(1112, -536)
 
 [node name="enemy6" parent="enemies" index="5" unique_id=1969430937 instance=ExtResource("4_p6vls")]
-position = Vector2(1264, -544)
+position = Vector2(1629, -510)
 
 [node name="enemy7" parent="enemies" index="6" unique_id=411403050 instance=ExtResource("4_p6vls")]
 position = Vector2(1496, -544)
 
 [node name="enemy8" parent="enemies" index="7" unique_id=765036291 instance=ExtResource("4_p6vls")]
-position = Vector2(1888, -544)
+position = Vector2(1774, -495)
 
 [node name="enemy9" parent="enemies" index="8" unique_id=1049885110 instance=ExtResource("4_p6vls")]
-position = Vector2(2056, -544)
+position = Vector2(1742, -300)
 
 [node name="enemy10" parent="enemies" index="9" unique_id=297065262 instance=ExtResource("4_p6vls")]
-position = Vector2(2232, -536)
+position = Vector2(2128, -532)
 
 [node name="enemy11" parent="enemies" index="10" unique_id=940462096 instance=ExtResource("4_p6vls")]
 position = Vector2(2656, -544)
@@ -129,6 +129,9 @@ character = NodePath("../../..")
 
 [node name="Camera2D" parent="player" index="3" unique_id=100110159]
 position = Vector2(0, 27)
+
+[node name="Ponder" parent="CanvasLayer/MechanicsPanel/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(1660838940, 1279561075) index="0" unique_id=1178791099]
+dil = "level3hint"
 
 [node name="ItemSlot0" parent="CanvasLayer/MechanicsPanel/HBoxContainer/VBoxContainer/MarginContainer/MarginContainer/ScrollContainer/inventory" parent_id_path=PackedInt32Array(1660838940, 2095223891) index="0" unique_id=1992241172]
 item = ExtResource("11_p3r0x")

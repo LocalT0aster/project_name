@@ -42,7 +42,7 @@ look_left_at_start = true
 dialog = "Golem"
 
 [node name="player2" parent="." index="5" unique_id=2040731108 instance=ExtResource("2_bswci")]
-position = Vector2(1136, 132)
+position = Vector2(1136, 148)
 look_left_at_start = true
 
 [node name="Sprite" parent="player2" index="0" unique_id=792193039]
@@ -63,6 +63,7 @@ enabled_slots = Dictionary[int, bool]({
 dialog = "yellowfind"
 
 [node name="Exit" parent="." index="6" unique_id=2036781549]
+visible = false
 position = Vector2(1228, 168)
 scene = ExtResource("3_5xbjy")
 
@@ -76,7 +77,7 @@ enabled_slots = Dictionary[int, bool]({
 
 [node name="Interactor" parent="player" parent_id_path=PackedInt32Array(2040731108) index="4" unique_id=528762793 instance=ExtResource("8_15mv3")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player/Interactor" index="0" unique_id=541347174]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player/Interactor" index="0" unique_id=1776033306]
 shape = SubResource("CircleShape2D_15mv3")
 debug_color = Color(0.70802456, 0.30560026, 0.94335407, 0.41960785)
 

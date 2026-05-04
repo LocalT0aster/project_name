@@ -35,10 +35,12 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "Golem": "res://timelines/Golem.dtl",
+"greenfind": "res://timelines/greenfind.dtl",
 "level1": "res://timelines/level1.dtl",
 "level1hint": "res://timelines/level1hint.dtl",
 "level1new": "res://timelines/level1new.dtl",
 "level2hint": "res://timelines/level2hint.dtl",
+"level3hint": "res://timelines/level3hint.dtl",
 "test1": "res://timelines/test1.dtl",
 "yellowfind": "res://timelines/yellowfind.dtl"
 }
