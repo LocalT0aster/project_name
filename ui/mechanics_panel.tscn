@@ -83,9 +83,26 @@ mouse_filter = 0
 [node name="Player" parent="HBoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer2/ScrollContainer/Entities" unique_id=545617279 instance=ExtResource("3_joka8")]
 layout_mode = 2
 
-[node name="View" type="NinePatchRect" parent="HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1701797413]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer" unique_id=574834237]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=776737322]
+layout_mode = 2
+theme = ExtResource("3_un5c5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer" unique_id=1279561075]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=1178791099]
+layout_mode = 2
+text = "Ask reddit"
+
+[node name="View" type="NinePatchRect" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1701797413]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 texture = ExtResource("8_8a6gg")
 region_rect = Rect2(0, 0, 80, 80)
 patch_margin_left = 1

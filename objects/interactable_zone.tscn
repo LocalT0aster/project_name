@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b1dqjy8jrrund"]
+
+[ext_resource type="Script" uid="uid://cxfcp0t1sh35" path="res://objects/interactable_zone.gd" id="1_tmcn5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tmcn5"]
+
+[node name="InteractableZone" type="Area2D" unique_id=490466930]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_tmcn5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1189199140]
+shape = SubResource("CircleShape2D_tmcn5")
