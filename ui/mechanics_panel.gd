@@ -131,7 +131,9 @@ func _on_entity_update(id: int) -> void:
 		_init_entity_button(id)
 	if ins:
 		ins.name = MechanicManager.entity_trees[id].e_name
-		
+		ins.update_slots()
+	else:
+		_init_entity_inspector(id)
 
 func _on_player_dead() -> void:
 	death_msg.show()

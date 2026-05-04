@@ -22,9 +22,7 @@ func init() -> void:
 	for e in get_tree().get_nodes_in_group(MECHANIC_TREE_GROUP):
 		entity_trees[e.get_instance_id()] = e
 		## on [signal tree_exiting] parent of [class MechanicTree]
-		if e.get_parent().tree_exiting.has_connections():
-			e.get_parent().tree_exiting.disconnect(_on_entity_exiting)
-		e.get_parent().tree_exiting.connect(_on_entity_exiting.bind(e))
+		Util.reconnect(e.get_parent().tree_exiting, _on_entity_exiting.bind(e))
 	print(SCRIPT_ID + " init")
 
 func _notification(what: int) -> void:

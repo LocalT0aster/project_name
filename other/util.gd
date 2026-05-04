@@ -22,3 +22,12 @@ static func connect_only(sig: Signal, callable: Callable) -> bool:
 		disconnect_all(sig)
 	sig.connect(callable)
 	return was_connected
+
+## Reconnects the [param callable] to the [param sig].
+## Returns: [code]true[/code] when [method Signal.is_connected] to the [param callable].
+static func reconnect(sig: Signal, callable: Callable) -> bool:
+	var was_connected: bool = sig.is_connected(callable)
+	if was_connected:
+		sig.disconnect(callable)
+	sig.connect(callable)
+	return was_connected

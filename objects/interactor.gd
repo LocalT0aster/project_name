@@ -2,7 +2,7 @@ extends Area2D
 
 @export var enabled : bool = true
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if !enabled or get_overlapping_areas().size() == 0: return
 	if Input.is_action_pressed("interact"):
 		print("ses")

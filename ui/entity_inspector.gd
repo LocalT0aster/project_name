@@ -45,6 +45,16 @@ func init_slots() -> void:
 		_color2slot[color] = slot
 		slots_container.add_child(slot)
 
+func update_slots() -> void:
+	var entity: MechanicsTree = MechanicManager.entity_trees[entity_id]
+	for color in Slot.Colors.values():
+		if not entity.enabled_slots[color]:
+			if entity.get_slot(color):
+				pass # TODO Eject disabled ItemSlot and free it
+				# TODO Create new ItemSlot
+			else: continue
+		assert(entity.get_slot(color), "Slot must be initialized before ItemSlot")
+		# TODO Create new ItemSlot
 
 func _on_item_changed(item: ItemMechanic, color: Slot.Colors) -> void:
 	MechanicManager.entity_trees[entity_id].set_slot_mechanic(color, item.mechanic if item else null)
