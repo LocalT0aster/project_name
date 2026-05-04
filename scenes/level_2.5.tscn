@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://c05hxdplu4wnq"]
+
+[ext_resource type="PackedScene" uid="uid://byvgnentk2hny" path="res://scenes/base_level.tscn" id="1_h8a06"]
+[ext_resource type="Script" uid="uid://cbttjjx2srib6" path="res://mechanics/slot.gd" id="2_xytl1"]
+[ext_resource type="PackedScene" uid="uid://bc13vpqc62d28" path="res://mechanics/movement/sidescroll/movement_sidescroll.tscn" id="3_x6jmh"]
+[ext_resource type="PackedScene" uid="uid://cp8ng5weksopl" path="res://mechanics/spawn/spawn_crate.tscn" id="4_x6jmh"]
+
+[node name="Level" unique_id=59110311 instance=ExtResource("1_h8a06")]
+
+[node name="SlotBlue" type="Node" parent="player/MechanicsTree" parent_id_path=PackedInt32Array(2040731108, 323197346) index="0" unique_id=1904494120]
+script = ExtResource("2_xytl1")
+color = 1
+_loaded_fsm = ExtResource("3_x6jmh")
+metadata/_custom_type_script = "uid://cbttjjx2srib6"
+
+[node name="Movement" parent="player/MechanicsTree/SlotBlue" index="0" unique_id=808798700 node_paths=PackedStringArray("character") instance=ExtResource("3_x6jmh")]
+character = NodePath("../../..")
+
+[node name="SlotYellow" type="Node" parent="player/MechanicsTree" parent_id_path=PackedInt32Array(2040731108, 323197346) index="1" unique_id=645218428]
+script = ExtResource("2_xytl1")
+color = 2
+_loaded_fsm = ExtResource("4_x6jmh")
+metadata/_custom_type_script = "uid://cbttjjx2srib6"
+
+[node name="Spawn" parent="player/MechanicsTree/SlotYellow" index="0" unique_id=2005448656 node_paths=PackedStringArray("character") instance=ExtResource("4_x6jmh")]
+character = NodePath("../../..")
+
+[editable path="player"]
+[editable path="player/MechanicsTree"]

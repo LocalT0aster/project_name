@@ -5,6 +5,11 @@
 [ext_resource type="Script" uid="uid://cbttjjx2srib6" path="res://mechanics/slot.gd" id="2_o7y08"]
 [ext_resource type="PackedScene" uid="uid://bc13vpqc62d28" path="res://mechanics/movement/sidescroll/movement_sidescroll.tscn" id="3_jdelr"]
 [ext_resource type="PackedScene" uid="uid://bfsgyvebymsyg" path="res://objects/player/enemy.tscn" id="3_o7y08"]
+[ext_resource type="Resource" uid="uid://cxq3tn5n4ko46" path="res://items/walk.tres" id="6_cwand"]
+[ext_resource type="PackedScene" uid="uid://brvofplgoit6f" path="res://ui/item_slot.tscn" id="7_2lqux"]
+[ext_resource type="Resource" uid="uid://xf0hu5fhwt6o" path="res://items/spawn_crate.tres" id="8_27t6h"]
+[ext_resource type="Resource" uid="uid://dqod2uls5x2t6" path="res://items/spawn_bullet.tres" id="9_4kqnw"]
+[ext_resource type="Resource" uid="uid://domtbus33dju2" path="res://items/gravity.tres" id="10_2lqux"]
 
 [node name="Level" unique_id=59110311 instance=ExtResource("1_7spnj")]
 
@@ -26,5 +31,21 @@ position = Vector2(279, 46)
 [node name="enemy" parent="." index="5" unique_id=2097622311 instance=ExtResource("3_o7y08")]
 position = Vector2(-1332, 39)
 
+[node name="ItemSlot0" parent="CanvasLayer/MechanicsPanel/HBoxContainer/VBoxContainer/MarginContainer/MarginContainer/ScrollContainer/inventory" parent_id_path=PackedInt32Array(1660838940, 2095223891) index="0" unique_id=1992241172]
+item = ExtResource("6_cwand")
+
+[node name="ItemSlot1" parent="CanvasLayer/MechanicsPanel/HBoxContainer/VBoxContainer/MarginContainer/MarginContainer/ScrollContainer/inventory" parent_id_path=PackedInt32Array(1660838940, 2095223891) index="1" unique_id=195078708 instance=ExtResource("7_2lqux")]
+layout_mode = 2
+item = ExtResource("8_27t6h")
+
+[node name="ItemSlot2" parent="CanvasLayer/MechanicsPanel/HBoxContainer/VBoxContainer/MarginContainer/MarginContainer/ScrollContainer/inventory" parent_id_path=PackedInt32Array(1660838940, 2095223891) index="2" unique_id=1489405947 instance=ExtResource("7_2lqux")]
+layout_mode = 2
+item = ExtResource("9_4kqnw")
+
+[node name="ItemSlot3" parent="CanvasLayer/MechanicsPanel/HBoxContainer/VBoxContainer/MarginContainer/MarginContainer/ScrollContainer/inventory" parent_id_path=PackedInt32Array(1660838940, 2095223891) index="3" unique_id=1129239249 instance=ExtResource("7_2lqux")]
+layout_mode = 2
+item = ExtResource("10_2lqux")
+
 [editable path="player"]
 [editable path="player/MechanicsTree"]
+[editable path="CanvasLayer/MechanicsPanel"]

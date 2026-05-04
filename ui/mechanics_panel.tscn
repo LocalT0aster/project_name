@@ -5,17 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://brvofplgoit6f" path="res://ui/item_slot.tscn" id="2_qed5x"]
 [ext_resource type="PackedScene" uid="uid://da40dr8c8aunh" path="res://ui/entity_button.tscn" id="3_joka8"]
 [ext_resource type="Theme" uid="uid://140a1ctc1t05" path="res://other/base_theme.tres" id="3_un5c5"]
-[ext_resource type="Resource" uid="uid://dqod2uls5x2t6" path="res://items/spawn_bullet.tres" id="4_8a6gg"]
 [ext_resource type="Texture2D" uid="uid://b2dqnxou7ppj0" path="res://img/CharacterIcon.png" id="5_l6l7g"]
-[ext_resource type="Resource" uid="uid://xf0hu5fhwt6o" path="res://items/spawn_crate.tres" id="5_v3ev7"]
 [ext_resource type="Script" uid="uid://byj5nb8v56ktv" path="res://ui/ponder.gd" id="6_ggcyv"]
-[ext_resource type="Resource" uid="uid://cxq3tn5n4ko46" path="res://items/walk.tres" id="6_l6l7g"]
 [ext_resource type="Texture2D" uid="uid://ds6ybb5d86j3n" path="res://img/ViewNPR.png" id="8_8a6gg"]
 [ext_resource type="Texture2D" uid="uid://blwrp0eo1wqkf" path="res://img/InventoryNPR.png" id="10_dam2m"]
 [ext_resource type="PackedScene" uid="uid://cuxa2reyudsr3" path="res://ui/entity_inspector.tscn" id="12_v3ev7"]
 [ext_resource type="PackedScene" uid="uid://by758n0rxwl5x" path="res://other/quit_game.tscn" id="14_8a6gg"]
 [ext_resource type="Texture2D" uid="uid://dkcblfp0agbcr" path="res://img/InspectorNPR.png" id="15_0ycoe"]
-[ext_resource type="Resource" uid="uid://domtbus33dju2" path="res://items/gravity.tres" id="15_dam2m"]
 
 [sub_resource type="Animation" id="Animation_8a6gg"]
 resource_name = "Blink"
@@ -194,23 +190,7 @@ scroll_hint_mode = 1
 layout_mode = 2
 mouse_filter = 0
 
-[node name="walk" parent="HBoxContainer/VBoxContainer/MarginContainer/MarginContainer/ScrollContainer/inventory" unique_id=195078708 instance=ExtResource("2_qed5x")]
-layout_mode = 2
-item = ExtResource("6_l6l7g")
-
-[node name="spawn_crate" parent="HBoxContainer/VBoxContainer/MarginContainer/MarginContainer/ScrollContainer/inventory" unique_id=1328272987 instance=ExtResource("2_qed5x")]
-layout_mode = 2
-item = ExtResource("5_v3ev7")
-
-[node name="spawn_bullet" parent="HBoxContainer/VBoxContainer/MarginContainer/MarginContainer/ScrollContainer/inventory" unique_id=1696389710 instance=ExtResource("2_qed5x")]
-layout_mode = 2
-item = ExtResource("4_8a6gg")
-
-[node name="gravity" parent="HBoxContainer/VBoxContainer/MarginContainer/MarginContainer/ScrollContainer/inventory" unique_id=627330486 instance=ExtResource("2_qed5x")]
-layout_mode = 2
-item = ExtResource("15_dam2m")
-
-[node name="empty" parent="HBoxContainer/VBoxContainer/MarginContainer/MarginContainer/ScrollContainer/inventory" unique_id=1992241172 instance=ExtResource("2_qed5x")]
+[node name="ItemSlot0" parent="HBoxContainer/VBoxContainer/MarginContainer/MarginContainer/ScrollContainer/inventory" unique_id=1992241172 instance=ExtResource("2_qed5x")]
 layout_mode = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer" unique_id=463738480]

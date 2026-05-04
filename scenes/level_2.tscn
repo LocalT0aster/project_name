@@ -5,7 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://dvnxo7bppacj6" path="res://scenes/level_3.tscn" id="2_eqxsl"]
 [ext_resource type="PackedScene" uid="uid://ddfgtdiaa8g75" path="res://objects/button.tscn" id="2_pbc48"]
 [ext_resource type="PackedScene" uid="uid://b4daofcbwahuq" path="res://objects/door.tscn" id="3_eqxsl"]
+[ext_resource type="Script" uid="uid://cbttjjx2srib6" path="res://mechanics/slot.gd" id="6_ne2mo"]
 [ext_resource type="PackedScene" uid="uid://d3dhegwgnw5s1" path="res://objects/ghost.tscn" id="6_wo48x"]
+[ext_resource type="PackedScene" uid="uid://bc13vpqc62d28" path="res://mechanics/movement/sidescroll/movement_sidescroll.tscn" id="7_6cvei"]
+[ext_resource type="Resource" uid="uid://xf0hu5fhwt6o" path="res://items/spawn_crate.tres" id="8_que50"]
+[ext_resource type="PackedScene" uid="uid://brvofplgoit6f" path="res://ui/item_slot.tscn" id="9_hey2k"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wo48x"]
 radius = 11.0
@@ -41,11 +45,31 @@ region_rect = Rect2(112, 16, 16, 32)
 position = Vector2(-1, -12)
 shape = SubResource("CapsuleShape2D_wo48x")
 
+[node name="MechanicsTree" parent="player" index="2" unique_id=323197346]
+enabled_slots = Dictionary[int, bool]({
+0: false,
+1: true,
+2: true,
+3: false
+})
+
+[node name="Slot" type="Node" parent="player/MechanicsTree" index="0" unique_id=1536817325]
+script = ExtResource("6_ne2mo")
+color = 1
+_loaded_fsm = ExtResource("7_6cvei")
+metadata/_custom_type_script = "uid://cbttjjx2srib6"
+
+[node name="Movement" parent="player/MechanicsTree/Slot" index="0" unique_id=808798700 node_paths=PackedStringArray("character") instance=ExtResource("7_6cvei")]
+character = NodePath("../../..")
+
 [node name="Ponder" parent="CanvasLayer/MechanicsPanel/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(1660838940, 1279561075) index="0" unique_id=1178791099]
 dil = "level2hint"
 
-[node name="spawn_bullet" parent="CanvasLayer/MechanicsPanel/HBoxContainer/VBoxContainer/MarginContainer/MarginContainer/ScrollContainer/inventory" parent_id_path=PackedInt32Array(1660838940, 2095223891) index="2" unique_id=1696389710]
-item = null
+[node name="ItemSlot0" parent="CanvasLayer/MechanicsPanel/HBoxContainer/VBoxContainer/MarginContainer/MarginContainer/ScrollContainer/inventory" parent_id_path=PackedInt32Array(1660838940, 2095223891) index="0" unique_id=1992241172]
+item = ExtResource("8_que50")
+
+[node name="ItemSlot1" parent="CanvasLayer/MechanicsPanel/HBoxContainer/VBoxContainer/MarginContainer/MarginContainer/ScrollContainer/inventory" parent_id_path=PackedInt32Array(1660838940, 2095223891) index="1" unique_id=195078708 instance=ExtResource("9_hey2k")]
+layout_mode = 2
 
 [node name="podsos" parent="." index="7" unique_id=178628789 node_paths=PackedStringArray("follow_who") instance=ExtResource("6_wo48x")]
 visible = false

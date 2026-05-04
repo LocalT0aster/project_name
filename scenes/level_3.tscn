@@ -5,6 +5,12 @@
 [ext_resource type="Script" uid="uid://d30l5yuqqdb4t" path="res://scenes/level_3.gd" id="2_ah8om"]
 [ext_resource type="PackedScene" uid="uid://b4daofcbwahuq" path="res://objects/door.tscn" id="3_ah8om"]
 [ext_resource type="PackedScene" uid="uid://bfsgyvebymsyg" path="res://objects/player/enemy.tscn" id="4_p6vls"]
+[ext_resource type="Script" uid="uid://cbttjjx2srib6" path="res://mechanics/slot.gd" id="6_hhfj6"]
+[ext_resource type="PackedScene" uid="uid://bc13vpqc62d28" path="res://mechanics/movement/sidescroll/movement_sidescroll.tscn" id="7_wae8j"]
+[ext_resource type="PackedScene" uid="uid://cp8ng5weksopl" path="res://mechanics/spawn/spawn_crate.tscn" id="8_56dhn"]
+[ext_resource type="PackedScene" uid="uid://brvofplgoit6f" path="res://ui/item_slot.tscn" id="10_q2dsb"]
+[ext_resource type="Resource" uid="uid://domtbus33dju2" path="res://items/gravity.tres" id="11_56dhn"]
+[ext_resource type="Resource" uid="uid://dqod2uls5x2t6" path="res://items/spawn_bullet.tres" id="11_p3r0x"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ah8om"]
 height = 64.0
@@ -103,8 +109,39 @@ region_rect = Rect2(128, 8, 16, 40)
 position = Vector2(-1, 13)
 shape = SubResource("CapsuleShape2D_ah8om")
 
+[node name="SlotBlue" type="Node" parent="player/MechanicsTree" parent_id_path=PackedInt32Array(2040731108, 323197346) index="0" unique_id=990120525]
+script = ExtResource("6_hhfj6")
+color = 1
+_loaded_fsm = ExtResource("7_wae8j")
+metadata/_custom_type_script = "uid://cbttjjx2srib6"
+
+[node name="Movement" parent="player/MechanicsTree/SlotBlue" index="0" unique_id=808798700 node_paths=PackedStringArray("character") instance=ExtResource("7_wae8j")]
+character = NodePath("../../..")
+
+[node name="SlotYellow" type="Node" parent="player/MechanicsTree" parent_id_path=PackedInt32Array(2040731108, 323197346) index="1" unique_id=177301567]
+script = ExtResource("6_hhfj6")
+color = 2
+_loaded_fsm = ExtResource("8_56dhn")
+metadata/_custom_type_script = "uid://cbttjjx2srib6"
+
+[node name="Spawn" parent="player/MechanicsTree/SlotYellow" index="0" unique_id=2005448656 node_paths=PackedStringArray("character") instance=ExtResource("8_56dhn")]
+character = NodePath("../../..")
+
 [node name="Camera2D" parent="player" index="3" unique_id=100110159]
 position = Vector2(0, 27)
+
+[node name="ItemSlot0" parent="CanvasLayer/MechanicsPanel/HBoxContainer/VBoxContainer/MarginContainer/MarginContainer/ScrollContainer/inventory" parent_id_path=PackedInt32Array(1660838940, 2095223891) index="0" unique_id=1992241172]
+item = ExtResource("11_p3r0x")
+
+[node name="ItemSlot1" parent="CanvasLayer/MechanicsPanel/HBoxContainer/VBoxContainer/MarginContainer/MarginContainer/ScrollContainer/inventory" parent_id_path=PackedInt32Array(1660838940, 2095223891) index="1" unique_id=195078708 instance=ExtResource("10_q2dsb")]
+layout_mode = 2
+item = ExtResource("11_56dhn")
+
+[node name="ItemSlot2" parent="CanvasLayer/MechanicsPanel/HBoxContainer/VBoxContainer/MarginContainer/MarginContainer/ScrollContainer/inventory" parent_id_path=PackedInt32Array(1660838940, 2095223891) index="2" unique_id=1612621153 instance=ExtResource("10_q2dsb")]
+layout_mode = 2
+
+[node name="ItemSlot3" parent="CanvasLayer/MechanicsPanel/HBoxContainer/VBoxContainer/MarginContainer/MarginContainer/ScrollContainer/inventory" parent_id_path=PackedInt32Array(1660838940, 2095223891) index="3" unique_id=1447327204 instance=ExtResource("10_q2dsb")]
+layout_mode = 2
 
 [connection signal="toggled" from="stuff/button" to="stuff/Door" method="toggle"]
 [connection signal="toggled" from="stuff/button" to="stuff/Door2" method="toggle"]
@@ -115,3 +152,4 @@ position = Vector2(0, 27)
 
 [editable path="player"]
 [editable path="player/MechanicsTree"]
+[editable path="CanvasLayer/MechanicsPanel"]
