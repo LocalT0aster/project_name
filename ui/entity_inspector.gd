@@ -70,7 +70,9 @@ func eject_all() -> void:
 	var index = 0
 	var successfull_swap = false
 	for s in slots:
-		while index < slots.size():
+		if not (s as ItemSlot).item:
+			continue
+		while index < inventory.size():
 			if inventory[index].item != null:
 				index += 1
 				continue
