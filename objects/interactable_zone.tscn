@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://b1dqjy8jrrund"]
 
-[ext_resource type="Script" path="res://objects/interactable_zone.gd" id="1_tmcn5"]
+[ext_resource type="Script" uid="uid://cxfcp0t1sh35" path="res://objects/interactable_zone.gd" id="1_tmcn5"]
 [ext_resource type="Texture2D" uid="uid://dtbnm61mtppuo" path="res://img/new_light.png" id="2_dcisk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tmcn5"]
-radius = 15.0
+radius = 38.013157
 
 [node name="InteractableZone" type="Area2D" unique_id=490466930]
 collision_layer = 4

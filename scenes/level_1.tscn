@@ -58,6 +58,7 @@ item = null
 [node name="CanvasModulate" type="CanvasModulate" parent="." index="8" unique_id=30095487]
 color = Color(0.9192522, 0.9192523, 0.9192521, 1)
 
+[editable path="golem/InteractableZone"]
 [editable path="player"]
 [editable path="player/MechanicsTree"]
 [editable path="CanvasLayer/MechanicsPanel"]

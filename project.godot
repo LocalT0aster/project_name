@@ -26,6 +26,8 @@ GlobalShortcuts="*uid://dl6xwi8i25s80"
 [dialogic]
 
 directories/dch_directory={
+"blue": "res://characters/blue.dch",
+"green": "res://characters/green.dch",
 "test": "res://characters/test.dch",
 "yellow": "res://characters/yellow.dch"
 }
