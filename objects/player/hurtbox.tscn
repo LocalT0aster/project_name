@@ -13,4 +13,4 @@ position = Vector2(-2, 5)
 shape = SubResource("RectangleShape2D_wsg34")
 debug_color = Color(0.9756326, 0, 0.41438022, 0.0627451)
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_hurtbox_body_entered"]
