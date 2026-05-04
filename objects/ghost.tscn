@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://d3dhegwgnw5s1"]
+
+[ext_resource type="Script" uid="uid://g1pjgymdbrwh" path="res://objects/ghost.gd" id="1_lix83"]
+[ext_resource type="Texture2D" uid="uid://dvtqb24ydldie" path="res://img/spritesheet.png" id="1_x4i4s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lix83"]
+radius = 3.5
+
+[node name="podsos" type="CharacterBody2D" unique_id=178628789]
+modulate = Color(1, 1, 1, 0.54509807)
+scale = Vector2(2, 2)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_lix83")
+min_dist = 16.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1658299930]
+texture = ExtResource("1_x4i4s")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=354428332]
+shape = SubResource("CircleShape2D_lix83")

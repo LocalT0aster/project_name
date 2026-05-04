@@ -15,7 +15,7 @@ sprite = NodePath("Sprite")
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("2_gnkmh")
 region_enabled = true
-region_rect = Rect2(0, 0, 16, 16)
+region_rect = Rect2(48, 0, 16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=595134198]
 shape = SubResource("CircleShape2D_xnc2w")
