@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://b1dqjy8jrrund" path="res://objects/interactable_zone.tscn" id="10_g2hoc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ccrh7"]
-size = Vector2(32, 256)
+size = Vector2(32, 46)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wo48x"]
 radius = 11.0
@@ -47,7 +47,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("3_igmy8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pipe" index="1" unique_id=564205197]
-position = Vector2(0, 256)
+position = Vector2(0, 46)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_ccrh7")
 
