@@ -38,7 +38,7 @@ func physics_update(_delta: float) -> Variant:
 		character.velocity = v_velocity + h_velocity.move_toward(Vector2.ZERO, speed)
 
 	## Box sliding or something
-	if character.move_and_slide():
+	if character.slidin:
 		for i in character.get_slide_collision_count():
 			var c = character.get_slide_collision(i)
 			if c.get_collider() is RigidBody2D:

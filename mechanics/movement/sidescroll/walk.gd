@@ -13,5 +13,5 @@ func physics_update(_delta: float) -> Variant:
 		return &"jump" # move_and_slide in jump.enter()
 
 	super (_delta) # Horizontal movement & box sliding
-	character.move_and_slide()
+	character.slidin = character.move_and_slide()
 	return null

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="project_name"
-config/version="0.17"
+config/version="0.20"
 run/main_scene="uid://3twux05jstby"
 config/features=PackedStringArray("4.6", "Forward Plus")
 run/max_fps=240
@@ -106,6 +106,7 @@ enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 MechanicEntity="Group for entities with MechanicTree"
 enemy=""
 player=""
+kill="Colliders that kill upon touch"
 
 [gui]
 

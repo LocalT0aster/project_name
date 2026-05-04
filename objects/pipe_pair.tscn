@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dg51xq1qgwqv4"]
+
+[ext_resource type="PackedScene" uid="uid://bb2s151lybx8x" path="res://objects/pipe.tscn" id="1_t7q7h"]
+
+[node name="PipePair" type="Node2D" unique_id=542669020]
+
+[node name="Pipe" parent="." unique_id=674635974 instance=ExtResource("1_t7q7h")]
+
+[node name="Pipe2" parent="." unique_id=1119152826 instance=ExtResource("1_t7q7h")]
+position = Vector2(0, -240)
+scale = Vector2(-1, -1)
