@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dk1372ylikaor" path="res://objects/exit.tscn" id="3_fal5o"]
 [ext_resource type="PackedScene" uid="uid://umsei4jfaj2j" path="res://objects/player/player.tscn" id="5_3rj88"]
 [ext_resource type="PackedScene" uid="uid://b4l3vep3dj0na" path="res://ui/mechanics_panel.tscn" id="7_i8j8g"]
+[ext_resource type="Script" path="res://other/action_press_counter_source.gd" id="8_mmi7w"]
 
 [node name="Level" type="Node2D" unique_id=59110311 node_paths=PackedStringArray("panel")]
 script = ExtResource("1_3aqo6")
@@ -25,3 +26,7 @@ unique_name_in_owner = true
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1144738011]
 
 [node name="MechanicsPanel" parent="CanvasLayer" unique_id=1660838940 instance=ExtResource("7_i8j8g")]
+
+[node name="ActionPressCounterSource" type="Node" parent="."]
+script = ExtResource("8_mmi7w")
+actions = Array[StringName]([&"up", &"left", &"right", &"down", &"jump"])

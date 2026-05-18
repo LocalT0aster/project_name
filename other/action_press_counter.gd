@@ -4,9 +4,6 @@ extends Node
 ## Counts just-pressed input actions and mirrors the total into Dialogic.
 signal counter_changed(count: int, action: StringName)
 
-## InputMap actions counted once when they become pressed.
-@export var actions: Array[StringName] = [&"ui_accept"]
-
 ## Dialogic variable path that receives [member counter].
 @export var dialogic_variable: String = "action_press_count"
 
@@ -21,6 +18,7 @@ var counter: int = 0:
 
 var _is_ready: bool = false
 var _syncing_from_dialogic: bool = false
+var _active_source: Node = null
 
 
 func _ready() -> void:
@@ -30,8 +28,12 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
+	var source: Node = _get_active_source()
+	if source == null or not bool(source.get("enabled")):
+		return
+
 	var checked_actions: Array[StringName] = []
-	for action: StringName in actions:
+	for action: StringName in _get_source_actions(source):
 		if action.is_empty() or action in checked_actions:
 			continue
 		checked_actions.append(action)
@@ -40,6 +42,20 @@ func _process(_delta: float) -> void:
 		if Input.is_action_just_pressed(action):
 			counter += 1
 			counter_changed.emit(counter, action)
+
+
+## Makes a scene-level source provide the currently counted actions.
+func register_source(source: Node) -> void:
+	if source == null:
+		return
+	_active_source = source
+	reset_counter()
+
+
+## Stops counting if the active source leaves the scene tree.
+func unregister_source(source: Node) -> void:
+	if _active_source == source:
+		_active_source = null
 
 
 ## Sets the counter and syncs it to Dialogic.
@@ -82,6 +98,24 @@ func _publish_counter() -> void:
 
 func _has_dialogic_variable_api() -> bool:
 	return is_inside_tree() and has_node("/root/Dialogic") and Dialogic.VAR != null
+
+
+func _get_active_source() -> Node:
+	if _active_source == null:
+		return null
+	if not is_instance_valid(_active_source):
+		_active_source = null
+	return _active_source
+
+
+func _get_source_actions(source: Node) -> Array[StringName]:
+	var result: Array[StringName] = []
+	var configured_actions: Variant = source.get("actions")
+	if not (configured_actions is Array):
+		return result
+	for action: Variant in configured_actions:
+		result.append(StringName(action))
+	return result
 
 
 func _ensure_dialogic_variable() -> bool:

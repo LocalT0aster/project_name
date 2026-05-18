@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene format=3 uid="uid://c026wfbpxtbli"]
 
-[ext_resource type="Script" path="res://other/action_press_counter.gd" id="1_ll8gj"]
+[ext_resource type="Script" uid="uid://cjq8nlwmh6qgt" path="res://other/action_press_counter.gd" id="1_ll8gj"]
 
-[node name="ActionPressCounter" type="Node"]
+[node name="ActionPressCounter" type="Node" unique_id=11159610]
 script = ExtResource("1_ll8gj")
