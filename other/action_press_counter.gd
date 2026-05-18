@@ -1,4 +1,4 @@
-class_name ActionPressCounter
+## Autoloaded counter for input action presses.
 extends Node
 
 ## Counts just-pressed input actions and mirrors the total into Dialogic.
