@@ -55,7 +55,7 @@ func init() -> void:
 # Initializes the selector button for [param id].
 func _init_entity_button(id: int) -> EntityButton:
 	var btn: EntityButton = entity_button.instantiate()
-	btn.text = MechanicManager.entity_trees[id].e_name
+	btn.set_display_text(str(MechanicManager.entity_trees[id].e_name))
 	btn.name = MechanicManager.entity_trees[id].e_name
 	btn.toggled.connect(on_button_toggle.bind(id))
 	btn.entity_id = id
@@ -119,7 +119,7 @@ func _on_entity_update(id: int) -> void:
 	var btn: EntityButton = _id2button.get(id) as EntityButton
 	var ins: EntityInspector = _id2inspector.get(id) as EntityInspector
 	if btn:
-		btn.text = entity.e_name
+		btn.set_display_text(str(entity.e_name))
 		btn.name = entity.e_name
 	else:
 		btn = _init_entity_button(id)
