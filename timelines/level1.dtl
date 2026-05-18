@@ -7,10 +7,10 @@ blue (thinking): Хм.
 blue (thinking): Или я не сплю?
 blue (calming): Ладно. Надо осмотреться.
 do ActionPressCounter.reset_counter()
-label POLL
+label LOOP0
 [wait time="0.1"]
 if {action_press_count} < 10.0:
-	jump POLL
+	jump LOOP0
 
 blue (thinking): Погодите.
 blue (thinking): А ходить-то я почему не могу?
