@@ -24,6 +24,7 @@ Dialogic="*uid://ds2q0uclmolvu"
 GlobalShortcuts="*uid://dl6xwi8i25s80"
 SceneSwitcher="*uid://cx2h1d4pc4lhp"
 ActionPressCounter="*res://other/action_press_counter.tscn"
+MechanicPresenceDetector="*res://other/mechanic_presence_detector.tscn"
 
 [dialogic]
 
@@ -53,7 +54,11 @@ layout/style_list=["res://dil_UI/New_File.tres"]
 layout/default_style="res://dil_UI/New_File.tres"
 glossary/default_case_sensitive=true
 variables={
-"action_press_count": 0
+"action_press_count": 0,
+"target_mechanic_count": 0,
+"target_mechanic_present": false,
+"target_mechanic_slot_color": 0,
+"target_mechanic_slot_name": "None"
 }
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
