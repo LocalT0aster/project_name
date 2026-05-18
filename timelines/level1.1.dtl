@@ -6,19 +6,6 @@ blue (tired): Чтоб их.
 blue (thinking): Хм.
 blue (thinking): Или я не сплю?
 blue (calming): Ладно. Надо осмотреться.
-do ActionPressCounter.reset_counter()
-label LOOP0
-[wait time="0.1"]
-if {action_press_count} < 10.0:
-	jump LOOP0
-
-blue (thinking): Погодите.
-blue (thinking): А ходить-то я почему не могу?
-blue (tired): Точно ж была ходьба.
-blue (thinking): Проверим что ли инспектор.
-
-
-blue (smile): Опа. Вот и ноги вернулись.
-blue (calming): Не зря писал.
+do ActionPressCounter.arm_timeline_after_count(10, "level1.2")
 
 [end_timeline]

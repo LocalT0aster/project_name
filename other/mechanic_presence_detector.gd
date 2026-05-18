@@ -21,6 +21,9 @@ var matched_slot_name: StringName = Slot.ColorsToStr[Slot.Colors.NONE]
 
 var _active_source: Node = null
 var _is_ready: bool = false
+var _trigger_timeline: StringName = &""
+var _queued_timeline: StringName = &""
+var _timeline_start_queued: bool = false
 
 
 func _ready() -> void:
@@ -30,6 +33,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	_refresh()
+	_try_complete_timeline_trigger()
 
 
 ## Makes a scene-level source provide the current mechanic check settings.
@@ -45,6 +49,22 @@ func unregister_source(source: Node) -> void:
 	if _active_source == source:
 		_apply_state(false, 0, Slot.Colors.NONE, true)
 		_active_source = null
+
+
+## Starts [param next_timeline] once the configured mechanic is present.
+func arm_timeline_when_present(next_timeline: String) -> void:
+	_trigger_timeline = StringName(next_timeline)
+	var source: Node = _get_active_source()
+	if source:
+		source.set("enabled", true)
+	_refresh(true)
+	_try_complete_timeline_trigger()
+
+
+## Cancels the pending mechanic-presence timeline trigger.
+func cancel_timeline_trigger() -> void:
+	_trigger_timeline = &""
+	_clear_queued_timeline_start()
 
 
 func _refresh(force_publish: bool = false) -> void:
@@ -134,6 +154,58 @@ func _scenes_match(current: PackedScene, target: PackedScene) -> bool:
 	return current == target
 
 
+func _try_complete_timeline_trigger() -> void:
+	if _trigger_timeline.is_empty() or not is_present:
+		return
+	var timeline: StringName = _trigger_timeline
+	cancel_timeline_trigger()
+	_queue_timeline_start(timeline)
+
+
+func _queue_timeline_start(timeline: StringName) -> void:
+	if timeline.is_empty():
+		return
+	_queued_timeline = timeline
+	if _timeline_start_queued:
+		return
+	_timeline_start_queued = true
+	if _has_dialogic_handler() and Dialogic.current_timeline != null:
+		if not Dialogic.timeline_ended.is_connected(_on_dialogic_timeline_ended):
+			Dialogic.timeline_ended.connect(_on_dialogic_timeline_ended, CONNECT_ONE_SHOT)
+		return
+	call_deferred("_start_queued_timeline")
+
+
+func _clear_queued_timeline_start() -> void:
+	_queued_timeline = &""
+	_timeline_start_queued = false
+	if _has_dialogic_handler() and Dialogic.timeline_ended.is_connected(_on_dialogic_timeline_ended):
+		Dialogic.timeline_ended.disconnect(_on_dialogic_timeline_ended)
+
+
+func _on_dialogic_timeline_ended() -> void:
+	call_deferred("_start_queued_timeline")
+
+
+func _start_queued_timeline() -> void:
+	if not _timeline_start_queued:
+		return
+	if not _has_dialogic_handler():
+		_timeline_start_queued = false
+		_queued_timeline = &""
+		return
+	if Dialogic.current_timeline != null:
+		if not Dialogic.timeline_ended.is_connected(_on_dialogic_timeline_ended):
+			Dialogic.timeline_ended.connect(_on_dialogic_timeline_ended, CONNECT_ONE_SHOT)
+		return
+
+	var timeline: StringName = _queued_timeline
+	_timeline_start_queued = false
+	_queued_timeline = &""
+	if not timeline.is_empty():
+		Dialogic.start(timeline)
+
+
 func _publish_state() -> void:
 	if not _has_dialogic_variable_api():
 		return
@@ -170,6 +242,10 @@ func _publish_dialogic_value(variable_name: String, value: Variant) -> void:
 
 func _has_dialogic_variable_api() -> bool:
 	return is_inside_tree() and has_node("/root/Dialogic") and Dialogic.VAR != null
+
+
+func _has_dialogic_handler() -> bool:
+	return is_inside_tree() and has_node("/root/Dialogic")
 
 
 func _ensure_dialogic_variable(variable_name: String, default_value: Variant) -> bool:

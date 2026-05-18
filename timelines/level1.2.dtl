@@ -1,0 +1,7 @@
+blue (thinking): Погодите.
+blue (thinking): А ходить-то я почему не могу?
+blue (tired): Точно ж была ходьба.
+blue (thinking): Проверим что ли инспектор.
+do MechanicPresenceDetector.arm_timeline_when_present("level1.3")
+
+[end_timeline]

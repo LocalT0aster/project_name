@@ -38,7 +38,9 @@ directories/dch_directory={
 directories/dtl_directory={
 "Golem": "res://timelines/Golem.dtl",
 "greenfind": "res://timelines/greenfind.dtl",
-"level1": "res://timelines/level1.dtl",
+"level1.1": "res://timelines/level1.1.dtl",
+"level1.2": "res://timelines/level1.2.dtl",
+"level1.3": "res://timelines/level1.3.dtl",
 "level1hint": "res://timelines/level1hint.dtl",
 "level1old": "res://timelines/level1old.dtl",
 "level2hint": "res://timelines/level2hint.dtl",

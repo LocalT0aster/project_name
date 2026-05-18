@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b1dqjy8jrrund" path="res://objects/interactable_zone.tscn" id="6_pa8r4"]
 [ext_resource type="PackedScene" uid="uid://dpiisnnkhg7w" path="res://objects/interactor.tscn" id="8_15mv3"]
 [ext_resource type="Resource" uid="uid://cxq3tn5n4ko46" path="res://items/walk.tres" id="9_e3sih"]
+[ext_resource type="PackedScene" uid="uid://bc13vpqc62d28" path="res://mechanics/movement/sidescroll/movement_sidescroll.tscn" id="10_fa1x2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_15mv3"]
 radius = 13.0
@@ -104,6 +105,10 @@ item = ExtResource("9_e3sih")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." index="11" unique_id=30095487]
 color = Color(0.9192522, 0.9192523, 0.9192521, 1)
+
+[node name="MechanicPresenceDetectorSource" parent="DialogicHelpers" index="1"]
+target_mechanic = ExtResource("10_fa1x2")
+slot_color = 1
 
 [editable path="golem/InteractableZone"]
 [editable path="player2"]
