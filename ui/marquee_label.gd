@@ -28,6 +28,7 @@ extends Control
 
 var _label: Label
 var _text_width: float = 0.0
+var _text_height: float = 0.0
 var _scroll_offset: float = 0.0
 var _direction: float = 1.0
 var _speed: float = 0.0
@@ -110,6 +111,7 @@ func _update_metrics() -> void:
 	if not _label:
 		return
 	_text_width = _measure_text_width()
+	_text_height = _measure_text_height()
 	var max_scroll: float = _max_scroll()
 	if _scroll_offset > max_scroll:
 		_scroll_offset = max_scroll
@@ -130,6 +132,14 @@ func _measure_text_width() -> float:
 	return _label.get_combined_minimum_size().x
 
 
+func _measure_text_height() -> float:
+	var font: Font = _label.get_theme_font(&"font")
+	var font_size: int = _label.get_theme_font_size(&"font_size")
+	if font:
+		return font.get_height(font_size)
+	return _label.get_combined_minimum_size().y
+
+
 func _max_scroll() -> float:
 	return max(_text_width - size.x, 0.0)
 
@@ -137,8 +147,9 @@ func _max_scroll() -> float:
 func _apply_offset() -> void:
 	if not _label:
 		return
-	_label.position = Vector2(-round(_scroll_offset), 0.0)
-	_label.size = Vector2(max(size.x, _text_width), size.y)
+	var label_height: float = max(size.y, _text_height)
+	_label.position = Vector2(-round(_scroll_offset), floor((size.y - label_height) * 0.5))
+	_label.size = Vector2(max(size.x, _text_width), label_height)
 
 
 func _arrive_at_edge(target: float) -> void:
