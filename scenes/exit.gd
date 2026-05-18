@@ -7,4 +7,5 @@ const CHANGE_SCENE_METHOD: StringName = &"change_scene_to_file"
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if !body.is_in_group(PLAYER_GROUP_STR) or not scene: return
-	get_tree().call_deferred(CHANGE_SCENE_METHOD, scene)
+	SceneSwitcher.call_deferred("switch_scene", scene)
+	#get_tree().call_deferred(CHANGE_SCENE_METHOD, scene)
