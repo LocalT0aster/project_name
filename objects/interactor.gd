@@ -8,6 +8,7 @@ func _input(_event: InputEvent) -> void:
 		print("ses")
 		var dil = get_overlapping_areas()[0].dialog
 		if Dialogic.current_timeline != null:
-			Dialogic.end_timeline()
+			return
+			# Dialogic.end_timeline()
 		Dialogic.start(dil)
 	
