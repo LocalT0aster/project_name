@@ -1,7 +1,10 @@
 extends Sprite2D
 
-@export var scene : PackedScene
+@export_file("*.tscn") var scene: String
+
+const PLAYER_GROUP_STR: StringName = &"player"
+const CHANGE_SCENE_METHOD: StringName = &"change_scene_to_file"
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if !body.is_in_group("player") or not scene: return
-	get_tree().call_deferred("change_scene_to_packed",scene)
+	if !body.is_in_group(PLAYER_GROUP_STR) or not scene: return
+	get_tree().call_deferred(CHANGE_SCENE_METHOD, scene)

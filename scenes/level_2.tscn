@@ -2,13 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://byvgnentk2hny" path="res://scenes/base_level.tscn" id="1_3bmlt"]
 [ext_resource type="Script" uid="uid://djqgh1pjbwfc4" path="res://scenes/level_2.gd" id="2_b4j7a"]
-[ext_resource type="PackedScene" uid="uid://dvnxo7bppacj6" path="res://scenes/level_3.tscn" id="2_eqxsl"]
 [ext_resource type="PackedScene" uid="uid://ddfgtdiaa8g75" path="res://objects/button.tscn" id="2_pbc48"]
 [ext_resource type="PackedScene" uid="uid://b4daofcbwahuq" path="res://objects/door.tscn" id="3_eqxsl"]
 [ext_resource type="Texture2D" uid="uid://5snqfn7m8mip" path="res://img/pipe.png" id="3_igmy8"]
 [ext_resource type="PackedScene" uid="uid://dk1372ylikaor" path="res://objects/exit.tscn" id="4_guvtl"]
 [ext_resource type="Script" uid="uid://cbttjjx2srib6" path="res://mechanics/slot.gd" id="6_ne2mo"]
-[ext_resource type="PackedScene" uid="uid://c05hxdplu4wnq" path="res://scenes/level_2.5.tscn" id="6_wdtqu"]
 [ext_resource type="PackedScene" uid="uid://d3dhegwgnw5s1" path="res://objects/ghost.tscn" id="6_wo48x"]
 [ext_resource type="PackedScene" uid="uid://bc13vpqc62d28" path="res://mechanics/movement/sidescroll/movement_sidescroll.tscn" id="7_6cvei"]
 [ext_resource type="PackedScene" uid="uid://dpiisnnkhg7w" path="res://objects/interactor.tscn" id="8_172wr"]
@@ -60,11 +58,11 @@ tile_map_data = PackedByteArray("AAAAAAwAAAAAAAEAAAABAAwAAAAAAAEAAAACAAwAAAAAAAE
 [node name="Exit" parent="." index="3" unique_id=2036781549]
 visible = false
 position = Vector2(1376, -24)
-scene = ExtResource("2_eqxsl")
+scene = "uid://dvnxo7bppacj6"
 
 [node name="Exit25" parent="." index="4" unique_id=595061855 instance=ExtResource("4_guvtl")]
 position = Vector2(454, -264)
-scene = ExtResource("6_wdtqu")
+scene = "uid://c05hxdplu4wnq"
 
 [node name="button" parent="." index="5" unique_id=530869141 instance=ExtResource("2_pbc48")]
 position = Vector2(344, 192)

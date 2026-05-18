@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://dg51xq1qgwqv4" path="res://objects/pipe_pair.tscn" id="2_vrnwc"]
 [ext_resource type="Script" uid="uid://cbttjjx2srib6" path="res://mechanics/slot.gd" id="2_xytl1"]
 [ext_resource type="PackedScene" uid="uid://bc13vpqc62d28" path="res://mechanics/movement/sidescroll/movement_sidescroll.tscn" id="3_x6jmh"]
-[ext_resource type="PackedScene" uid="uid://dvnxo7bppacj6" path="res://scenes/level_3.tscn" id="4_aamkj"]
 [ext_resource type="PackedScene" uid="uid://cp8ng5weksopl" path="res://mechanics/spawn/spawn_crate.tscn" id="4_x6jmh"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vrnwc"]
@@ -55,7 +54,7 @@ theme_override_font_sizes/font_size = 100
 text = "Flappy Crate"
 
 [node name="Exit" parent="." index="3" unique_id=2036781549]
-scene = ExtResource("4_aamkj")
+scene = "uid://d4fjvk3fjdnmp"
 
 [node name="player" parent="." index="4" unique_id=2040731108]
 position = Vector2(-288, -16)
