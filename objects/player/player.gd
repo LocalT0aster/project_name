@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 func hurt(_a, _b):
@@ -6,6 +7,7 @@ func hurt(_a, _b):
 @export var sprite: Sprite2D
 @export var look_left_at_start: bool = false
 @export var slidin: bool = false
+@export var display_name: StringName = &"player"
 
 const KILL_GROUP: StringName = &"kill"
 

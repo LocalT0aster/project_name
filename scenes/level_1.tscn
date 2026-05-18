@@ -57,6 +57,7 @@ dialog = "Golem"
 [node name="player2" parent="." index="7" unique_id=2040731108 instance=ExtResource("2_bswci")]
 position = Vector2(1136, 148)
 look_left_at_start = true
+display_name = &"yellow"
 
 [node name="Sprite" parent="player2" index="0" unique_id=792193039]
 region_rect = Rect2(0, 0, 16, 16)
@@ -80,7 +81,10 @@ visible = false
 position = Vector2(1228, 168)
 scene = "uid://d4fjvk3fjdnmp"
 
-[node name="MechanicsTree" parent="player" parent_id_path=PackedInt32Array(2040731108) index="2" unique_id=323197346]
+[node name="player" parent="." index="9" unique_id=2040731108]
+display_name = &"blue"
+
+[node name="MechanicsTree" parent="player" index="2" unique_id=323197346]
 enabled_slots = Dictionary[int, bool]({
 0: false,
 1: true,
@@ -88,7 +92,7 @@ enabled_slots = Dictionary[int, bool]({
 3: false
 })
 
-[node name="Interactor" parent="player" parent_id_path=PackedInt32Array(2040731108) index="4" unique_id=528762793 instance=ExtResource("8_15mv3")]
+[node name="Interactor" parent="player" index="4" unique_id=528762793 instance=ExtResource("8_15mv3")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player/Interactor" index="0" unique_id=1776033306]
 shape = SubResource("CircleShape2D_15mv3")

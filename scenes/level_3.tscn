@@ -101,6 +101,7 @@ position = Vector2(3248, -544)
 
 [node name="player" parent="." index="5" unique_id=2040731108]
 position = Vector2(-108, 144)
+display_name = &"blue&yellow&green"
 
 [node name="Sprite" parent="player" index="0" unique_id=792193039]
 region_rect = Rect2(128, 8, 16, 40)

@@ -7,6 +7,7 @@ radius = 13.0
 height = 80.0
 
 [node name="golem" unique_id=2040731108 instance=ExtResource("1_mdkgh")]
+display_name = &"golem"
 
 [node name="Sprite" parent="." index="0" unique_id=792193039]
 region_rect = Rect2(64, 0, 16, 32)

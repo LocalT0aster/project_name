@@ -5,10 +5,17 @@ extends Node
 ## Entity (parent) name property
 var e_name: StringName:
 	get:
+		if DISPLAY_NAME_PROP in get_parent():
+			return get_parent().display_name
 		return get_parent().name
 	set(value):
-		get_parent().name = value
+		if DISPLAY_NAME_PROP in get_parent():
+			get_parent().display_name = value
+		else:
+			get_parent().name = value
 		MechanicManager.entity_update.emit(get_instance_id())
+
+const DISPLAY_NAME_PROP: String = "display_name"
 
 ## Enabled [enum Slot.Colors], starting from [constant Slot.Colors.NONE]
 @export var enabled_slots: Dictionary[Slot.Colors, bool] = {

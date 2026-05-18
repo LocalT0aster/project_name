@@ -59,6 +59,7 @@ scene = "uid://d4fjvk3fjdnmp"
 
 [node name="player" parent="." index="4" unique_id=2040731108]
 position = Vector2(-288, -16)
+display_name = &"blueyellow"
 
 [node name="Sprite" parent="player" index="0" unique_id=792193039]
 position = Vector2(0, -19.999998)

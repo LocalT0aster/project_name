@@ -72,6 +72,7 @@ position = Vector2(544, 160)
 
 [node name="player" parent="." index="7" unique_id=2040731108]
 position = Vector2(-112, 176)
+display_name = &"blue&yellow"
 
 [node name="Sprite" parent="player" index="0" unique_id=792193039]
 position = Vector2(0, -19.999998)
@@ -109,6 +110,7 @@ debug_color = Color(0.70802456, 0.30560026, 0.94335407, 0.41960785)
 unique_name_in_owner = true
 position = Vector2(1201, -112)
 look_left_at_start = true
+display_name = &"green"
 
 [node name="Sprite" parent="player2" index="0" unique_id=792193039]
 position = Vector2(0, -14.999998)
