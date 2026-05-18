@@ -10,6 +10,14 @@ extends BaseLevel
 @export var foreground: TileMapLayer
 @export var exit: Node2D
 
+@export var game_over_score_label: Label
+var score: int:
+	get: return _score
+	set(val):
+		_score = val
+		_on_score_update()
+var _score: int = 0
+
 func _ready() -> void:
 	super ()
 	for i in range(pipe_amount):
@@ -20,3 +28,8 @@ func _ready() -> void:
 			)
 		foreground.call_deferred("add_child", pipe)
 	exit.position = Vector2(pipe_distance * pipe_amount, 0.0)
+
+func _on_score_update() -> void:
+	if not game_over_score_label:
+		return
+	game_over_score_label.text = str(score)

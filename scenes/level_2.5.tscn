@@ -22,7 +22,7 @@ distance = -400.0
 radius = 11.0
 height = 56.0
 
-[node name="Level" unique_id=59110311 node_paths=PackedStringArray("foreground", "exit") instance=ExtResource("1_h8a06")]
+[node name="Level" unique_id=59110311 node_paths=PackedStringArray("foreground", "exit", "game_over_score_label") instance=ExtResource("1_h8a06")]
 script = ExtResource("2_oyhyr")
 pipe_amount = 10
 pipe_height_variance = 240
@@ -30,6 +30,7 @@ pipe_distance = 320
 pipes_scene = ExtResource("2_vrnwc")
 foreground = NodePath("Foreground")
 exit = NodePath("Exit")
+game_over_score_label = NodePath("GameOver/Label2")
 
 [node name="WorldBorder" type="StaticBody2D" parent="." index="0" unique_id=851518594]
 
@@ -105,20 +106,41 @@ position = Vector2(-584, 0)
 [node name="PipePair2" parent="GameOver" index="1" unique_id=415771046 instance=ExtResource("2_vrnwc")]
 position = Vector2(616, 160)
 
-[node name="Label" type="Label" parent="GameOver" index="2" unique_id=652020297]
+[node name="Camera2D" type="Camera2D" parent="GameOver" index="2" unique_id=1593150372]
+zoom = Vector2(0.5, 0.5)
+
+[node name="PipePair3" parent="GameOver" index="3" unique_id=643105076 instance=ExtResource("2_vrnwc")]
+position = Vector2(0, 192)
+
+[node name="Label" type="Label" parent="GameOver" index="4" unique_id=652020297]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -365.0
+offset_top = -80.0
+offset_right = 365.0
+offset_bottom = 80.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 160
 text = "Game Over"
 
-[node name="Camera2D" type="Camera2D" parent="GameOver" index="3" unique_id=1593150372]
-zoom = Vector2(0.5, 0.5)
-
-[node name="PipePair3" parent="GameOver" index="4" unique_id=643105076 instance=ExtResource("2_vrnwc")]
-position = Vector2(0, 192)
+[node name="Label2" type="Label" parent="GameOver" index="5" unique_id=945416449]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -256.0
+offset_right = 40.0
+offset_bottom = -96.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 160
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [editable path="player"]
 [editable path="player/MechanicsTree"]
