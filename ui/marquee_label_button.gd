@@ -13,19 +13,19 @@ extends Button
 			_marquee.text = display_text
 
 ## Fastest marquee scroll speed in pixels per second.
-@export var marquee_max_speed: float = 32.0:
+@export var marquee_max_speed: float = 16.0:
 	set(value):
 		marquee_max_speed = max(value, 0.0)
 		_apply_marquee_settings()
 
 ## Marquee acceleration and braking in pixels per second squared.
-@export var marquee_acceleration: float = 96.0:
+@export var marquee_acceleration: float = 8.0:
 	set(value):
 		marquee_acceleration = max(value, 1.0)
 		_apply_marquee_settings()
 
 ## Time to pause after the text stops at either edge.
-@export var marquee_stop_pause: float = 0.75:
+@export var marquee_stop_pause: float = 1.0:
 	set(value):
 		marquee_stop_pause = max(value, 0.0)
 		_apply_marquee_settings()

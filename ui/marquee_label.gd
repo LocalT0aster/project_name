@@ -12,17 +12,17 @@ extends Control
 		_refresh_label()
 
 ## Fastest scroll speed in pixels per second.
-@export var max_speed: float = 32.0:
+@export var max_speed: float = 16.0:
 	set(value):
 		max_speed = max(value, 0.0)
 
 ## Scroll acceleration and braking in pixels per second squared.
-@export var acceleration: float = 96.0:
+@export var acceleration: float = 8.0:
 	set(value):
 		acceleration = max(value, 1.0)
 
 ## Time to pause after stopping at either edge.
-@export var stop_pause: float = 0.75:
+@export var stop_pause: float = 1.0:
 	set(value):
 		stop_pause = max(value, 0.0)
 
