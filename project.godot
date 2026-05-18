@@ -39,7 +39,7 @@ directories/dtl_directory={
 "greenfind": "res://timelines/greenfind.dtl",
 "level1": "res://timelines/level1.dtl",
 "level1hint": "res://timelines/level1hint.dtl",
-"level1new": "res://timelines/level1new.dtl",
+"level1old": "res://timelines/level1old.dtl",
 "level2hint": "res://timelines/level2hint.dtl",
 "level3hint": "res://timelines/level3hint.dtl",
 "test1": "res://timelines/test1.dtl",

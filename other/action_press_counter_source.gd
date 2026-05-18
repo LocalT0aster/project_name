@@ -11,12 +11,8 @@ extends Node
 
 
 func _enter_tree() -> void:
-	var counter: Node = get_node_or_null("/root/ActionPressCounter")
-	if counter and counter.has_method("register_source"):
-		counter.call("register_source", self)
+	ActionPressCounter.register_source(self)
 
 
 func _exit_tree() -> void:
-	var counter: Node = get_node_or_null("/root/ActionPressCounter")
-	if counter and counter.has_method("unregister_source"):
-		counter.call("unregister_source", self)
+	ActionPressCounter.unregister_source(self)
