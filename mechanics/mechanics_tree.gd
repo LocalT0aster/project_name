@@ -85,7 +85,7 @@ func get_slot(color: Slot.Colors) -> Slot:
 
 ## Get [class FSM] by color
 func get_slot_mechanic(color: Slot.Colors) -> FSM:
-	return slots[color].get_child(0) if enabled_slots[color] else null
+	return slots[color].get_child(0) if slots[color].get_child_count() > 0 and enabled_slots[color] else null
 
 ## Returns: [code]true[/code] when [Slot] is enabled and [method Slot.is_empty].
 func is_slot_empty(color: Slot.Colors) -> bool:

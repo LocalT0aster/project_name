@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dntd1803j7fuj"]
+
+[ext_resource type="Script" uid="uid://t3334irup25d" path="res://mechanics/character_fsm.gd" id="1_ousew"]
+[ext_resource type="Script" uid="uid://btlsy3ebh3iep" path="res://mechanics/movement/deadweight/idle.gd" id="2_se6wo"]
+
+[node name="Deadweight" type="Node" unique_id=1841257178 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("1_ousew")
+initial_state = NodePath("idle")
+metadata/_custom_type_script = "uid://t3334irup25d"
+
+[node name="idle" type="Node" parent="." unique_id=1425125288]
+script = ExtResource("2_se6wo")
+metadata/_custom_type_script = "uid://cdko8p1xxrglt"

@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://dc253kb3l8jcd" path="res://img/controls.png" id="3_4nkto"]
 [ext_resource type="Texture2D" uid="uid://crmfmwvrvtw3m" path="res://img/controlsMovement.png" id="4_15mv3"]
 [ext_resource type="PackedScene" uid="uid://b1dqjy8jrrund" path="res://objects/interactable_zone.tscn" id="6_pa8r4"]
+[ext_resource type="Script" uid="uid://cbttjjx2srib6" path="res://mechanics/slot.gd" id="7_2y5yt"]
+[ext_resource type="PackedScene" uid="uid://dntd1803j7fuj" path="res://mechanics/movement/deadweight/deadweight.tscn" id="8_2os1m"]
 [ext_resource type="PackedScene" uid="uid://dpiisnnkhg7w" path="res://objects/interactor.tscn" id="8_15mv3"]
 [ext_resource type="Resource" uid="uid://cxq3tn5n4ko46" path="res://items/walk.tres" id="9_e3sih"]
 [ext_resource type="PackedScene" uid="uid://bc13vpqc62d28" path="res://mechanics/movement/sidescroll/movement_sidescroll.tscn" id="10_fa1x2"]
@@ -90,6 +92,16 @@ enabled_slots = Dictionary[int, bool]({
 2: false,
 3: false
 })
+
+[node name="BlueSlot" type="Node" parent="player/MechanicsTree" index="0" unique_id=2083726705]
+script = ExtResource("7_2y5yt")
+color = 1
+_loaded_fsm = ExtResource("8_2os1m")
+default_fsm = ExtResource("8_2os1m")
+metadata/_custom_type_script = "uid://cbttjjx2srib6"
+
+[node name="Deadweight" parent="player/MechanicsTree/BlueSlot" index="0" unique_id=1913876654 node_paths=PackedStringArray("character") instance=ExtResource("8_2os1m")]
+character = NodePath("../../..")
 
 [node name="Interactor" parent="player" index="4" unique_id=528762793 instance=ExtResource("8_15mv3")]
 

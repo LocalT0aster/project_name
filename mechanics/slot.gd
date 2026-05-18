@@ -20,11 +20,11 @@ const ColorsToStr: Dictionary[Colors, StringName] = {
 @export var color: Colors = Colors.NONE
 
 ## Currently loaded scene resource
-@export var _loaded_fsm: PackedScene = DEFAULT_FSM
+@export var _loaded_fsm: PackedScene = default_fsm
 ## Prevents multiple loads in single frame
 var _loaded_this_frame: bool = false
 
-const DEFAULT_FSM: PackedScene = preload("res://mechanics/noop.tscn") ## NoOp
+@export var default_fsm: PackedScene = preload("res://mechanics/noop.tscn") ## NoOp
 
 func _ready() -> void:
 	# If we already have child mechanic, don't initialize
@@ -41,7 +41,7 @@ func set_mechanic(scene: PackedScene) -> bool:
 		c.queue_free()
 	var instance: FSM
 	if not scene:
-		scene = DEFAULT_FSM
+		scene = default_fsm
 	
 	instance = scene.instantiate()
 	_loaded_fsm = scene
@@ -51,7 +51,7 @@ func set_mechanic(scene: PackedScene) -> bool:
 	return true
 
 func is_empty() -> bool:
-	return _loaded_fsm == DEFAULT_FSM
+	return _loaded_fsm == default_fsm
 
 ## for modulation, idk
 # const ColorsToColor: Dictionary[Colors, Color] = {
