@@ -21,10 +21,16 @@ extends Control
 	set(value):
 		acceleration = max(value, 1.0)
 
-## Time to pause after reaching either edge.
-@export var edge_pause: float = 0.35:
+## Time to pause after stopping at either edge.
+@export var stop_pause: float = 0.75:
 	set(value):
-		edge_pause = max(value, 0.0)
+		stop_pause = max(value, 0.0)
+
+var edge_pause: float:
+	set(value):
+		stop_pause = value
+	get:
+		return stop_pause
 
 var _label: Label
 var _text_width: float = 0.0
@@ -156,7 +162,7 @@ func _arrive_at_edge(target: float) -> void:
 	_scroll_offset = target
 	_speed = 0.0
 	_direction *= -1.0
-	_pause_remaining = edge_pause
+	_pause_remaining = stop_pause
 	_apply_offset()
 
 

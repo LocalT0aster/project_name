@@ -24,10 +24,10 @@ extends Button
 		marquee_acceleration = max(value, 1.0)
 		_apply_marquee_settings()
 
-## Time to pause after the text reaches either edge.
-@export var marquee_edge_pause: float = 0.35:
+## Time to pause after the text stops at either edge.
+@export var marquee_stop_pause: float = 0.75:
 	set(value):
-		marquee_edge_pause = max(value, 0.0)
+		marquee_stop_pause = max(value, 0.0)
 		_apply_marquee_settings()
 
 ## Extra vertical pixels around the text clip rect to keep descenders visible.
@@ -39,6 +39,12 @@ extends Button
 var _marquee: MarqueeLabel
 var _last_draw_mode: int = -1
 var _last_size: Vector2 = Vector2.INF
+
+var marquee_edge_pause: float:
+	set(value):
+		marquee_stop_pause = value
+	get:
+		return marquee_stop_pause
 
 
 func _ready() -> void:
@@ -95,7 +101,7 @@ func _apply_marquee_settings() -> void:
 		return
 	_marquee.max_speed = marquee_max_speed
 	_marquee.acceleration = marquee_acceleration
-	_marquee.edge_pause = marquee_edge_pause
+	_marquee.stop_pause = marquee_stop_pause
 
 
 func _sync_marquee() -> void:
